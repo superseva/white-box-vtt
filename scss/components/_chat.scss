@@ -1,0 +1,93 @@
+.chat-message {
+    div {
+        margin-top: 0.2em;
+        margin-bottom: 0.2em;
+    }
+    .total-label {
+        font-size: 22px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        line-height: 14px;
+    }
+    .success-label {
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        line-height: 14px;
+        font-weight: 700;
+        text-align: right;
+    }
+    .aspect-label {
+        font-size: 10px;
+    }
+}
+.dice-image {
+    img {
+        width: 30px;
+        height: 30px;
+        margin-right: 0.5em;
+    }
+
+    opacity: 1;
+    &.discarded {
+        opacity: 0.3;
+    }
+}
+
+.white-box.chat-item {
+    background-color: white;
+    background-image: url("../ui/parch-bg.jpg");
+    margin: 0 -5px 0 -5px;
+    padding: 5px;
+    font-family: $font-secondary;
+    h3 {
+        font-family: $font-secondary;
+        //font-size: 16px;
+        font-weight: bold;
+        margin: 0 0 8px;
+        text-align: center;
+    }
+    h4 {
+        font-family: $font-secondary;
+        //font-size: 14px;
+        font-weight: bold;
+        margin: 0 0 8px;
+        text-align: center;
+    }
+    i {
+        margin-left: 2px;
+    }
+
+    .item-img {
+        background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
+        border: 1px solid;
+        display: block;
+        margin: 0 auto 8px;
+        max-height: 52px;
+        width: 52px;
+    }
+
+    p {
+        font-family: $font-secondary;
+        margin: 0 0 4px;
+    }
+    .description,
+    .features {
+        font-family: Georgia, serif;
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .loyalty {
+        width: 100%;
+        margin: 0 0 10px;
+        text-align: center;
+    }
+    .benefit-name {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+}

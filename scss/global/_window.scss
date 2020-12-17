@@ -1,0 +1,31 @@
+.window-app {
+    font-family: $font-primary;
+    .window-content {
+        background-image: url(../ui/parch-bg.jpg);
+        background-size: cover;
+    }
+}
+
+.rollable {
+    &:hover,
+    &:focus {
+        color: #000;
+        text-shadow: 0 0 10px red;
+        cursor: pointer;
+    }
+}
+
+.actor,
+.item {
+    .window-content {
+        font-family: $font-secondary;
+        background-image: unset;
+        background-image: url(../ui/parch-y-bg.jpg);
+        background-size: cover;
+    }
+}
+
+.bold-option {
+    font-weight: bold;
+    font-size: 14px;
+}
