@@ -1,5 +1,143 @@
 {
     "Actor": {
-        "types": ["character", "enemy"]
+        "types": ["character", "enemy"],
+        "character": {
+            "class": "",
+            "level": "",
+            "race": "",
+            "background": "",
+            "xp": {
+                "value": 0,
+                "next": 0,
+                "gain": "",
+                "mod": ""
+            },
+            "attributes": {
+                "str": {
+                    "value": 0,
+                    "mod": 0,
+                    "custom_mod": 0
+                },
+                "dex": {
+                    "value": 0,
+                    "mod": 0,
+                    "custom_mod": 0
+                },
+                "con": {
+                    "value": 0,
+                    "mod": 0,
+                    "custom_mod": 0
+                },
+                "int": {
+                    "value": 0,
+                    "mod": 0,
+                    "custom_mod": 0
+                },
+                "wis": {
+                    "value": 0,
+                    "mod": 0,
+                    "custom_mod": 0
+                },
+                "cha": {
+                    "value": 0,
+                    "mod": 0,
+                    "custom_mod": 0
+                }
+            },
+            "saving_throw": {
+                "value": 0,
+                "mod": 0,
+                "custom_mod": ""
+            },
+            "thb": {
+                "value": 0,
+                "mod": 0
+            },
+            "ac": {
+                "value": 0,
+                "mod": 0,
+                "custom_mod": 0
+            },
+            "hd": {
+                "value": 0,
+                "mod": 0
+            },
+            "health": {
+                "value": 0,
+                "min": 0,
+                "max": 0
+            },
+            "alignment": "",
+            "movement": {
+                "value": 0,
+                "mod": 0
+            },
+            "valuables": {
+                "coin": 0,
+                "gems": 0,
+                "gold": 0,
+                "silver": 0,
+                "copper": 0
+            }
+        },
+        "enemy": {
+            "hd": {
+                "value": "",
+                "mod": "",
+                "hde": ""
+            },
+            "ac": {
+                "value": 0,
+                "mod": 0
+            },
+            "xp": {
+                "value": 0
+            },
+            "magic_resistance": {
+                "value": 0,
+                "mod": 0
+            },
+            "move": {
+                "value": 0
+            },
+            "saving_throw": {
+                "value": 0,
+                "mod": 0
+            },
+            "special": ""
+        }
+    },
+    "Item": {
+        "types": ["weapon", "armor", "gear", "ability", "spell", "enemy_attack"],
+        "templates": {
+            "physical": {
+                "quantity": 1,
+                "weight": 0,
+                "packed": false
+            },
+            "base": {
+                "cost": "0",
+                "description": "",
+                "features": ""
+            }
+        },
+        "weapon": {
+            "templates": ["physical", "base"],
+            "weapon_type": "melee",
+            "damage": {
+                "value": 0,
+                "mod": 0
+            },
+            "rof": "",
+            "oneOrTwohanded": false,
+            "meleeOrMissile": false
+        },
+        "armor": {
+            "templates": ["physical", "base"],
+            "ac": {
+                "value": 0,
+                "mod": 0
+            }
+        }
     }
 }

@@ -7,13 +7,13 @@
 /* Global styles */
 @import "global/window";
 @import "global/grid";
-@import "global/flex";
+//@import "global/flex";
 @import "global/common";
 @import "components/chat";
 /* Styles limited to talisman sheets */
-.talisman {
+.whitebox {
     @import "components/forms";
-    @import "components/resource";
+    //@import "components/resource";
     @import "components/tabs";
     @import "components/items";
 }

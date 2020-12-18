@@ -1,16 +1,23 @@
 @mixin element-invisible {
-  position: absolute;
+    position: absolute;
 
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
 
-  clip: rect(0 0 0 0);
-  overflow: hidden;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 @mixin hide {
-  display: none;
+    display: none;
+}
+
+@mixin papirus {
+    border-image-slice: 10 10 10 10;
+    border-image-width: 10px 10px 10px 10px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: repeat repeat;
 }

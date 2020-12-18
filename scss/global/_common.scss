@@ -21,6 +21,12 @@
     flex: 0 0 50%;
 }
 
+.flex-center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .center {
     text-align: center;
 }
@@ -64,6 +70,10 @@
 .size10 {
     font-size: 10px;
     line-height: 12px;
+}
+.size11 {
+    font-size: 11px;
+    line-height: 13px;
 }
 .size12 {
     font-size: 12px;

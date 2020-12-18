@@ -1,0 +1,45 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <div class="actor-header flex row">
+        <div class="image-box">
+            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+        </div>
+        <div class="flex column info-box">
+            <h3 class="papirus-box papir2">
+                <input type="text" name="name" value="{{actor.name}}" class="blank" />
+            </h3>
+            <div class="papirus-box papir1 padded-sm">
+                <div class="grid">
+                    <input type="text" name="data.race" value="{{data.race}}" class="input-underlined info" placeholder="{{localize 'WB.Race'}}" />
+                    <input
+                        type="text"
+                        name="data.background"
+                        value="{{data.background}}"
+                        class="input-underlined info"
+                        placeholder="{{localize 'WB.Background'}}"
+                    />
+                    <input type="text" name="data.class" value="{{data.class}}" class="input-underlined info" placeholder="{{localize 'WB.Class'}}" />
+                    <span class="flex row">
+                        <label for="data.level">Level</label>
+                        <input type="number" name="data.level" value="{{data.level}}" class="input-underlined info" />
+                    </span>
+                </div>
+                <span class="flexrow">
+                    <label for="data.xp.value">XP: </label>
+                    <input type="text" name="data.xp.value" value="{{data.xp.value}}" class="input-underlined info" placeholder="{{localize 'WB.XP'}}" />
+                </span>
+                <span class="flexrow">
+                    <label for="data.xp.next">Next Lvl: </label>
+                    <input type="text" name="data.xp.next" value="{{data.xp.next}}" class="input-underlined info" placeholder="{{localize 'WB.XP_NEXT'}}" />
+                </span>
+                <span class="flexrow">
+                    <label for="data.xp.mod">XP Gain: </label>
+                    <input type="text" name="data.xp.mod" value="{{data.xp.mod}}" class="input-underlined info" placeholder="{{localize 'WB.XP_MOD'}}" />
+                </span>
+            </div>
+        </div>
+        <div class="flex column papirus-box papir1 info-box"></div>
+        <div class="flex">
+            <img src="systems/white-box-vtt/assets/die6.png" width="100" height="100" style="border: none" />
+        </div>
+    </div>
+</form>

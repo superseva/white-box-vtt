@@ -1,8 +1,10 @@
 .window-app {
     font-family: $font-primary;
+    background-color: white;
     .window-content {
-        background-image: url(../ui/parch-bg.jpg);
+        background-image: url(../assets/parch-bg.png);
         background-size: cover;
+        opacity: 1;
     }
 }
 
@@ -20,7 +22,7 @@
     .window-content {
         font-family: $font-secondary;
         background-image: unset;
-        background-image: url(../ui/parch-y-bg.jpg);
+        background-image: url(../assets/parch-bg.png);
         background-size: cover;
     }
 }

@@ -6,16 +6,32 @@
 
 .actor-header {
     flex: unset;
-    padding: 5px;
-    border: 2px solid transparent;
-    border-image: url(../ui/border.png) 5 stretch;
 
-    background-image: url(../ui/parch-bg.jpg);
-    background-size: cover;
-    background-color: rgba($color: #ffffff, $alpha: 0.3);
+    .image-box {
+        width: 100px;
+        height: 100px;
+        margin-right: $margin-sm;
+    }
+
+    .info-box {
+        flex: 1;
+        margin-right: $margin-sm;
+    }
+
+    .info {
+        height: 20px;
+        font-size: 11px;
+        line-height: 12px;
+        padding: 0;
+    }
+
+    .grid {
+        margin: 0;
+    }
+    /*
 
     h3 {
-        margin-bottom: 4px;
+        margin-bottom: 5px;
     }
     .grid {
         margin-top: 0px;
@@ -45,7 +61,7 @@
         input {
             background-color: white;
         }
-    }
+    }*/
 }
 
 .enemy-header {
@@ -167,13 +183,6 @@
     }
 }
 
-.spell-description {
-    padding: 5px;
-    border: 2px solid transparent;
-    border-image: url(../ui/border.png) 5 stretch;
-    background-image: url(../ui/parch-bg.jpg);
-}
-
 .tox {
     .tox-editor-container {
         background: $c-white;
@@ -181,19 +190,6 @@
 
     .tox-edit-area {
         padding: 0 8px;
-    }
-}
-
-.armor-point {
-    margin-right: 4px;
-    &.new {
-        color: black;
-    }
-    &.damaged {
-        color: darkgray;
-    }
-    &.destroyed {
-        color: red;
     }
 }
 
@@ -214,45 +210,12 @@
 
 .papirus-box {
     border: 5px solid transparent;
-    border-image: url(../ui/border-rip.png) 15 stretch;
-    margin-bottom: 5px;
-    padding: 5px;
-    ol {
-        margin-top: 0px;
+    border-image-slice: 10px;
+    &.papir1 {
+        border-image: url(../assets/border-papirus-1.png) 10 repeat;
     }
-    h3 {
-        background-color: $c-tyellow;
-        padding: 2px;
-        font-size: 1em;
-        font-weight: bold;
-    }
-}
-
-.enemy-attacks {
-    background-color: $c-tyellow;
-    .enemy-attacks-count {
-        padding: 5px;
-        background-color: black;
-        color: beige;
-        font-weight: bold;
-        input {
-            color: beige;
-        }
-    }
-}
-
-.follower {
-    .resource {
-        padding: 2px;
-        border: 1px solid #d6d3d3;
-        margin-right: 2px;
-    }
-}
-.benefit-list {
-    .benefit {
-        padding: 2px;
-        background-color: rgba($color: #ffffff, $alpha: 0.2);
-        border: 1px solid #d6d3d3;
+    &.papir2 {
+        border-image: url(../assets/border-papirus-2.png) 10 repeat;
     }
 }
 
@@ -312,22 +275,10 @@ input {
     margin-right: 0.5em;
 }
 
-.btn,
-.cancel-btn {
-    color: black;
-    opacity: 0.5;
-    min-width: 1.2em;
-    text-align: center;
-    margin-right: 0.2em;
-    &.selected {
-        color: rgb(160, 0, 0);
-        opacity: 1;
-    }
+.margin-bottom {
+    margin-bottom: 5px;
 }
 
-.single-row {
-    max-height: 3em;
-}
-.margin-bottom {
-    margin-bottom: 8px;
+.padded-sm {
+    padding: $padding-sm;
 }
