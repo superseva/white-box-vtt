@@ -4,64 +4,132 @@
 
 /** ACTOR SHEET */
 
-.actor-header {
-    flex: unset;
-
-    .image-box {
-        width: 100px;
-        height: 100px;
-        margin-right: $margin-sm;
+.sidebar {
+    position: fixed;
+    width: 180px;
+    min-height: 560px;
+    padding: $padding-md;
+    background-color: black;
+    margin-top: -$padding-md;
+    margin-left: -$padding-md;
+    color: white;
+    //top: -10px;
+    //left: -10px;
+    .input-white {
+        color: #ffffff;
     }
 
-    .info-box {
-        flex: 1;
-        margin-right: $margin-sm;
-    }
-
-    .info {
-        height: 20px;
-        font-size: 11px;
-        line-height: 12px;
-        padding: 0;
-    }
-
-    .grid {
-        margin: 0;
-    }
-    /*
-
-    h3 {
-        margin-bottom: 5px;
-    }
-    .grid {
-        margin-top: 0px;
-    }
-
-    .side-column {
-        width: 220px;
-        .attribute,
-        .aspect {
-            align-items: baseline;
-            margin-bottom: 4px;
-        }
-        .attribute {
-            font-weight: bold;
-            input {
-                border: 2px solid;
+    .attribute-box {
+        border: 1px solid white;
+        padding: $padding-sm;
+        .attribute-row {
+            color: white;
+            font-family: $font-abr;
+            align-items: center;
+            justify-content: space-between;
+            .attribute-name {
+                font-size: 24px;
+                text-transform: uppercase;
+            }
+            .value {
+                font-size: 20px;
+                margin: 10px 0;
+                border: 1px solid white;
+            }
+            .bonus {
+                font-size: 16px;
             }
         }
     }
 
-    .life-fate-box {
-        padding: 5px;
-        border: 1px solid #8a7c45;
-        border-radius: 6px;
-        font-weight: bold;
-        background-image: url(../ui/parch-y-bg.jpg);
-        input {
-            background-color: white;
+    .xp-tracker {
+        font-size: 11px;
+        color: white;
+    }
+}
+.actor-sheet-section {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    //background-color: yellow;
+    margin-left: 175px;
+
+    .actor-header {
+        //background-color: turquoise;
+        display: flex;
+        flex-direction: row;
+        flex-basis: 110px;
+
+        .image-box {
+            flex-basis: 105px;
+            height: 100px;
+            img {
+                border: none;
+            }
         }
-    }*/
+        .info-box {
+            flex: 1;
+            margin-right: $margin-sm;
+            .actor-name {
+                font-family: $font-abr;
+            }
+        }
+        .info {
+            height: 20px;
+            font-size: 11px;
+            line-height: 12px;
+            padding: 0;
+        }
+        .roller {
+            img {
+                border: none;
+            }
+        }
+
+        .grid {
+            margin: 0;
+        }
+        /*
+    
+        h3 {
+            margin-bottom: 5px;
+        }
+        .grid {
+            margin-top: 0px;
+        }
+    
+        .side-column {
+            width: 220px;
+            .attribute,
+            .aspect {
+                align-items: baseline;
+                margin-bottom: 4px;
+            }
+            .attribute {
+                font-weight: bold;
+                input {
+                    border: 2px solid;
+                }
+            }
+        }
+    
+        .life-fate-box {
+            padding: 5px;
+            border: 1px solid #8a7c45;
+            border-radius: 6px;
+            font-weight: bold;
+            background-image: url(../ui/parch-y-bg.jpg);
+            input {
+                background-color: white;
+            }
+        }*/
+    }
+
+    .actor-body {
+        display: flex;
+        flex: 1;
+        background-color: rgb(196, 196, 196);
+    }
 }
 
 .enemy-header {
@@ -75,6 +143,40 @@
     background-color: rgba($color: #ffffff, $alpha: 0.3);
     .header-fields {
         flex: 2 !important;
+    }
+}
+
+.titled-box {
+    position: relative;
+    //background-color: #ff00ee;
+    display: flex;
+    flex: 1;
+    margin: 10px 0px;
+    .title-section {
+        text-align: center;
+        border: 1px solid rgb(255, 255, 255);
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: black;
+        //color: black;
+        padding: 0 5px;
+        font-family: $font-abr;
+        font-size: 11px;
+    }
+    .content-section {
+        padding: 5px 5px 3px 5px;
+        border: 1px solid rgb(255, 255, 255);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        font-family: $font-abr;
+        font-size: 14px;
+        //color: black;
+        //background-color: white;
     }
 }
 
@@ -264,7 +366,7 @@ input {
         background-color: unset;
         border: none;
     }
-    margin-right: 5px;
+    // margin-right: 5px;
 }
 
 .input-underlined {

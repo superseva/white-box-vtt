@@ -384,68 +384,161 @@
   /** ITEM SHEET */
 }
 
-.whitebox .actor-header {
-  -webkit-box-flex: unset;
-  -ms-flex: unset;
-  flex: unset;
+.whitebox .sidebar {
+  position: fixed;
+  width: 180px;
+  min-height: 560px;
+  padding: 10px;
+  background-color: black;
+  margin-top: -10px;
+  margin-left: -10px;
+  color: white;
+}
+
+.whitebox .sidebar .input-white {
+  color: #ffffff;
+}
+
+.whitebox .sidebar .attribute-box {
+  border: 1px solid white;
+  padding: 5px;
+}
+
+.whitebox .sidebar .attribute-box .attribute-row {
+  color: white;
+  font-family: "Acme", sans-serif;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.whitebox .sidebar .attribute-box .attribute-row .attribute-name {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.whitebox .sidebar .attribute-box .attribute-row .value {
+  font-size: 20px;
+  margin: 10px 0;
+  border: 1px solid white;
+}
+
+.whitebox .sidebar .attribute-box .attribute-row .bonus {
+  font-size: 16px;
+}
+
+.whitebox .sidebar .xp-tracker {
+  font-size: 11px;
+  color: white;
+}
+
+.whitebox .actor-sheet-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-left: 175px;
+}
+
+.whitebox .actor-sheet-section .actor-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-preferred-size: 110px;
+  flex-basis: 110px;
   /*
-
-    h3 {
-        margin-bottom: 5px;
-    }
-    .grid {
-        margin-top: 0px;
-    }
-
-    .side-column {
-        width: 220px;
-        .attribute,
-        .aspect {
-            align-items: baseline;
-            margin-bottom: 4px;
+    
+        h3 {
+            margin-bottom: 5px;
         }
-        .attribute {
-            font-weight: bold;
-            input {
-                border: 2px solid;
+        .grid {
+            margin-top: 0px;
+        }
+    
+        .side-column {
+            width: 220px;
+            .attribute,
+            .aspect {
+                align-items: baseline;
+                margin-bottom: 4px;
+            }
+            .attribute {
+                font-weight: bold;
+                input {
+                    border: 2px solid;
+                }
             }
         }
-    }
-
-    .life-fate-box {
-        padding: 5px;
-        border: 1px solid #8a7c45;
-        border-radius: 6px;
-        font-weight: bold;
-        background-image: url(../ui/parch-y-bg.jpg);
-        input {
-            background-color: white;
-        }
-    }*/
+    
+        .life-fate-box {
+            padding: 5px;
+            border: 1px solid #8a7c45;
+            border-radius: 6px;
+            font-weight: bold;
+            background-image: url(../ui/parch-y-bg.jpg);
+            input {
+                background-color: white;
+            }
+        }*/
 }
 
-.whitebox .actor-header .image-box {
-  width: 100px;
+.whitebox .actor-sheet-section .actor-header .image-box {
+  -ms-flex-preferred-size: 105px;
+  flex-basis: 105px;
   height: 100px;
-  margin-right: 5px;
 }
 
-.whitebox .actor-header .info-box {
+.whitebox .actor-sheet-section .actor-header .image-box img {
+  border: none;
+}
+
+.whitebox .actor-sheet-section .actor-header .info-box {
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
   margin-right: 5px;
 }
 
-.whitebox .actor-header .info {
+.whitebox .actor-sheet-section .actor-header .info-box .actor-name {
+  font-family: "Acme", sans-serif;
+}
+
+.whitebox .actor-sheet-section .actor-header .info {
   height: 20px;
   font-size: 11px;
   line-height: 12px;
   padding: 0;
 }
 
-.whitebox .actor-header .grid {
+.whitebox .actor-sheet-section .actor-header .roller img {
+  border: none;
+}
+
+.whitebox .actor-sheet-section .actor-header .grid {
   margin: 0;
+}
+
+.whitebox .actor-sheet-section .actor-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  background-color: #c4c4c4;
 }
 
 .whitebox .enemy-header {
@@ -465,6 +558,50 @@
   -webkit-box-flex: 2 !important;
   -ms-flex: 2 !important;
   flex: 2 !important;
+}
+
+.whitebox .titled-box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 10px 0px;
+}
+
+.whitebox .titled-box .title-section {
+  text-align: center;
+  border: 1px solid white;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+  background-color: black;
+  padding: 0 5px;
+  font-family: "Acme", sans-serif;
+  font-size: 11px;
+}
+
+.whitebox .titled-box .content-section {
+  padding: 5px 5px 3px 5px;
+  border: 1px solid white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  font-family: "Acme", sans-serif;
+  font-size: 14px;
 }
 
 .whitebox .resource-row {
@@ -681,10 +818,6 @@
 .whitebox input[type="number"].short {
   min-width: 3em;
   max-width: 3em;
-}
-
-.whitebox input {
-  margin-right: 5px;
 }
 
 .whitebox input.blank {

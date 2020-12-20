@@ -20,4 +20,14 @@ Hooks.once("init", function () {
     //Actors.registerSheet("whitebox", WhiteboxEnemySheet, { makeDefault: true, types: ["enemy"] });
     //Items.unregisterSheet("core", ItemSheet);
     //Items.registerSheet("whitebox", WhiteboxItemSheet, { makeDefault: true });
+
+    Handlebars.registerHelper("concat", function () {
+        var outStr = "";
+        for (var arg in arguments) {
+            if (typeof arguments[arg] != "object") {
+                outStr += arguments[arg];
+            }
+        }
+        return outStr;
+    });
 });

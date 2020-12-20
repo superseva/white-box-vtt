@@ -1,8 +1,78 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    <div class="actor-header flex row">
-        <div class="image-box">
-            <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+    <aside class="sidebar">
+        <div class="grid">
+            <div class="titled-box">
+                <h3 class="title-section">HD</h3>
+                <div class="content-section">
+                    <span><input type="number" name="data.hd.value" value="{{data.hd.value}}" class="input-white blank" /></span>
+                </div>
+            </div>
+            <div class="titled-box">
+                <h3 class="title-section">LVL</h3>
+                <div class="content-section">
+                    <span><input type="number" name="data.level" value="{{data.level}}" class="input-white blank" /></span>
+                </div>
+            </div>
         </div>
+        <div class="titled-box">
+            <h3 class="title-section">HP</h3>
+            <div class="content-section">
+                <span class="flexrow align-center">
+                    <input type="number" name="data.health.value" value="{{data.health.value}}" class="input-white blank" />
+                    <span>/</span>
+                    <input type="number" name="data.health.max" value="{{data.health.max}}" class="input-white blank" />
+                </span>
+            </div>
+        </div>
+        <div class="attribute-box">
+            {{#each data.attributes as |item id|}}
+            <div class="attribute-row flexrow">
+                <label class="attribute-name">{{localize (concat 'WB.' id)}}</label>
+                <span class="flexrow align-center space-between">
+                    <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
+                    <input type="number" name="data.attributes.{{id}}.bonus" value="{{item.bonus}}" class="input-white bonus blank" />
+                </span>
+            </div>
+            {{/each}}
+        </div>
+        <div class="xp-tracker">
+            <span class="flexrow align-center">
+                <label for="data.xp.value">{{localize 'WB.XP_VALUE'}}:&nbsp;</label>
+                <input type="text" name="data.xp.value" value="{{data.xp.value}}" class="input-underlined input-white" />
+            </span>
+            <span class="flexrow align-center">
+                <label for="data.xp.next">{{localize 'WB.XP_NEXT'}}:&nbsp;</label>
+                <input type="text" name="data.xp.next" value="{{data.xp.next}}" class="input-underlined input-white" />
+            </span>
+            <span class="flexrow align-center">
+                <label for="data.xp.gain">{{localize 'WB.XP_GAIN'}}:&nbsp;</label>
+                <input type="text" name="data.xp.gain" value="{{data.xp.gain}}" class="input-underlined input-white" />
+            </span>
+        </div>
+    </aside>
+
+    <section class="actor-sheet-section">
+        <header class="actor-header">
+            <div class="image-box">
+                <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
+            </div>
+            <div class="info-box">
+                <div class="actor-name papirus-box papir1">
+                    <input type="text" name="name" value="{{actor.name}}" class="blank" />
+                </div>
+                <input type="text" name="data.race" value="{{data.race}}" class="input-underlined info" placeholder="{{localize 'WB.Race'}}" />
+                <input type="text" name="data.class" value="{{data.class}}" class="input-underlined info" placeholder="{{localize 'WB.Class'}}" />
+                <input type="text" name="data.alignment" value="{{data.alignment}}" class="input-underlined info" placeholder="{{localize 'WB.Alignment'}}" />
+            </div>
+            <div class="roller">
+                <img src="systems/white-box-vtt/assets/roll-dice-button.png" alt="" />
+            </div>
+        </header>
+        <section class="actor-body"></section>
+    </section>
+    <!-- 
+    <div class="actor-header flex row">
+        
         <div class="flex column info-box">
             <h3 class="papirus-box papir2">
                 <input type="text" name="name" value="{{actor.name}}" class="blank" />
@@ -41,5 +111,5 @@
         <div class="flex">
             <img src="systems/white-box-vtt/assets/die6.png" width="100" height="100" style="border: none" />
         </div>
-    </div>
+    </div> -->
 </form>

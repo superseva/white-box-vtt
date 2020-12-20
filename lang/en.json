@@ -1,1 +1,8 @@
-{}
+{
+    "WB.str": "STR",
+    "WB.dex": "DEX",
+    "WB.con": "CON",
+    "WB.int": "INT",
+    "WB.wis": "WIS",
+    "WB.cha": "CHA"
+}
