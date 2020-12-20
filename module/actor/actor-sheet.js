@@ -8,8 +8,8 @@ export class WhiteboxActorSheet extends ActorSheet {
         return mergeObject(super.defaultOptions, {
             classes: ["whitebox", "sheet", "actor"],
             template: "systems/white-box-vtt/templates/actor/actor-sheet.html",
-            width: 600,
-            height: 600,
+            width: 640,
+            height: 640,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
         });
     }

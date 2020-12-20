@@ -1,59 +1,101 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     <aside class="sidebar">
-        <div class="grid">
-            <div class="titled-box">
-                <h3 class="title-section">HD</h3>
-                <div class="content-section">
-                    <span><input type="number" name="data.hd.value" value="{{data.hd.value}}" class="input-white blank" /></span>
+        <div class="content">
+            <div class="grid">
+                <div class="titled-box">
+                    <h3 class="title-section">HD</h3>
+                    <div class="content-section v1" style="padding-bottom: 0">
+                        <span><input type="text" name="data.hd.value" value="{{data.hd.value}}" class="input-white blank" /></span>
+                    </div>
+                </div>
+                <div class="titled-box">
+                    <h3 class="title-section">LVL</h3>
+                    <div class="content-section v2" style="padding-bottom: 0">
+                        <span><input type="number" name="data.level" value="{{data.level}}" class="input-white blank" /></span>
+                    </div>
                 </div>
             </div>
             <div class="titled-box">
-                <h3 class="title-section">LVL</h3>
-                <div class="content-section">
-                    <span><input type="number" name="data.level" value="{{data.level}}" class="input-white blank" /></span>
+                <h3 class="title-section">HP</h3>
+                <div class="content-section v3">
+                    <span class="flexrow align-center">
+                        <input
+                            type="number"
+                            name="data.health.value"
+                            value="{{data.health.value}}"
+                            class="input-white blank"
+                            style="background-color: white; color: black"
+                        />
+                        <span>/</span>
+                        <input
+                            type="number"
+                            name="data.health.max"
+                            value="{{data.health.max}}"
+                            class="input-white blank"
+                            style="background-color: white; color: black"
+                        />
+                    </span>
                 </div>
             </div>
-        </div>
-        <div class="titled-box">
-            <h3 class="title-section">HP</h3>
-            <div class="content-section">
+            <div class="attribute-box papirus-box white1">
+                {{#each data.attributes as |item id|}}
+                <div class="attribute-row flexrow">
+                    <label class="attribute-name">{{localize (concat 'WB.' id)}}</label>
+                    <span class="flexrow align-center space-between">
+                        <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
+                        <input
+                            type="number"
+                            name="data.attributes.{{id}}.bonus"
+                            value="{{item.bonus}}"
+                            class="input-white bonus blank"
+                            style="background-color: #1a1d24"
+                        />
+                    </span>
+                </div>
+                {{/each}}
+            </div>
+            <div class="savingthrow-box">
+                <div class="value-row papirus-box white2">
+                    <label for="">Saving Throw</label>
+                    <input type="number" name="data.saving_throw.value" value="{{data.saving_throw.value}}" class="value" />
+                </div>
+                <div class="content papirus-box white2">
+                    <textarea name="data.saving_throw.custom_mod" cols="30" rows="4" class="modifier-text" placeholder="...Custom saving throw notes">
+{{data.saving_throw.custom_mod}}</textarea
+                    >
+                </div>
+            </div>
+            <div class="value-row papirus-box white1 flex row align-center space-between" style="padding: 0 5px; margin-bottom: 10px">
+                <label for="data.movement.value" style="font-size: 12px">Movement</label>
+                <input
+                    type="text"
+                    name="data.movement.value"
+                    class="short"
+                    style="color: white; text-align: center; max-width: 2.5em"
+                    value="{{data.movement.value}}"
+                />
+            </div>
+            <div class="xp-tracker">
                 <span class="flexrow align-center">
-                    <input type="number" name="data.health.value" value="{{data.health.value}}" class="input-white blank" />
-                    <span>/</span>
-                    <input type="number" name="data.health.max" value="{{data.health.max}}" class="input-white blank" />
+                    <label for="data.xp.value">{{localize 'WB.XP_VALUE'}}:&nbsp;</label>
+                    <input type="text" name="data.xp.value" value="{{data.xp.value}}" class="input-underlined input-white" />
+                </span>
+                <span class="flexrow align-center">
+                    <label for="data.xp.next">{{localize 'WB.XP_NEXT'}}:&nbsp;</label>
+                    <input type="text" name="data.xp.next" value="{{data.xp.next}}" class="input-underlined input-white" />
+                </span>
+                <span class="flexrow align-center">
+                    <label for="data.xp.gain">{{localize 'WB.XP_GAIN'}}:&nbsp;</label>
+                    <input type="text" name="data.xp.gain" value="{{data.xp.gain}}" class="input-underlined input-white" />
                 </span>
             </div>
         </div>
-        <div class="attribute-box">
-            {{#each data.attributes as |item id|}}
-            <div class="attribute-row flexrow">
-                <label class="attribute-name">{{localize (concat 'WB.' id)}}</label>
-                <span class="flexrow align-center space-between">
-                    <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
-                    <input type="number" name="data.attributes.{{id}}.bonus" value="{{item.bonus}}" class="input-white bonus blank" />
-                </span>
-            </div>
-            {{/each}}
-        </div>
-        <div class="xp-tracker">
-            <span class="flexrow align-center">
-                <label for="data.xp.value">{{localize 'WB.XP_VALUE'}}:&nbsp;</label>
-                <input type="text" name="data.xp.value" value="{{data.xp.value}}" class="input-underlined input-white" />
-            </span>
-            <span class="flexrow align-center">
-                <label for="data.xp.next">{{localize 'WB.XP_NEXT'}}:&nbsp;</label>
-                <input type="text" name="data.xp.next" value="{{data.xp.next}}" class="input-underlined input-white" />
-            </span>
-            <span class="flexrow align-center">
-                <label for="data.xp.gain">{{localize 'WB.XP_GAIN'}}:&nbsp;</label>
-                <input type="text" name="data.xp.gain" value="{{data.xp.gain}}" class="input-underlined input-white" />
-            </span>
-        </div>
+        <div class="sidebar-bottom"></div>
     </aside>
 
     <section class="actor-sheet-section">
         <header class="actor-header">
-            <div class="image-box">
+            <div class="image-box papirus-box papir1">
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
             </div>
             <div class="info-box">

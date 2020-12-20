@@ -387,12 +387,21 @@
 .whitebox .sidebar {
   position: fixed;
   width: 180px;
-  min-height: 560px;
+  margin-top: -8px;
+  margin-left: -8px;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.whitebox .sidebar .content {
   padding: 10px;
   background-color: black;
-  margin-top: -10px;
-  margin-left: -10px;
-  color: white;
 }
 
 .whitebox .sidebar .input-white {
@@ -400,8 +409,8 @@
 }
 
 .whitebox .sidebar .attribute-box {
-  border: 1px solid white;
   padding: 5px;
+  margin: 10px 0 15px;
 }
 
 .whitebox .sidebar .attribute-box .attribute-row {
@@ -422,7 +431,7 @@
 
 .whitebox .sidebar .attribute-box .attribute-row .value {
   font-size: 20px;
-  margin: 10px 0;
+  margin: 0;
   border: 1px solid white;
 }
 
@@ -430,9 +439,50 @@
   font-size: 16px;
 }
 
-.whitebox .sidebar .xp-tracker {
-  font-size: 11px;
+.whitebox .sidebar .savingthrow-box {
+  margin-bottom: 20px;
+}
+
+.whitebox .sidebar .savingthrow-box .value-row {
+  padding: 2px;
+  position: relative;
+  background-color: black;
+}
+
+.whitebox .sidebar .savingthrow-box .value-row .value {
   color: white;
+  background-color: black;
+  position: absolute;
+  right: 5px;
+  top: -12px;
+  max-width: 2.5em;
+  font-size: 16px;
+  min-height: 45px;
+  font-family: "Acme", sans-serif;
+}
+
+.whitebox .sidebar .savingthrow-box .content {
+  margin: -5px 5px;
+  padding: 5px 0;
+}
+
+.whitebox .sidebar .savingthrow-box .content .modifier-text {
+  font-size: 12px;
+  outline: none;
+  resize: none;
+  overflow: auto;
+  color: #cacaca;
+}
+
+.whitebox .sidebar .xp-tracker {
+  font-size: 10px;
+  line-height: 11px;
+  color: white;
+}
+
+.whitebox .sidebar .sidebar-bottom {
+  min-height: 20px;
+  background-image: url(../assets/sidebar-bottom.png);
 }
 
 .whitebox .actor-sheet-section {
@@ -459,46 +509,14 @@
   flex-direction: row;
   -ms-flex-preferred-size: 110px;
   flex-basis: 110px;
-  /*
-    
-        h3 {
-            margin-bottom: 5px;
-        }
-        .grid {
-            margin-top: 0px;
-        }
-    
-        .side-column {
-            width: 220px;
-            .attribute,
-            .aspect {
-                align-items: baseline;
-                margin-bottom: 4px;
-            }
-            .attribute {
-                font-weight: bold;
-                input {
-                    border: 2px solid;
-                }
-            }
-        }
-    
-        .life-fate-box {
-            padding: 5px;
-            border: 1px solid #8a7c45;
-            border-radius: 6px;
-            font-weight: bold;
-            background-image: url(../ui/parch-y-bg.jpg);
-            input {
-                background-color: white;
-            }
-        }*/
+  margin-bottom: 5px;
 }
 
 .whitebox .actor-sheet-section .actor-header .image-box {
-  -ms-flex-preferred-size: 105px;
-  flex-basis: 105px;
-  height: 100px;
+  -ms-flex-preferred-size: 110px;
+  flex-basis: 110px;
+  height: 110px;
+  margin-right: 5px;
 }
 
 .whitebox .actor-sheet-section .actor-header .image-box img {
@@ -509,11 +527,13 @@
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  padding-left: 5px;
   margin-right: 5px;
 }
 
 .whitebox .actor-sheet-section .actor-header .info-box .actor-name {
   font-family: "Acme", sans-serif;
+  font-size: 16px;
 }
 
 .whitebox .actor-sheet-section .actor-header .info {
@@ -521,6 +541,12 @@
   font-size: 11px;
   line-height: 12px;
   padding: 0;
+}
+
+.whitebox .actor-sheet-section .actor-header .roller {
+  -ms-flex-preferred-size: 150px;
+  flex-basis: 150px;
+  text-align: center;
 }
 
 .whitebox .actor-sheet-section .actor-header .roller img {
@@ -538,7 +564,6 @@
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
-  background-color: #c4c4c4;
 }
 
 .whitebox .enemy-header {
@@ -574,21 +599,27 @@
 .whitebox .titled-box .title-section {
   text-align: center;
   border: 1px solid white;
+  background-color: black;
   position: absolute;
   top: -10px;
   left: 50%;
   -webkit-transform: translate(-50%);
   -ms-transform: translate(-50%);
   transform: translate(-50%);
-  background-color: black;
   padding: 0 5px;
   font-family: "Acme", sans-serif;
   font-size: 11px;
 }
 
+.whitebox .titled-box .title-section.white {
+  border: 1px solid black;
+  background-color: white;
+}
+
 .whitebox .titled-box .content-section {
   padding: 5px 5px 3px 5px;
-  border: 1px solid white;
+  border: unset;
+  border: 3px solid transparent;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -602,6 +633,26 @@
   width: 100%;
   font-family: "Acme", sans-serif;
   font-size: 14px;
+}
+
+.whitebox .titled-box .content-section.v1 {
+  -o-border-image: url(../assets/white-box-sm-1.png) 5 stretch;
+  border-image: url(../assets/white-box-sm-1.png) 5 stretch;
+}
+
+.whitebox .titled-box .content-section.v2 {
+  -o-border-image: url(../assets/white-box-sm-2.png) 5 stretch;
+  border-image: url(../assets/white-box-sm-2.png) 5 stretch;
+}
+
+.whitebox .titled-box .content-section.v3 {
+  -o-border-image: url(../assets/white-box-sm-3.png) 5 stretch;
+  border-image: url(../assets/white-box-sm-3.png) 5 stretch;
+}
+
+.whitebox .titled-box .content-section.b1 {
+  -o-border-image: url(../assets/black-box-sm-1.png) 5 stretch;
+  border-image: url(../assets/black-box-sm-1.png) 5 stretch;
 }
 
 .whitebox .resource-row {
@@ -683,6 +734,32 @@
   height: 300px;
 }
 
+.whitebox .item-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.whitebox .item-header .image-box {
+  -ms-flex-preferred-size: 110px;
+  flex-basis: 110px;
+  height: 110px;
+  margin-right: 5px;
+}
+
+.whitebox .item-header .image-box img {
+  border: none;
+}
+
+.whitebox .item-header .item-name {
+  font-family: "Acme", sans-serif;
+  font-size: 16px;
+}
+
 .whitebox .item-body {
   padding: 5px;
   border: 2px solid transparent;
@@ -754,32 +831,23 @@
 }
 
 .whitebox .papirus-box.papir1 {
-  -o-border-image: url(../assets/border-papirus-1.png) 10 repeat;
-  border-image: url(../assets/border-papirus-1.png) 10 repeat;
+  -o-border-image: url(../assets/border-papirus-1.png) 10 stretch;
+  border-image: url(../assets/border-papirus-1.png) 10 stretch;
 }
 
 .whitebox .papirus-box.papir2 {
-  -o-border-image: url(../assets/border-papirus-2.png) 10 repeat;
-  border-image: url(../assets/border-papirus-2.png) 10 repeat;
+  -o-border-image: url(../assets/border-papirus-2.png) 10 stretch;
+  border-image: url(../assets/border-papirus-2.png) 10 stretch;
 }
 
-.whitebox .item-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+.whitebox .papirus-box.white1 {
+  -o-border-image: url(../assets/border-papirus-w-1.png) 10 stretch;
+  border-image: url(../assets/border-papirus-w-1.png) 10 stretch;
 }
 
-.whitebox .item-header .profile-img {
-  -webkit-box-flex: 0;
-  -ms-flex: 0 0 100px;
-  flex: 0 0 100px;
-  height: 100px;
-  border: 1px solid;
-  margin-right: 8px;
+.whitebox .papirus-box.white2 {
+  -o-border-image: url(../assets/border-papirus-w-2.png) 10 stretch;
+  border-image: url(../assets/border-papirus-w-2.png) 10 stretch;
 }
 
 .whitebox .armor-box {

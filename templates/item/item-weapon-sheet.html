@@ -1,0 +1,35 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="item-header space-between">
+        <div class="image-box papirus-box papir2">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <div style="margin-right: 5px">
+            <div class="item-name papirus-box papir1"><input name="name" type="text" value="{{item.name}}" class="blank" /></div>
+            <div>
+                <span class="flexrow align-center">
+                    <label for="data.weight" style="flex: 1">Weight</label>
+                    <input type="text" name="data.weight" value="{{data.weight}}" class="input-underlined" style="flex: 2" />
+                </span>
+                <span class="flexrow align-center">
+                    <label for="data.cost" style="flex: 1">Cost</label>
+                    <input type="text" name="data.cost" value="{{data.cost}}" class="input-underlined" style="flex: 2" />
+                </span>
+            </div>
+        </div>
+        <div style="padding-top: 5px">
+            <div class="titled-box">
+                <div class="title-section white" style="font-size: 16px">Damage</div>
+                <div class="content-section b1" style="min-width: 100px; min-height: 70px; font-size: 22px">
+                    <input type="text" name="data.damage.value" value="{{data.damage.value}}" class="blank" style="max-width: 80px" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="grid grid-3col">
+        <div>TYPE</div>
+        <div>ROF</div>
+        <div>RANGE</div>
+        <div>1H or 2H</div>
+        <div>melee or range</div>
+    </div>
+</form>

@@ -14,37 +14,37 @@
             },
             "attributes": {
                 "str": {
-                    "value": 0,
+                    "value": 10,
                     "mod": 0,
                     "custom_mod": 0,
                     "bonus": 0
                 },
                 "dex": {
-                    "value": 0,
+                    "value": 10,
                     "mod": 0,
                     "custom_mod": 0,
                     "bonus": 0
                 },
                 "con": {
-                    "value": 0,
+                    "value": 10,
                     "mod": 0,
                     "custom_mod": 0,
                     "bonus": 0
                 },
                 "int": {
-                    "value": 0,
+                    "value": 10,
                     "mod": 0,
                     "custom_mod": 0,
                     "bonus": 0
                 },
                 "wis": {
-                    "value": 0,
+                    "value": 10,
                     "mod": 0,
                     "custom_mod": 0,
                     "bonus": 0
                 },
                 "cha": {
-                    "value": 0,
+                    "value": 10,
                     "mod": 0,
                     "custom_mod": 0,
                     "bonus": 0
@@ -65,7 +65,7 @@
                 "custom_mod": 0
             },
             "hd": {
-                "value": 1,
+                "value": "d6",
                 "mod": 0
             },
             "health": {
@@ -118,7 +118,7 @@
         "templates": {
             "physical": {
                 "quantity": 1,
-                "weight": 0,
+                "weight": "0",
                 "packed": false
             },
             "base": {
@@ -131,7 +131,7 @@
             "templates": ["physical", "base"],
             "weapon_type": "melee",
             "damage": {
-                "value": 0,
+                "value": "1d6",
                 "mod": 0
             },
             "rof": "",
