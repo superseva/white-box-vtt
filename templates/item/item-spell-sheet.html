@@ -4,12 +4,36 @@
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
         <div style="margin-right: 5px; flex: 1">
-            <div class="item-name papirus-box papir1"><input name="name" type="text" value="{{item.name}}" class="blank" /></div>
+            <div class="item-name papirus-box papir1 pusher-bottom"><input name="name" type="text" value="{{item.name}}" class="blank" /></div>
+            <div class="flex row align-center pusher-bottom">
+                <label for="data.spell_type" class="acme flex" style="flex-basis: 100px">Type</label>
+                <select name="data.spell_type" style="flex: 1">
+                    {{#select data.spell_type}}
+                    <option value="mage">Mage</option>
+                    <option value="cleric">Cleric</option>
+                    {{/select}}
+                </select>
+            </div>
+            <div class="flex row pusher-bottom">
+                <label for="data.range" class="acme flex" style="flex-basis: 100px">Range</label>
+                <input name="data.range" value="{{data.range}}" />
+            </div>
+            <div class="flex row pusher-bottom">
+                <label for="data.duration" class="acme flex" style="flex-basis: 100px">Duration</label>
+                <input name="data.duration" value="{{data.duration}}" />
+            </div>
         </div>
-        <div class="padded"></div>
+        <div class="">
+            <div class="titled-box">
+                <div class="title-section white" style="font-size: 16px">Level</div>
+                <div class="content-section b1" style="min-width: 100px; min-height: 70px; font-size: 22px">
+                    <input type="text" name="data.level" value="{{data.level}}" class="blank" style="max-width: 90px" />
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="flexrow">
-        <textarea name="data.description" style="resize: none; overflow: auto" rows="4" placeholder="...some description">{{data.description}}</textarea>
+        <textarea name="data.description" style="resize: none; overflow: auto" rows="10" placeholder="...some description">{{data.description}}</textarea>
     </div>
 </form>

@@ -156,11 +156,16 @@
         },
         "ability": {
             "templates": ["base"],
+            "die": "1d6",
             "bonus": "",
             "mod": ""
         },
         "spell": {
-            "templates": ["base"]
+            "templates": ["base"],
+            "spell_type": "mage",
+            "level": "1",
+            "range": "",
+            "duration": ""
         },
         "monster_attack": {
             "templates": ["base"],
