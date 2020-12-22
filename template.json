@@ -139,7 +139,7 @@
             "bonus_to_hit": "0",
             "bonus_damage": "0",
             "rof": "",
-            "range": "0",
+            "range": "",
             "oneOrTwohanded": false,
             "meleeOrMissile": false
         },
@@ -165,7 +165,9 @@
             "spell_type": "mage",
             "level": "1",
             "range": "",
-            "duration": ""
+            "duration": "",
+            "memorized": false,
+            "scroll": false
         },
         "monster_attack": {
             "templates": ["base"],

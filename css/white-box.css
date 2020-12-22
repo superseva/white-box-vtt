@@ -582,9 +582,69 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  margin-top: 10px;
+  padding: 0 5px;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box {
+  position: relative;
+  padding-left: 80px;
+  min-height: 80px;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box ul {
+  text-decoration: none;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box .palcque {
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  width: 70px;
+  height: 72px;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box .palcque.ac {
+  width: 50px;
+  height: 72px;
+  background-image: url(../assets/ac-shield-white-50x60.png);
+  background-repeat: no-repeat;
+  background-position-y: 5px;
+  background-color: unset;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box .palcque .title-section {
+  left: 20%;
+  -webkit-transform: translate(-12%);
+  -ms-transform: translate(-12%);
+  transform: translate(-12%);
+  background-color: white;
+  color: black;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box .palcque .title-section.ac {
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box .palcque .content-section {
+  background-color: white;
+  min-height: 40px;
+  font-size: 16px;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box .palcque .content-section.ac {
+  background-color: unset;
+  min-height: 55px;
 }
 
 .whitebox .enemy-header {
@@ -959,7 +1019,7 @@
 
 .whitebox .items-list {
   list-style: none;
-  margin: 7px 0;
+  margin: 0;
   padding: 0;
   overflow-y: auto;
 }
@@ -969,10 +1029,9 @@
 }
 
 .whitebox .items-list .item {
-  min-height: 30px;
-  line-height: 24px;
-  padding: 3px 0;
-  border-bottom: 1px solid #bbb;
+  min-height: 20px;
+  line-height: 16px;
+  padding: 0;
 }
 
 .whitebox .items-list .item .item-image {
@@ -987,7 +1046,7 @@
 }
 
 .whitebox .items-list .item-name {
-  font-size: 1em;
+  font-size: 14px;
   margin: 0;
   font-weight: bold;
 }

@@ -148,8 +148,54 @@
 
     .actor-body {
         display: flex;
+        flex-direction: column;
         flex: 1;
+        margin-top: 10px;
+        padding: 0 5px;
         //background-color: rgb(196, 196, 196);
+        .combat-box {
+            //background-color: rgb(196, 196, 196);
+            position: relative;
+            padding-left: 80px;
+            min-height: 80px;
+            ul {
+                text-decoration: none;
+            }
+            .palcque {
+                position: absolute;
+                top: -15px;
+                left: -10px;
+                width: 70px;
+                height: 72px;
+                &.ac {
+                    width: 50px;
+                    height: 72px;
+                    background-image: url(../assets/ac-shield-white-50x60.png);
+                    background-repeat: no-repeat;
+                    background-position-y: 5px;
+                    background-color: unset;
+                }
+                .title-section {
+                    left: 20%;
+                    transform: translate(-12%);
+                    &.ac {
+                        left: 50%;
+                        transform: translate(-50%);
+                    }
+                    background-color: white;
+                    color: black;
+                }
+                .content-section {
+                    background-color: white;
+                    min-height: 40px;
+                    font-size: 16px;
+                    &.ac {
+                        background-color: unset;
+                        min-height: 55px;
+                    }
+                }
+            }
+        }
     }
 }
 
