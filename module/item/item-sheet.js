@@ -5,7 +5,7 @@ export class WhiteboxItemSheet extends ItemSheet {
             classes: ["whitebox", "sheet", "item"],
             width: 520,
             height: "auto",
-            resizable: true,
+            resizable: false,
             tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".item-body", initial: "attributes" }],
         });
     }

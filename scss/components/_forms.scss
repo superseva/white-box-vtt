@@ -54,6 +54,7 @@
             padding: 2px;
             position: relative;
             background-color: black;
+            font-family: $font-abr;
             .value {
                 color: white;
                 background-color: black;
@@ -79,6 +80,10 @@
                 color: rgb(202, 202, 202);
             }
         }
+    }
+
+    .movement-box {
+        font-family: $font-abr;
     }
 
     .xp-tracker {
@@ -372,6 +377,12 @@
     }
     &.papir2 {
         border-image: url(../assets/border-papirus-2.png) 10 stretch;
+    }
+    &.papir3 {
+        border-image: url(../assets/border-papirus-3.png) 10 stretch;
+    }
+    &.papir4 {
+        border-image: url(../assets/border-papirus-4.png) 10 stretch;
     }
     &.white1 {
         border-image: url(../assets/border-papirus-w-1.png) 10 stretch;

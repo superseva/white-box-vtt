@@ -134,7 +134,10 @@
                 "value": "1d6",
                 "mod": 0
             },
+            "bonus_to_hit": "0",
+            "bonus_damage": "0",
             "rof": "",
+            "range": "0",
             "oneOrTwohanded": false,
             "meleeOrMissile": false
         },

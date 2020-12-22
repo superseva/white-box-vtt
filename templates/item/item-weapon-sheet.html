@@ -1,5 +1,5 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="item-header space-between">
+    <div class="item-header space-between pusher-bottom">
         <div class="image-box papirus-box papir2">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
@@ -16,20 +16,59 @@
                 </span>
             </div>
         </div>
-        <div style="padding-top: 5px">
+        <div class="padded">
             <div class="titled-box">
                 <div class="title-section white" style="font-size: 16px">Damage</div>
                 <div class="content-section b1" style="min-width: 100px; min-height: 70px; font-size: 22px">
-                    <input type="text" name="data.damage.value" value="{{data.damage.value}}" class="blank" style="max-width: 80px" />
+                    <input type="text" name="data.damage.value" value="{{data.damage.value}}" class="blank" style="max-width: 90px" />
                 </div>
             </div>
         </div>
     </div>
-    <div class="grid grid-3col">
-        <div>TYPE</div>
-        <div>ROF</div>
-        <div>RANGE</div>
-        <div>1H or 2H</div>
-        <div>melee or range</div>
+    <div class="grid grid-3col papirus-box papir4 padded">
+        <div class="flex-center flexcol">
+            <label for="data.weapon_type" class="acme">Type</label>
+            <select name="data.weapon_type">
+                {{#select data.weapon_type}}
+                <option value="melee">Melee</option>
+                <option value="ranged">Ranged</option>
+                {{/select}}
+            </select>
+        </div>
+        <div class="flex-center flexcol">
+            <label for="data.bonus_to_hit" class="acme">Bonus to Hit</label>
+            <input name="data.bonus_to_hit" value="{{data.bonus_to_hit}}" style="max-width: 100px; text-align: center" />
+        </div>
+        <div class="flex-center flexcol">
+            <label for="data.bonus_damage" class="acme">Bonus Damage</label>
+            <input name="data.bonus_damage" value="{{data.bonus_damage}}" style="max-width: 100px; text-align: center" />
+        </div>
+    </div>
+    <div class="grid papirus-box papir3 padded">
+        <div class="flex-center flexcol">
+            <label for="data.range" class="acme">Range</label>
+            <input name="data.range" value="{{data.range}}" style="max-width: 100px; text-align: center" />
+        </div>
+        <div class="flex-center flexcol">
+            <label for="data.rof" class="acme">RoF</label>
+            <input name="data.rof" value="{{data.rof}}" style="max-width: 100px; text-align: center" />
+        </div>
+    </div>
+    <div class="grid papirus-box papir4 padded">
+        <div class="flex-center">
+            <label for="data.oneOrTwohanded" class="checkbox-label acme">
+                1H and 2H
+                <input class="input-checkbox" type="checkbox" name="data.oneOrTwohanded" {{checked data.oneOrTwohanded}} data-dtype="Boolean" />
+            </label>
+        </div>
+        <div class="flex-center">
+            <label for="data.meleeOrMissile" class="checkbox-label acme">
+                Melee and Ranged
+                <input class="input-checkbox" type="checkbox" name="data.meleeOrMissile" {{checked data.meleeOrMissile}} data-dtype="Boolean" />
+            </label>
+        </div>
+    </div>
+    <div class="flexrow">
+        <textarea name="data.description" style="resize: none; overflow: auto" rows="4" placeholder="...some description">{{data.description}}</textarea>
     </div>
 </form>

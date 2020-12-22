@@ -156,6 +156,18 @@
   flex: 0 0 50%;
 }
 
+.padded {
+  padding: 5px;
+}
+
+.pusher-right {
+  margin-right: 5px;
+}
+
+.pusher-bottom {
+  margin-bottom: 5px;
+}
+
 .flex-center {
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -258,6 +270,10 @@
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.acme {
+  font-family: "Acme", sans-serif;
 }
 
 .chat-message div {
@@ -447,6 +463,7 @@
   padding: 2px;
   position: relative;
   background-color: black;
+  font-family: "Acme", sans-serif;
 }
 
 .whitebox .sidebar .savingthrow-box .value-row .value {
@@ -472,6 +489,10 @@
   resize: none;
   overflow: auto;
   color: #cacaca;
+}
+
+.whitebox .sidebar .movement-box {
+  font-family: "Acme", sans-serif;
 }
 
 .whitebox .sidebar .xp-tracker {
@@ -838,6 +859,16 @@
 .whitebox .papirus-box.papir2 {
   -o-border-image: url(../assets/border-papirus-2.png) 10 stretch;
   border-image: url(../assets/border-papirus-2.png) 10 stretch;
+}
+
+.whitebox .papirus-box.papir3 {
+  -o-border-image: url(../assets/border-papirus-3.png) 10 stretch;
+  border-image: url(../assets/border-papirus-3.png) 10 stretch;
+}
+
+.whitebox .papirus-box.papir4 {
+  -o-border-image: url(../assets/border-papirus-4.png) 10 stretch;
+  border-image: url(../assets/border-papirus-4.png) 10 stretch;
 }
 
 .whitebox .papirus-box.white1 {
