@@ -1,6 +1,6 @@
 {
     "Actor": {
-        "types": ["character", "enemy"],
+        "types": ["character", "monster"],
         "character": {
             "class": "",
             "level": 1,
@@ -84,9 +84,11 @@
                 "gold": 0,
                 "silver": 0,
                 "copper": 0
-            }
+            },
+            "isNpc": false,
+            "loyalty": "0"
         },
-        "enemy": {
+        "monster": {
             "hd": {
                 "value": "",
                 "mod": "",
@@ -114,7 +116,7 @@
         }
     },
     "Item": {
-        "types": ["weapon", "armor", "gear", "ability", "spell", "enemy_attack"],
+        "types": ["weapon", "armor", "gear", "ability", "spell", "monster_attack"],
         "templates": {
             "physical": {
                 "quantity": 1,
@@ -143,8 +145,27 @@
         },
         "armor": {
             "templates": ["physical", "base"],
+            "armor_type": "armor",
             "ac": {
                 "value": 0,
+                "mod": 0
+            }
+        },
+        "gear": {
+            "templates": ["physical", "base"]
+        },
+        "ability": {
+            "templates": ["base"],
+            "bonus": "",
+            "mod": ""
+        },
+        "spell": {
+            "templates": ["base"]
+        },
+        "monster_attack": {
+            "templates": ["base"],
+            "damage": {
+                "value": "1d6",
                 "mod": 0
             }
         }

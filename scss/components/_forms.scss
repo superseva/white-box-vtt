@@ -27,7 +27,7 @@
 
     .attribute-box {
         padding: $padding-sm;
-        margin: 10px 0 15px;
+        margin: 15px 0;
         .attribute-row {
             color: white;
             font-family: $font-abr;
@@ -172,13 +172,13 @@
     //background-color: #ff00ee;
     display: flex;
     flex: 1;
-    margin: 10px 0px;
+    margin: 6px 0; //10
     .title-section {
         text-align: center;
         border: 1px solid white;
         background-color: black;
         position: absolute;
-        top: -10px;
+        top: -6px; // -10
         left: 50%;
         transform: translate(-50%);
         //color: black;

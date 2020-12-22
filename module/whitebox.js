@@ -21,6 +21,33 @@ Hooks.once("init", function () {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("whitebox", WhiteboxItemSheet, { makeDefault: true });
 
+    Hooks.on("preCreateItem", function (entity, options, userId) {
+        console.log(entity);
+        if (!entity.type) return;
+
+        switch (entity.type) {
+            case "weapon":
+                entity.img = "systems/white-box-vtt/assets/axe-sword.svg";
+                break;
+            case "armor":
+                entity.img = "systems/white-box-vtt/assets/breastplate.svg";
+                break;
+            case "gear":
+                entity.img = "systems/white-box-vtt/assets/swap-bag.svg";
+                break;
+            case "ability":
+                entity.img = "systems/white-box-vtt/assets/skills.svg";
+                break;
+            case "spell":
+                entity.img = "systems/white-box-vtt/assets/magic-swirl.svg";
+                break;
+            case "monster_attack":
+                entity.img = "systems/white-box-vtt/assets/ent-mouth.svg";
+                break;
+        }
+        //entity.img = 'systems/white-box-vtt/assets/icons/' + entity.type + '.jpg'
+    });
+
     Handlebars.registerHelper("concat", function () {
         var outStr = "";
         for (var arg in arguments) {
