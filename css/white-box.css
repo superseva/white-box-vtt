@@ -647,6 +647,29 @@
   min-height: 55px;
 }
 
+.whitebox .actor-sheet-section .actor-body .abilities.titled-box .title-section {
+  border: 1px solid black;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  left: -5px;
+  -webkit-transform: unset;
+  -ms-transform: unset;
+  transform: unset;
+}
+
+.whitebox .actor-sheet-section .actor-body .abilities.titled-box .content-section {
+  -o-border-image: url(../assets/black-box-sm-1.png) 5 stretch;
+  border-image: url(../assets/black-box-sm-1.png) 5 stretch;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-pack: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  padding-top: 20px;
+}
+
 .whitebox .enemy-header {
   -webkit-box-flex: unset;
   -ms-flex: unset;
@@ -734,6 +757,67 @@
 .whitebox .titled-box .content-section.b1 {
   -o-border-image: url(../assets/black-box-sm-1.png) 5 stretch;
   border-image: url(../assets/black-box-sm-1.png) 5 stretch;
+}
+
+.whitebox .titled-box .button-scroll {
+  position: absolute;
+  top: -15px;
+  right: -5px;
+  width: 40px;
+  height: 40px;
+  background-color: unset;
+  color: black;
+  background-image: url(../assets/scroll-white-shadow.svg);
+  background-repeat: no-repeat;
+}
+
+.whitebox .titled-box .button-scroll:hover {
+  -webkit-filter: drop-shadow(0px 0px 3px rgba(150, 0, 0, 0.7));
+  filter: drop-shadow(0px 0px 3px rgba(150, 0, 0, 0.7));
+}
+
+.whitebox .titled-box .button-plus {
+  position: absolute;
+  top: -5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.whitebox .tab-opener {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: column-reverse;
+  flex-direction: column-reverse;
+  position: relative;
+}
+
+.whitebox .tab-opener .title {
+  font-family: "Acme", sans-serif;
+  font-size: 16px;
+}
+
+.whitebox .tab-opener .icon {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  right: -15px;
+}
+
+.whitebox .tab-opener .icon.bag {
+  background-image: url(../assets/swap-bag-stroke.svg);
+  pointer-events: none;
+}
+
+.whitebox .tab-opener .icon.ink {
+  background-image: url(../assets/quill-ink-stroke.svg);
+  pointer-events: none;
 }
 
 .whitebox .resource-row {

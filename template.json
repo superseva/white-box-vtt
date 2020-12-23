@@ -85,6 +85,28 @@
                 "silver": 0,
                 "copper": 0
             },
+            "spells": {
+                "1": {
+                    "value": 0,
+                    "max": 0
+                },
+                "2": {
+                    "value": 0,
+                    "max": 0
+                },
+                "3": {
+                    "value": 0,
+                    "max": 0
+                },
+                "4": {
+                    "value": 0,
+                    "max": 0
+                },
+                "5": {
+                    "value": 0,
+                    "max": 0
+                }
+            },
             "isNpc": false,
             "loyalty": "0"
         },
@@ -157,7 +179,7 @@
         "ability": {
             "templates": ["base"],
             "die": "1d6",
-            "bonus": "",
+            "bonus": "1",
             "mod": ""
         },
         "spell": {

@@ -196,6 +196,23 @@
                 }
             }
         }
+
+        .abilities.titled-box {
+            .title-section {
+                border: 1px solid black;
+                font-size: 16px;
+                background-color: white;
+                color: black;
+                left: -5px;
+                transform: unset;
+            }
+            .content-section {
+                border-image: url(../assets/black-box-sm-1.png) 5 stretch;
+                align-items: flex-start;
+                justify-content: left;
+                padding-top: 20px;
+            }
+        }
     }
 }
 
@@ -262,6 +279,56 @@
         }
         //color: black;
         //background-color: white;
+    }
+    .button-scroll {
+        position: absolute;
+        top: -15px;
+        right: -5px;
+        width: 40px;
+        height: 40px;
+        background-color: unset;
+        color: black;
+        //text-align: center;
+        background-image: url(../assets/scroll-white-shadow.svg);
+        background-repeat: no-repeat;
+        &:hover {
+            filter: drop-shadow(0px 0px 3px rgba(150, 0, 0, 0.7));
+            //box-shadow: 0px 0px 5px 0px #FF0000;
+        }
+    }
+    .button-plus {
+        position: absolute;
+        top: -5px;
+        right: 5px;
+        width: 20px;
+        height: 20px;
+        background-color: black;
+        color: white;
+        text-align: center;
+    }
+}
+
+.tab-opener {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    .title {
+        font-family: $font-abr;
+        font-size: 16px;
+    }
+    .icon {
+        position: absolute;
+        width: 45px;
+        height: 45px;
+        right: -15px;
+        &.bag {
+            background-image: url(../assets/swap-bag-stroke.svg);
+            pointer-events: none;
+        }
+        &.ink {
+            background-image: url(../assets/quill-ink-stroke.svg);
+            pointer-events: none;
+        }
     }
 }
 
