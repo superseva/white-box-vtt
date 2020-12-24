@@ -10,7 +10,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             template: "systems/white-box-vtt/templates/actor/actor-sheet.html",
             width: 640,
             height: 640,
-            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "description" }],
+            tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-tabs-content", initial: "empty" }],
         });
     }
 
@@ -94,6 +94,9 @@ export class WhiteboxActorSheet extends ActorSheet {
         // Everything below here is only needed if the sheet is editable
         if (!this.options.editable) return;
 
+        //Open Overlays (Inventory, Spellbook, Notes)
+        html.find(".toggle-overlay").click(this._onToggleOverlay.bind(this));
+
         // Add Inventory Item
         html.find(".item-create").click(this._onItemCreate.bind(this));
 
@@ -123,6 +126,20 @@ export class WhiteboxActorSheet extends ActorSheet {
                 li.addEventListener("dragstart", handler, false);
             });
         }
+    }
+
+    _onToggleOverlay(evt) {
+        evt.preventDefault();
+        const el = evt.currentTarget;
+        const overlay = el.dataset.overlay;
+        this._tabs[0].activate(overlay);
+
+        //Tabs.prototype.activate("spellbook");
+        //$(".sheet-tabs.tabs").trigger("click");
+        //console.log($(".sheet-tabs.tabs"));
+        //$(".tab-" + overlay).trigger("click");
+        //const $overlay = $(".overlay-section." + overlay);
+        //$overlay.toggleClass("hidden");
     }
 
     /**

@@ -112,6 +112,7 @@
         </header>
         <section class="actor-body">
             <div class="combat-box papirus-box papir1" style="margin-bottom: 15px">
+                <div class="button-plus" style="top: -12px">+</div>
                 <div class="palcque">
                     <div class="titled-box">
                         <div class="title-section white">Hit Bonus</div>
@@ -121,13 +122,15 @@
                     </div>
                 </div>
                 <ol class="items-list">
-                    <li class="item acme">SOME WPN</li>
-                    <li class="item">SOME WPN</li>
-                    <li class="item">SOME WPN</li>
-                    <li class="item">SOME WPN</li>
+                    <li class="item">
+                        <div class="item-name">SOME ITEM</div>
+                        <div class="item-details">DMG: 1d6+2</div>
+                        <div class="item-controls">C N T</div>
+                    </li>
                 </ol>
             </div>
             <div class="combat-box papirus-box papir1 pusher-bottom">
+                <div class="button-plus" style="top: -12px">+</div>
                 <div class="palcque ac">
                     <div class="titled-box">
                         <div class="title-section white ac">AC</div>
@@ -137,8 +140,11 @@
                     </div>
                 </div>
                 <ol class="items-list">
-                    <li class="item acme">SOME WPN</li>
-                    <li class="item">SOME WPN</li>
+                    <li class="item">
+                        <div class="item-name">SOME ARMOR</div>
+                        <div class="item-details">AC: 4</div>
+                        <div class="item-controls">C N T</div>
+                    </li>
                 </ol>
             </div>
             <div class="flexrow f1 pusher-bottom">
@@ -154,8 +160,8 @@
             </div>
             <div class="grid grid-3col">
                 <div class="titled-box abilities" style="margin-bottom: 0">
-                    <a class="button-scroll"></a>
-                    <a class="title-section">Spells</a>
+                    <a class="button-scroll toggle-overlay" data-overlay="spellbook"></a>
+                    <a class="title-section toggle-overlay" data-overlay="spellbook">Spells</a>
                     <div class="content-section flexrow">
                         <span class="flexcol flex-center"
                             ><label for="data.spells.1.max">1</label><input type="number" name="data.spells.1.max" value="{{data.spells.1.max}}"
@@ -175,27 +181,45 @@
                     </div>
                 </div>
                 <div class="tab-opener">
-                    <a class="icon bag"></a>
-                    <a class="title papirus-box papir1">Inventory</a>
+                    <a class="icon bag toggle-overlay" data-overlay="inventory"></a>
+                    <a class="title papirus-box papir1 toggle-overlay" data-overlay="inventory">Inventory</a>
                 </div>
                 <div class="tab-opener">
-                    <a class="icon ink"></a>
-                    <a class="title papirus-box papir1">Notes</a>
+                    <a class="icon ink toggle-overlay" data-overlay="notes"></a>
+                    <a class="title papirus-box papir1 toggle-overlay" data-overlay="notes">Notes</a>
                 </div>
             </div>
+            {{!-- Sheet Tab Navigation --}}
+            <nav class="sheet-tabs tabs" data-group="primary">
+                <a class="item tab-empty" data-tab="empty">Empty</a>
+                <a class="item tab-spellbook" data-tab="spellbook">Spellbook</a>
+                <a class="item tab-inventory" data-tab="inventory">inventory</a>
+                <a class="item tab-notes" data-tab="notes">notes</a>
+            </nav>
         </section>
-        <!-- <div style="position: absolute; background-color: blanchedalmond; left: 10px">
-            ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD
-            ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD
-            LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS
-            AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD
-            ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD
-            LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS
-            AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS
-            AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD
-            ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD
-            LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD LSAKLD ALASFLASKDLS AKLDFSAKD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS AKLDFSAKD LSAKLD ALASFLASKDLS
-            AKLDFSAKD LSAKLD LSAKLD
-        </div> -->
+        <section class="sheet-tabs-content">
+            <section class="overlay-section f1 empty tab" data-group="primary" data-tab="empty" style="width: 1px; height: 1px"></section>
+            <section class="overlay-section f1 inventory tab" data-group="primary" data-tab="inventory">
+                <div class="papir f1 overlay-content">
+                    <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
+                    <h2>Inventory</h2>
+                </div>
+            </section>
+            <section class="overlay-section f1 spellbook tab" data-group="primary" data-tab="spellbook">
+                <div class="papir f1 overlay-content">
+                    <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
+                    <h2>Spellbook</h2>
+                </div>
+            </section>
+            <section class="overlay-section f1 notes tab" data-group="primary" data-tab="notes">
+                <div class="papir f1 overlay-content">
+                    <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
+                    <h2>Notes</h2>
+                    <div class="flex column f1 papirus-box papir1">
+                        {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+                    </div>
+                </div>
+            </section>
+        </section>
     </section>
 </form>
