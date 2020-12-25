@@ -112,7 +112,7 @@
         </header>
         <section class="actor-body">
             <!-- $$ QUICK WEAPONS -->
-            <div class="combat-box papirus-box papir1" style="margin-bottom: 15px">
+            <div class="combat-box papirus-box papir1 p10" style="margin-bottom: 15px">
                 <!-- <div class="button-plus" style="top: -12px">+</div> -->
                 <div class="palcque">
                     <div class="titled-box">
@@ -136,7 +136,7 @@
                         </div>
                     </li>
                     {{#each actor.weapons_equipped as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
+                    <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                         <div class="item-name">
                             <img class="item-image" src="{{item.img}}" alt="" />
                             <span>{{item.name}}</span>
@@ -153,7 +153,7 @@
                 </ol>
             </div>
             <!-- $$ QUICK ARMOR -->
-            <div class="combat-box papirus-box papir1 pusher-bottom">
+            <div class="combat-box papirus-box papir1 pusher-bottom p40">
                 <!-- <div class="button-plus" style="top: -12px">+</div> -->
                 <div class="palcque ac">
                     <div class="titled-box">
@@ -163,8 +163,8 @@
                         </div>
                     </div>
                 </div>
-                <ol class="items-list">
-                    <li class="item flexrow">
+                <ol class="items-list grid">
+                    <!-- <li class="item flexrow">
                         <div class="item-name">
                             <span></span>
                         </div>
@@ -172,17 +172,17 @@
                             <div>AC</div>
                         </div>
                         <div class="item-controls"></div>
-                    </li>
+                    </li> -->
                     {{#each actor.armor_equipped as |item id|}}
-                    <li class="item flexrow" data-item-id="{{item._id}}">
+                    <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                         <div class="item-name">
                             <img class="item-image" src="{{item.img}}" alt="" />
                             <span>{{item.name}}</span>
                         </div>
                         <div class="item-details flexrow xs">
-                            <div>{{item.data.ac.value}}</div>
+                            <div>AC: {{item.data.ac.value}}</div>
                         </div>
-                        <div class="item-controls"></div>
+                        <!-- <div class="item-controls"></div> -->
                     </li>
                     {{/each}}
                 </ol>
@@ -195,12 +195,12 @@
                     <div class="content-section">
                         <ol class="items-list grid f1">
                             {{#each actor.abilities as |item id|}}
-                            <li class="item flexrow" data-item-id="{{item._id}}">
+                            <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                                 <div class="item-name">
                                     <img class="item-image" src="{{item.img}}" alt="" />
                                     {{item.name}}
                                 </div>
-                                <div class="item-details flexrow xs">{{item.data.bonus}}</div>
+                                <div class="item-details flexrow xs">+ {{item.data.bonus}}</div>
                                 <div class="item-controls sm">
                                     <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
                                         ><i class="fas fa-comment"></i

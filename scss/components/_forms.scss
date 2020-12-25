@@ -157,6 +157,12 @@
             //background-color: rgb(196, 196, 196);
             position: relative;
             padding: 10px 10px 5px 80px;
+            &.p10 {
+                padding: 10px 10px 5px 10px;
+            }
+            &.p40 {
+                padding: 10px 10px 5px 40px;
+            }
             //padding-top: 20px;
             min-height: 80px;
             ul {
@@ -307,6 +313,7 @@
     background-color: black;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 
 .tab-opener {

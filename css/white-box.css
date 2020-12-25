@@ -603,6 +603,14 @@
   min-height: 80px;
 }
 
+.whitebox .actor-sheet-section .actor-body .combat-box.p10 {
+  padding: 10px 10px 5px 10px;
+}
+
+.whitebox .actor-sheet-section .actor-body .combat-box.p40 {
+  padding: 10px 10px 5px 40px;
+}
+
 .whitebox .actor-sheet-section .actor-body .combat-box ul {
   text-decoration: none;
 }
@@ -789,6 +797,7 @@
   background-color: black;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
 
 .whitebox .tab-opener {
@@ -1284,6 +1293,33 @@
 
 .whitebox .items-list .item .item-controls a {
   padding-left: 2px;
+}
+
+.whitebox .items-list .item .expand-down {
+  top: -1px !important;
+  bottom: 0 !important;
+}
+
+.whitebox .items-list .item .expand-up {
+  top: -1px !important;
+  bottom: 0 !important;
+}
+
+.whitebox .items-list .item #context-menu {
+  left: unset;
+  right: 0;
+  min-width: unset;
+  width: unset;
+}
+
+.whitebox .items-list .item #context-menu li.context-item {
+  line-height: 26px;
+}
+
+.whitebox .items-list .item #context-menu .context-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .whitebox .item-memorise.item-notmemorised {

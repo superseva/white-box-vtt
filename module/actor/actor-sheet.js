@@ -130,6 +130,41 @@ export class WhiteboxActorSheet extends ActorSheet {
         // Rollable abilities.
         html.find(".rollable").click(this._onRoll.bind(this));
 
+        /* -------------------------------------------- */
+        /* ADD LEFT CLICK CONTENT MENU
+        /* -------------------------------------------- */
+        const editLabel = game.i18n.localize("WB.EDIT");
+        const postLabel = game.i18n.localize("WB.POST");
+        const deleteLabel = game.i18n.localize("WB.DELETE");
+
+        let menu_items = [
+            {
+                icon: '<i class="fas fa-edit"></i>',
+                name: "",
+                callback: (t) => {
+                    console.log(t);
+                    //this._editOwnedItemById(t.data("item-id"));
+                },
+            },
+            {
+                icon: '<i class="fas fa-comment"></i>',
+                name: "",
+                callback: (t) => {
+                    console.log(t);
+                    //this._postOwnedItemById(t.data("item-id"));
+                },
+            },
+            {
+                icon: '<i class="fas fa-trash"></i>',
+                name: "",
+                callback: (t) => {
+                    console.log(t);
+                    //this._deleteOwnedItemById(t.data("item-id"));
+                },
+            },
+        ];
+        new ContextMenu(html.find(".editable-item"), null, menu_items);
+
         // Drag events for macros.
         if (this.actor.owner) {
             let handler = (ev) => this._onDragItemStart(ev);

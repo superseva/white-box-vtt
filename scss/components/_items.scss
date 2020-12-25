@@ -64,6 +64,26 @@
                 padding-left: 2px;
             }
         }
+        .expand-down {
+            top: -1px !important;
+            bottom: 0 !important;
+        }
+        .expand-up {
+            top: -1px !important;
+            bottom: 0 !important;
+        }
+        #context-menu {
+            left: unset;
+            right: 0;
+            min-width: unset;
+            width: unset;
+            li.context-item {
+                line-height: 26px;
+            }
+            .context-items {
+                display: flex;
+            }
+        }
     }
 }
 
