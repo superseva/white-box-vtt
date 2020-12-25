@@ -163,7 +163,8 @@
             "rof": "",
             "range": "",
             "oneOrTwohanded": false,
-            "meleeOrMissile": false
+            "meleeOrMissile": false,
+            "equipped": false
         },
         "armor": {
             "templates": ["physical", "base"],
@@ -171,7 +172,8 @@
             "ac": {
                 "value": 0,
                 "mod": 0
-            }
+            },
+            "equipped": false
         },
         "gear": {
             "templates": ["physical", "base"]
@@ -188,7 +190,7 @@
             "level": "1",
             "range": "",
             "duration": "",
-            "memorized": false,
+            "memorized": 0,
             "scroll": false
         },
         "monster_attack": {

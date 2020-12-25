@@ -43,8 +43,10 @@ export class WhiteboxActorSheet extends ActorSheet {
         const actorData = sheetData.actor;
 
         // Initialize containers.
+        const weapons = [];
+        const armor = [];
         const gear = [];
-        const features = [];
+        const abilities = [];
         const spells = {
             0: [],
             1: [],
@@ -52,10 +54,6 @@ export class WhiteboxActorSheet extends ActorSheet {
             3: [],
             4: [],
             5: [],
-            6: [],
-            7: [],
-            8: [],
-            9: [],
         };
 
         // Iterate through items, allocating to containers
@@ -63,25 +61,27 @@ export class WhiteboxActorSheet extends ActorSheet {
         for (let i of sheetData.items) {
             let item = i.data;
             i.img = i.img || DEFAULT_TOKEN;
-            // Append to gear.
-            if (i.type === "item") {
+            if (i.type === "weapon") {
+                weapons.push(i);
+            } else if (i.type === "armor") {
+                armor.push(i);
+            } else if (i.type === "gear") {
                 gear.push(i);
-            }
-            // Append to features.
-            else if (i.type === "feature") {
-                features.push(i);
+            } else if (i.type === "ability") {
+                abilities.push(i);
             }
             // Append to spells.
             else if (i.type === "spell") {
-                if (i.data.spellLevel != undefined) {
-                    spells[i.data.spellLevel].push(i);
+                if (i.data.level != undefined) {
+                    spells[i.data.level].push(i);
                 }
             }
         }
 
-        // Assign and return
+        actorData.weapons = weapons;
+        actorData.armor = armor;
         actorData.gear = gear;
-        actorData.features = features;
+        actorData.abilities = abilities;
         actorData.spells = spells;
     }
 
@@ -112,6 +112,13 @@ export class WhiteboxActorSheet extends ActorSheet {
             const li = $(ev.currentTarget).parents(".item");
             this.actor.deleteOwnedItem(li.data("itemId"));
             li.slideUp(200, () => this.render(false));
+        });
+
+        //Toggle Equip Inventory Item
+        html.find(".item-equip").click(async (ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
         });
 
         // Rollable abilities.
@@ -167,6 +174,16 @@ export class WhiteboxActorSheet extends ActorSheet {
 
         // Finally, create the item!
         return this.actor.createOwnedItem(itemData);
+    }
+
+    //Toggle Equipment
+    _toggleEquipped(id, item) {
+        return {
+            _id: id,
+            data: {
+                equipped: !item.data.data.equipped,
+            },
+        };
     }
 
     /**

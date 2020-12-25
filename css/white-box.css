@@ -856,6 +856,7 @@
 .whitebox .overlay-section .overlay-content {
   position: relative;
   padding: 10px;
+  overflow: scroll;
 }
 
 .whitebox .overlay-section .overlay-content .close {
@@ -868,6 +869,12 @@
 
 .whitebox .overlay-section .overlay-content h2 {
   font-family: "Acme", sans-serif;
+  border: none;
+}
+
+.whitebox .overlay-section .overlay-content h3 {
+  font-family: "Acme", sans-serif;
+  font-size: 16px;
   border: none;
 }
 
@@ -1182,6 +1189,16 @@
   min-height: 20px;
   line-height: 16px;
   padding: 0;
+  border-bottom: 1px solid #bbb;
+  font-family: "Acme", sans-serif;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 2px;
+  padding: 2px 0;
+}
+
+.whitebox .items-list .item .item-name {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1189,26 +1206,24 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-family: "Acme", sans-serif;
-}
-
-.whitebox .items-list .item .item-name {
   font-size: 14px;
   margin: 0;
   font-weight: bold;
   -webkit-box-flex: 1;
   -ms-flex: 1;
   flex: 1;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .whitebox .items-list .item .item-image {
+  width: 24px;
+  height: 24px;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 24px;
   flex: 0 0 24px;
   margin-right: 5px;
-}
-
-.whitebox .items-list .item img {
   display: block;
 }
 
@@ -1217,8 +1232,30 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
+  -ms-flex: 0 0 300px;
+  flex: 0 0 300px;
+  text-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.whitebox .items-list .item .item-details.xs {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 32px;
+  flex: 0 0 32px;
+}
+
+.whitebox .items-list .item .item-details.sm {
+  -webkit-box-flex: 0;
   -ms-flex: 0 0 100px;
   flex: 0 0 100px;
+}
+
+.whitebox .items-list .item .item-details.md {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
 }
 
 .whitebox .items-list .item .item-controls {
@@ -1229,6 +1266,9 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 86px;
+  flex: 0 0 86px;
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;

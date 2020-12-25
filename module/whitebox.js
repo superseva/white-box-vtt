@@ -4,9 +4,11 @@ import { WhiteboxActorSheet } from "./actor/actor-sheet.js";
 //import { WhiteboxEnemySheet } from "./actor/enemy-sheet.js";
 import { WhiteboxItem } from "./item/item.js";
 import { WhiteboxItemSheet } from "./item/item-sheet.js";
+//import { WhiteBoxHelper } from "./whitebox.js";
 
 Hooks.once("init", function () {
     game.whitebox = {
+        WhiteBoxHelper,
         DiceRoller,
         WhiteboxActor,
         WhiteboxActorSheet,
@@ -22,30 +24,12 @@ Hooks.once("init", function () {
     Items.registerSheet("whitebox", WhiteboxItemSheet, { makeDefault: true });
 
     Hooks.on("preCreateItem", function (entity, options, userId) {
-        console.log(entity);
         if (!entity.type) return;
-
-        switch (entity.type) {
-            case "weapon":
-                entity.img = "systems/white-box-vtt/assets/axe-sword.svg";
-                break;
-            case "armor":
-                entity.img = "systems/white-box-vtt/assets/breastplate.svg";
-                break;
-            case "gear":
-                entity.img = "systems/white-box-vtt/assets/swap-bag.svg";
-                break;
-            case "ability":
-                entity.img = "systems/white-box-vtt/assets/skills.svg";
-                break;
-            case "spell":
-                entity.img = "systems/white-box-vtt/assets/magic-swirl.svg";
-                break;
-            case "monster_attack":
-                entity.img = "systems/white-box-vtt/assets/ent-mouth.svg";
-                break;
-        }
-        //entity.img = 'systems/white-box-vtt/assets/icons/' + entity.type + '.jpg'
+        entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
+    });
+    Hooks.on("preCreateOwnedItem", function (actor, entity, options, userId) {
+        if (!entity.type) return;
+        entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
     });
 
     Handlebars.registerHelper("concat", function () {
@@ -58,3 +42,30 @@ Hooks.once("init", function () {
         return outStr;
     });
 });
+
+export class WhiteBoxHelper {
+    static GetCreatedImage(item_type) {
+        let img = "";
+        switch (item_type) {
+            case "weapon":
+                img = "systems/white-box-vtt/assets/axe-sword.svg";
+                break;
+            case "armor":
+                img = "systems/white-box-vtt/assets/breastplate.svg";
+                break;
+            case "gear":
+                img = "systems/white-box-vtt/assets/swap-bag.svg";
+                break;
+            case "ability":
+                img = "systems/white-box-vtt/assets/skills.svg";
+                break;
+            case "spell":
+                img = "systems/white-box-vtt/assets/magic-swirl.svg";
+                break;
+            case "monster_attack":
+                img = "systems/white-box-vtt/assets/ent-mouth.svg";
+                break;
+        }
+        return img;
+    }
+}
