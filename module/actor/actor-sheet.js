@@ -44,7 +44,9 @@ export class WhiteboxActorSheet extends ActorSheet {
 
         // Initialize containers.
         const weapons = [];
+        const weapons_equipped = [];
         const armor = [];
+        const armor_equipped = [];
         const gear = [];
         const abilities = [];
         const spells = {
@@ -63,8 +65,10 @@ export class WhiteboxActorSheet extends ActorSheet {
             i.img = i.img || DEFAULT_TOKEN;
             if (i.type === "weapon") {
                 weapons.push(i);
+                if (i.data.equipped) weapons_equipped.push(i);
             } else if (i.type === "armor") {
                 armor.push(i);
+                if (i.data.equipped) armor_equipped.push(i);
             } else if (i.type === "gear") {
                 gear.push(i);
             } else if (i.type === "ability") {
@@ -79,7 +83,9 @@ export class WhiteboxActorSheet extends ActorSheet {
         }
 
         actorData.weapons = weapons;
+        actorData.weapons_equipped = weapons_equipped;
         actorData.armor = armor;
+        actorData.armor_equipped = armor_equipped;
         actorData.gear = gear;
         actorData.abilities = abilities;
         actorData.spells = spells;
