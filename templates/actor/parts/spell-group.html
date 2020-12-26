@@ -1,3 +1,8 @@
+<div class="flex row space-between header">
+    <h3>LEVEL {{level}}</h3>
+    <span class="acme">Memorized: {{spells_memorized}}/{{spells_max}}</span>
+</div>
+
 <ol class="items-list">
     {{#each spells as |item id|}}
     <li class="item spell" data-item-id="{{item._id}}">

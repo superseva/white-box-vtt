@@ -88,22 +88,27 @@
             "spells": {
                 "1": {
                     "value": 0,
+                    "memorized": 0,
                     "max": 0
                 },
                 "2": {
                     "value": 0,
+                    "memorized": 0,
                     "max": 0
                 },
                 "3": {
                     "value": 0,
+                    "memorized": 0,
                     "max": 0
                 },
                 "4": {
                     "value": 0,
+                    "memorized": 0,
                     "max": 0
                 },
                 "5": {
                     "value": 0,
+                    "memorized": 0,
                     "max": 0
                 }
             },
