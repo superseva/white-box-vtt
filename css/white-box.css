@@ -682,6 +682,26 @@
   padding-top: 20px;
 }
 
+.whitebox .actor-sheet-section .spell-group {
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.whitebox .actor-sheet-section .spell-group h3 {
+  padding: 2px 5px;
+  background-color: #e6e6e6;
+}
+
+.whitebox .actor-sheet-section .spell-group .spell button {
+  line-height: 16px;
+}
+
+.whitebox .actor-sheet-section .spell-group .spell .memo {
+  padding: 1px 3px;
+  border: 1px solid #404040;
+  border-radius: 2px;
+}
+
 .whitebox .enemy-header {
   -webkit-box-flex: unset;
   -ms-flex: unset;

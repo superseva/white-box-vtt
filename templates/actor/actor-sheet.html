@@ -220,21 +220,31 @@
                     <a class="button-scroll toggle-overlay" data-overlay="spellbook"></a>
                     <a class="title-section toggle-overlay" data-overlay="spellbook">Spells</a>
                     <div class="content-section flexrow">
-                        <span class="flexcol flex-center"
-                            ><label for="data.spells.1.max">1</label><input type="number" name="data.spells.1.max" value="{{data.spells.1.max}}"
-                        /></span>
-                        <span class="flexcol flex-center"
-                            ><label for="data.spells.2.max">2</label><input type="number" name="data.spells.2.max" value="{{data.spells.2.max}}"
-                        /></span>
-                        <span class="flexcol flex-center"
-                            ><label for="data.spells.3.max">3</label><input type="number" name="data.spells.3.max" value="{{data.spells.3.max}}"
-                        /></span>
-                        <span class="flexcol flex-center"
-                            ><label for="data.spells.4.max">4</label><input type="number" name="data.spells.4.max" value="{{data.spells.4.max}}"
-                        /></span>
-                        <span class="flexcol flex-center"
-                            ><label for="data.spells.5.max">5</label><input type="number" name="data.spells.5.max" value="{{data.spells.5.max}}"
-                        /></span>
+                        <span class="flexcol flex-center">
+                            <label for="data.spells.1.max">1</label>
+                            <label>{{data.spells.1.max}}</label>
+                            <!-- <input type="number" name="data.spells.1.max" value="{{data.spells.1.max}}"/> -->
+                        </span>
+                        <span class="flexcol flex-center">
+                            <label for="data.spells.2.max">2</label>
+                            <label>{{data.spells.2.max}}</label>
+                            <!-- <input type="number" name="data.spells.2.max" value="{{data.spells.2.max}}"/> -->
+                        </span>
+                        <span class="flexcol flex-center">
+                            <label for="data.spells.3.max">3</label>
+                            <label>{{data.spells.3.max}}</label>
+                            <!-- <input type="number" name="data.spells.3.max" value="{{data.spells.3.max}}"/> -->
+                        </span>
+                        <span class="flexcol flex-center">
+                            <label for="data.spells.4.max">4</label>
+                            <label>{{data.spells.4.max}}</label>
+                            <!-- <input type="number" name="data.spells.4.max" value="{{data.spells.4.max}}"/> -->
+                        </span>
+                        <span class="flexcol flex-center">
+                            <label for="data.spells.5.max">5</label>
+                            <label style="border: 1px solid black; padding: 0 4px">{{data.spells.5.max}}</label>
+                            <!-- <input type="number" name="data.spells.5.max" value="{{data.spells.5.max}}"/> -->
+                        </span>
                     </div>
                 </div>
                 <!-- $$ INVENTORY -->
@@ -400,6 +410,69 @@
                 <div class="papir f1 overlay-content">
                     <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
                     <h2>Spellbook</h2>
+                    <div class="grid f1">
+                        <!-- $$ LEFT -->
+                        <div>
+                            <div class="spell-group papirus-box papir1">
+                                <h3>SPELL TABLE</h3>
+                                <div class="content-section flexrow">
+                                    <span class="flexcol pusher-right acme">
+                                        <label>Level: </label>
+                                        <label>Max: </label>
+                                        <label>Current: </label>
+                                    </span>
+                                    <span class="flexcol flex-center">
+                                        <label for="data.spells.1.max">1</label>
+                                        <input type="number" name="data.spells.1.max" value="{{data.spells.1.max}}" />
+                                        <label for="data.spells.1.value">0</label>
+                                    </span>
+                                    <span class="flexcol flex-center">
+                                        <label for="data.spells.2.max">2</label>
+                                        <input type="number" name="data.spells.2.max" value="{{data.spells.2.max}}" />
+                                        <label for="data.spells.2.value">0</label>
+                                    </span>
+                                    <span class="flexcol flex-center">
+                                        <label for="data.spells.3.max">3</label>
+                                        <input type="number" name="data.spells.3.max" value="{{data.spells.3.max}}" />
+                                        <label for="data.spells.3.value">0</label>
+                                    </span>
+                                    <span class="flexcol flex-center">
+                                        <label for="data.spells.4.max">4</label>
+                                        <input type="number" name="data.spells.4.max" value="{{data.spells.4.max}}" />
+                                        <label for="data.spells.4.value">0</label>
+                                    </span>
+                                    <span class="flexcol flex-center">
+                                        <label for="data.spells.5.max">5</label>
+                                        <input type="number" name="data.spells.5.max" value="{{data.spells.5.max}}" />
+                                        <label for="data.spells.5.value">0</label>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="spell-group papirus-box papir1">
+                                <h3>LEVEL 1</h3>
+                                {{> systems/white-box-vtt/templates/actor/parts/spell-group.html spells=actor.spells.[1] level=1}}
+                            </div>
+                            <div class="spell-group papirus-box papir1">
+                                <h3>LEVEL 2</h3>
+                                {{> systems/white-box-vtt/templates/actor/parts/spell-group.html spells=actor.spells.[2] level=2}}
+                            </div>
+                        </div>
+                        <!-- $$ RIGHT -->
+                        <div>
+                            <div class="spell-group papirus-box papir1">
+                                <h3>LEVEL 3</h3>
+                                {{> systems/white-box-vtt/templates/actor/parts/spell-group.html spells=actor.spells.[3] level=3}}
+                            </div>
+                            <div class="spell-group papirus-box papir1">
+                                <h3>LEVEL 4</h3>
+                                {{> systems/white-box-vtt/templates/actor/parts/spell-group.html spells=actor.spells.[4] level=4}}
+                            </div>
+                            <div class="spell-group papirus-box papir1">
+                                <h3>LEVEL 5</h3>
+                                {{> systems/white-box-vtt/templates/actor/parts/spell-group.html spells=actor.spells.[5] level=5}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- $$ NOTES -->

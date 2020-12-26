@@ -32,6 +32,8 @@ Hooks.once("init", function () {
         entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
     });
 
+    _preloadHandlebarsTemplates();
+
     Handlebars.registerHelper("concat", function () {
         var outStr = "";
         for (var arg in arguments) {
@@ -42,6 +44,15 @@ Hooks.once("init", function () {
         return outStr;
     });
 });
+
+/* -------------------------------------------- */
+/** LOAD PARTIALS
+/* -------------------------------------------- */
+
+function _preloadHandlebarsTemplates() {
+    const templatePaths = ["systems/white-box-vtt/templates/actor/parts/spell-group.html"];
+    return loadTemplates(templatePaths);
+}
 
 export class WhiteBoxHelper {
     static GetCreatedImage(item_type) {

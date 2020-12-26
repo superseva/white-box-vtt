@@ -221,6 +221,25 @@
             }
         }
     }
+
+    .spell-group {
+        padding: 5px;
+        margin-bottom: 5px;
+        h3 {
+            padding: 2px 5px;
+            background-color: rgb(230, 230, 230);
+        }
+        .spell {
+            button {
+                line-height: 16px;
+            }
+            .memo {
+                padding: 1px 3px;
+                border: 1px solid rgb(64, 64, 64);
+                border-radius: 2px;
+            }
+        }
+    }
 }
 
 .enemy-header {
