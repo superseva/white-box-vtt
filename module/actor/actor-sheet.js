@@ -89,6 +89,8 @@ export class WhiteboxActorSheet extends ActorSheet {
         actorData.gear = gear;
         actorData.abilities = abilities;
         actorData.spells = spells;
+
+        // TODO CALC SPELLS MEMORIZATION
     }
 
     /* -------------------------------------------- */
@@ -125,6 +127,23 @@ export class WhiteboxActorSheet extends ActorSheet {
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
             await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
+        });
+
+        html.find(".memo-button").click(async (ev) => {
+            const btn = $(ev.currentTarget);
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            let _memo = item.data.data.memorized;
+            if (btn.data("operation") == "minus" && _memo > 0) _memo--;
+            else if (btn.data("operation") == "plus") _memo++;
+            else return;
+            let obj = {
+                _id: item._id,
+                data: {
+                    memorized: _memo,
+                },
+            };
+            await this.actor.updateOwnedItem(obj);
         });
 
         // Rollable abilities.
@@ -181,13 +200,6 @@ export class WhiteboxActorSheet extends ActorSheet {
         const el = evt.currentTarget;
         const overlay = el.dataset.overlay;
         this._tabs[0].activate(overlay);
-
-        //Tabs.prototype.activate("spellbook");
-        //$(".sheet-tabs.tabs").trigger("click");
-        //console.log($(".sheet-tabs.tabs"));
-        //$(".tab-" + overlay).trigger("click");
-        //const $overlay = $(".overlay-section." + overlay);
-        //$overlay.toggleClass("hidden");
     }
 
     /**
@@ -198,23 +210,21 @@ export class WhiteboxActorSheet extends ActorSheet {
     _onItemCreate(event) {
         event.preventDefault();
         const header = event.currentTarget;
-        // Get the type of item to create.
         const type = header.dataset.type;
-        // Grab any data associated with this control.
         const data = duplicate(header.dataset);
-        // Initialize a default name.
         const name = `New ${type.capitalize()}`;
-        // Prepare the item object.
         const itemData = {
             name: name,
             type: type,
             data: data,
         };
-        // Remove the type from the dataset since it's in the itemData.type prop.
         delete itemData.data["type"];
-
-        // Finally, create the item!
         return this.actor.createOwnedItem(itemData);
+    }
+
+    _onSpellMemo(evt) {
+        evt.preventDefault();
+        const element = event.currentTarget;
     }
 
     //Toggle Equipment
