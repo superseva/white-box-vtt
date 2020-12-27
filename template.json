@@ -186,7 +186,7 @@
         "ability": {
             "templates": ["base"],
             "die": "1d6",
-            "bonus": "1",
+            "bonus": "0",
             "mod": ""
         },
         "spell": {
