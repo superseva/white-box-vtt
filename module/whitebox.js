@@ -1,4 +1,5 @@
 import { DiceRoller } from "./components/dice-roller.js";
+import { RollDialog } from "./components/roll-dialog.js";
 import { WhiteboxActor } from "./actor/actor.js";
 import { WhiteboxActorSheet } from "./actor/actor-sheet.js";
 //import { WhiteboxEnemySheet } from "./actor/enemy-sheet.js";
@@ -10,6 +11,7 @@ Hooks.once("init", function () {
     game.whitebox = {
         WhiteBoxHelper,
         DiceRoller,
+        RollDialog,
         WhiteboxActor,
         WhiteboxActorSheet,
     };

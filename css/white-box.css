@@ -13,6 +13,14 @@
   opacity: 1;
 }
 
+.window-app .input-underlined {
+  background: unset;
+  border: unset;
+  border-bottom: 1px solid;
+  border-radius: 0;
+  margin-right: 0.5em;
+}
+
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;

@@ -6,6 +6,14 @@
         background-size: cover;
         opacity: 1;
     }
+
+    .input-underlined {
+        background: unset;
+        border: unset;
+        border-bottom: 1px solid;
+        border-radius: 0;
+        margin-right: 0.5em;
+    }
 }
 
 .rollable {

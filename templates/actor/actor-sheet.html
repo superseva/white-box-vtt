@@ -43,13 +43,7 @@
                     <label class="attribute-name">{{localize (concat 'WB.' id)}}</label>
                     <span class="flexrow align-center space-between">
                         <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
-                        <input
-                            type="number"
-                            name="data.attributes.{{id}}.bonus"
-                            value="{{item.bonus}}"
-                            class="input-white bonus blank"
-                            style="background-color: #1a1d24"
-                        />
+                        <label style="text-align: center; padding: 3px 0; background-color: #1a1d24" class="size14">{{item.bonus}}</label>
                     </span>
                 </div>
                 {{/each}}
@@ -111,8 +105,43 @@
             </div>
         </header>
         <section class="actor-body">
+            <!-- $$ QUICK ARMOR -->
+            <div class="combat-box papirus-box papir1 p40" style="margin-bottom: 15px; min-height: 60px">
+                <!-- <div class="button-plus" style="top: -12px">+</div> -->
+                <div class="palcque ac">
+                    <div class="titled-box">
+                        <div class="title-section white ac">AC</div>
+                        <div class="content-section ac sm">
+                            <input type="number" name="data.ac.value" value="{{data.ac.value}}" class="blank" />
+                        </div>
+                    </div>
+                </div>
+                <ol class="items-list grid">
+                    <!-- <li class="item flexrow">
+                        <div class="item-name">
+                            <span></span>
+                        </div>
+                        <div class="item-details flexrow xs">
+                            <div>AC</div>
+                        </div>
+                        <div class="item-controls"></div>
+                    </li> -->
+                    {{#each actor.armor_equipped as |item id|}}
+                    <li class="item flexrow editable-item" data-item-id="{{item._id}}">
+                        <div class="item-name">
+                            <img class="item-image" src="{{item.img}}" alt="" />
+                            <span>{{item.name}}</span>
+                        </div>
+                        <div class="item-details flexrow xs">
+                            <div>AC: {{item.data.ac.value}}</div>
+                        </div>
+                        <!-- <div class="item-controls"></div> -->
+                    </li>
+                    {{/each}}
+                </ol>
+            </div>
             <!-- $$ QUICK WEAPONS -->
-            <div class="combat-box papirus-box papir1 p10" style="margin-bottom: 15px">
+            <div class="combat-box papirus-box papir1 p10 pusher-bottom">
                 <!-- <div class="button-plus" style="top: -12px">+</div> -->
                 <div class="palcque">
                     <div class="titled-box">
@@ -152,41 +181,7 @@
                     {{/each}}
                 </ol>
             </div>
-            <!-- $$ QUICK ARMOR -->
-            <div class="combat-box papirus-box papir1 pusher-bottom p40">
-                <!-- <div class="button-plus" style="top: -12px">+</div> -->
-                <div class="palcque ac">
-                    <div class="titled-box">
-                        <div class="title-section white ac">AC</div>
-                        <div class="content-section ac sm">
-                            <input type="number" name="data.ac.value" value="{{data.ac.value}}" class="blank" />
-                        </div>
-                    </div>
-                </div>
-                <ol class="items-list grid">
-                    <!-- <li class="item flexrow">
-                        <div class="item-name">
-                            <span></span>
-                        </div>
-                        <div class="item-details flexrow xs">
-                            <div>AC</div>
-                        </div>
-                        <div class="item-controls"></div>
-                    </li> -->
-                    {{#each actor.armor_equipped as |item id|}}
-                    <li class="item flexrow editable-item" data-item-id="{{item._id}}">
-                        <div class="item-name">
-                            <img class="item-image" src="{{item.img}}" alt="" />
-                            <span>{{item.name}}</span>
-                        </div>
-                        <div class="item-details flexrow xs">
-                            <div>AC: {{item.data.ac.value}}</div>
-                        </div>
-                        <!-- <div class="item-controls"></div> -->
-                    </li>
-                    {{/each}}
-                </ol>
-            </div>
+
             <!-- $$ ABILITIES -->
             <div class="flexrow f1 pusher-bottom">
                 <div class="titled-box abilities">

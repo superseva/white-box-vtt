@@ -21,8 +21,12 @@ export class WhiteboxActor extends Actor {
     _prepareCharacterData(actorData) {
         const data = actorData.data;
         // Loop through ability scores, and add their modifiers to our sheet output.
+        const lowerVal = 6;
+        const uperVal = 15;
         for (let [key, attribute] of Object.entries(data.attributes)) {
-            attribute.mod = Math.floor((attribute.value - 10) / 2);
+            if (attribute.value <= lowerVal) attribute.bonus = -1;
+            else if (attribute.value >= uperVal) attribute.bonus = 1;
+            else attribute.bonus = 0;
         }
 
         // * CALC AC
