@@ -90,17 +90,14 @@ export class WhiteboxActorSheet extends ActorSheet {
         actorData.abilities = abilities;
         actorData.spells = spells;
 
-        // TODO CALC SPELLS MEMORIZATION
-        //let actorSpells = this.actor.data.data.spells;
-        //console.warn(actorSpells);
+        let actorSpells = { 1: { memorized: 0 }, 2: { memorized: 0 }, 3: { memorized: 0 }, 4: { memorized: 0 }, 5: { memorized: 0 } };
+        // * CALULATING MEMORIZATION
         for (let l = 1; l <= 5; l++) {
-            //console.warn(`LVL ${l} num of spells ${spells[l].length}`);
             for (let i = 0; i < spells[l].length; i++) {
-                this.actor.data.data.spells[l].memorized += spells[l][i].data.memorized;
+                actorSpells[l]["memorized"] += spells[l][i].data.memorized;
             }
         }
-        actorData.actorSpells = this.actor.data.data.spells;
-        //console.warn(this.actor.data.data.spells);
+        actorData.actorSpells = actorSpells;
     }
 
     /* -------------------------------------------- */
