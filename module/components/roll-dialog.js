@@ -28,7 +28,7 @@ export class RollDialog {
                 content: htmlContent,
                 buttons: {
                     roll: {
-                        icon: '<i class="fas fa-check"></i>',
+                        icon: "",
                         label: "Roll D6",
                         callback: (html) => {
                             //game.whitebox.DiceRoller.roll({num:1, type:6, base:base, mod:mod, tn:1, visible:visible, label:label});
