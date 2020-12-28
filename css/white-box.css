@@ -586,6 +586,28 @@
   border: none;
 }
 
+.whitebox .actor-sheet-section .actor-header .roller .roll-die-d6 {
+  background-image: url(../assets/roll-d6-in.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.whitebox .actor-sheet-section .actor-header .roller .roll-die-d6:hover {
+  background-image: url(../assets/roll-d6.png);
+}
+
+.whitebox .actor-sheet-section .actor-header .roller .roll-die-d20 {
+  background-image: url(../assets/roll-d20-in.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+.whitebox .actor-sheet-section .actor-header .roller .roll-die-d20:hover {
+  background-image: url(../assets/roll-d20.png);
+}
+
 .whitebox .actor-sheet-section .actor-header .grid {
   margin: 0;
 }

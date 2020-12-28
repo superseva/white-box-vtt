@@ -100,8 +100,14 @@
                 <input type="text" name="data.class" value="{{data.class}}" class="input-underlined info" placeholder="{{localize 'WB.Class'}}" />
                 <input type="text" name="data.alignment" value="{{data.alignment}}" class="input-underlined info" placeholder="{{localize 'WB.Alignment'}}" />
             </div>
-            <div class="roller">
-                <img src="systems/white-box-vtt/assets/roll-dice-button.png" alt="" />
+            <div class="roller flexcol">
+                <div class="flex flex-center roll-die-d6">
+                    <!-- <img src="systems/white-box-vtt/assets/roll-d6-in.png" alt="" /> -->
+                </div>
+                <div class="flex flex-center roll-die-d20">
+                    <!-- <img src="systems/white-box-vtt/assets/roll-d20-in.png" alt="" /> -->
+                </div>
+                <!-- <img src="systems/white-box-vtt/assets/roll-dice-button.png" alt="" /> -->
             </div>
         </header>
         <section class="actor-body">
@@ -166,10 +172,10 @@
                     </li>
                     {{#each actor.weapons_equipped as |item id|}}
                     <li class="item flexrow editable-item" data-item-id="{{item._id}}">
-                        <div class="item-name">
+                        <a class="item-name">
                             <img class="item-image" src="{{item.img}}" alt="" />
                             <span>{{item.name}}</span>
-                        </div>
+                        </a>
                         <div class="item-details flexrow md">
                             <div>{{item.data.bonus_to_hit}}</div>
                             <div>{{item.data.damage.value}}</div>
@@ -191,10 +197,10 @@
                         <ol class="items-list grid f1">
                             {{#each actor.abilities as |item id|}}
                             <li class="item flexrow editable-item" data-item-id="{{item._id}}">
-                                <div class="item-name">
+                                <a class="item-name roll-ability">
                                     <img class="item-image" src="{{item.img}}" alt="" />
                                     {{item.name}}
-                                </div>
+                                </a>
                                 <div class="item-details flexrow xs">+ {{item.data.bonus}}</div>
                                 <div class="item-controls sm">
                                     <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"

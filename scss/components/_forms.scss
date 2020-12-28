@@ -139,6 +139,25 @@
             img {
                 border: none;
             }
+
+            .roll-die-d6 {
+                background-image: url(../assets/roll-d6-in.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                &:hover {
+                    background-image: url(../assets/roll-d6.png);
+                }
+                cursor: pointer;
+            }
+            .roll-die-d20 {
+                background-image: url(../assets/roll-d20-in.png);
+                background-repeat: no-repeat;
+                background-position: center;
+                &:hover {
+                    background-image: url(../assets/roll-d20.png);
+                }
+                cursor: pointer;
+            }
         }
 
         .grid {

@@ -100,7 +100,9 @@ export class WhiteboxActorSheet extends ActorSheet {
         actorData.actorSpells = actorSpells;
     }
 
-    /* -------------------------------------------- */
+    /*
+     * --------------------------------------------
+     */
 
     /** @override */
     activateListeners(html) {
@@ -153,12 +155,32 @@ export class WhiteboxActorSheet extends ActorSheet {
             await this.actor.updateOwnedItem(obj);
         });
 
-        // Rollable abilities.
-        html.find(".rollable").click(this._onRoll.bind(this));
+        /*
+         * ---------------------------------------
+         * Rollable Buttons
+         * Die d6 & d20
+         * Weapons
+         * Abilities
+         * ---------------------------------------
+         */
+        // html.find(".rollable").click(this._onRoll.bind(this));
+        // * Custom D6
+        html.find(".roll-die-d6").click(function () {
+            game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "Customn d6 Roll" });
+        });
+        // * Roll Ability
+        html.find(".roll-ability").click((ev) => {
+            const btn = $(ev.currentTarget);
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const bonus = parseInt(item.data.data.bonus);
+            //console.log(bonus);
+            game.whitebox.RollDialog.prepareDialog({ mod: bonus, tn: 1, label: item.data.name });
+        });
 
-        /* -------------------------------------------- */
-        /* ADD LEFT CLICK CONTENT MENU
-        /* -------------------------------------------- */
+        // * -------------------------------------------
+        // * ADD LEFT CLICK CONTENT MENU
+        // * --------------------------------------------
         const editLabel = game.i18n.localize("WB.EDIT");
         const postLabel = game.i18n.localize("WB.POST");
         const deleteLabel = game.i18n.localize("WB.DELETE");
@@ -249,7 +271,7 @@ export class WhiteboxActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onRoll(event) {
+    /*_onRoll(event) {
         event.preventDefault();
         const element = event.currentTarget;
         const dataset = element.dataset;
@@ -262,5 +284,5 @@ export class WhiteboxActorSheet extends ActorSheet {
                 flavor: label,
             });
         }
-    }
+    }*/
 }
