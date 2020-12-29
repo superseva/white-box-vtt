@@ -166,7 +166,7 @@ export class WhiteboxActorSheet extends ActorSheet {
         // html.find(".rollable").click(this._onRoll.bind(this));
         // * Custom D6
         html.find(".roll-die-d6").click(function () {
-            game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "Customn d6 Roll" });
+            game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "D6 Chance Roll" });
         });
         // * Roll Ability
         html.find(".roll-ability").click((ev) => {

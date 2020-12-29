@@ -3,22 +3,17 @@
         <input type="text" value="{{label}}" class="label input-blank acme" style="font-size: 18px" />
     </div>
     <div class="flexrow" style="margin-bottom: 5px; border: 1px solid rgb(153, 153, 153); padding: 5px">
-        <!-- <span class="flexrow" style="align-items: center; justify-content: center">1d6</span>
-        <span class="flexrow" style="align-items: center; justify-content: center"><=</span> -->
         <span class="flexrow" style="align-items: center; justify-content: center; flex: 2">
-            <label style="flex: 2" class="acme">Base Chance:</label>
+            <label style="flex: 2" class="acme">Target AC:</label>
             <input type="number" class="tn input-underlined acme" style="text-align: center" value="{{tn}}" />
         </span>
-        <span class="flexrow" style="align-items: center; justify-content: center">+</span>
+        <span class="flexrow" style="align-items: center; justify-content: center; flex: 2">
+            <label style="flex: 2" class="acme">To Hit Bonus:</label>
+            <input type="number" class="thb input-underlined acme" style="text-align: center" value="{{thb}}" />
+        </span>
         <span class="flexrow" style="align-items: center; justify-content: center; flex: 2">
             <label style="flex: 2" class="acme">Modifier:</label>
             <input type="number" class="mod input-underlined acme" style="text-align: center" value="{{mod}}" />
         </span>
-    </div>
-    <div class="flexrow" style="margin-bottom: 5px">
-        <div class="flex-group-center">
-            <label for="" class="acme">Public</label>
-            <input type="checkbox" class="visible" checked />
-        </div>
     </div>
 </div>

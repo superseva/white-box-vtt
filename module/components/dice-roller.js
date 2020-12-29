@@ -22,4 +22,11 @@ export class DiceRoller {
         //return r.results[0];
         return r;
     }
+
+    static rollToHit({ num = 1, type = 20, tn = null, thb = 0, mod = 0, label = "To Hit Roll" } = {}) {
+        let formula = `${num}d${type} + ${thb} + ${mod}`;
+        let r = new Roll(formula);
+        r.evaluate();
+        r.toMessage();
+    }
 }

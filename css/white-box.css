@@ -21,6 +21,15 @@
   margin-right: 0.5em;
 }
 
+.window-app .input-blank {
+  background: unset;
+  border: unset;
+}
+
+.window-app .acme {
+  font-family: "Acme", sans-serif;
+}
+
 .rollable:hover, .rollable:focus {
   color: #000;
   text-shadow: 0 0 10px red;

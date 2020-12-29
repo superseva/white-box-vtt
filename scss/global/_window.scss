@@ -14,6 +14,13 @@
         border-radius: 0;
         margin-right: 0.5em;
     }
+    .input-blank {
+        background: unset;
+        border: unset;
+    }
+    .acme {
+        font-family: $font-abr;
+    }
 }
 
 .rollable {

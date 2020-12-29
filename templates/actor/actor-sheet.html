@@ -1,7 +1,7 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     <aside class="sidebar">
-        <div class="content">
-            <div class="grid">
+        <div class="content" style="min-height: 610px">
+            <!-- <div class="grid">
                 <div class="titled-box">
                     <h3 class="title-section">HD</h3>
                     <div class="content-section v1" style="padding-bottom: 0">
@@ -14,7 +14,7 @@
                         <span><input type="number" name="data.level" value="{{data.level}}" class="input-white blank" /></span>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="titled-box">
                 <h3 class="title-section">HP</h3>
                 <div class="content-section v3">
@@ -93,12 +93,24 @@
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
             </div>
             <div class="info-box">
-                <div class="actor-name papirus-box papir1">
+                <div class="actor-name papirus-box papir1 pusher-bottom">
                     <input type="text" name="name" value="{{actor.name}}" class="blank" />
                 </div>
-                <input type="text" name="data.race" value="{{data.race}}" class="input-underlined info" placeholder="{{localize 'WB.Race'}}" />
-                <input type="text" name="data.class" value="{{data.class}}" class="input-underlined info" placeholder="{{localize 'WB.Class'}}" />
-                <input type="text" name="data.alignment" value="{{data.alignment}}" class="input-underlined info" placeholder="{{localize 'WB.Alignment'}}" />
+                <div class="grid papirus-box papir2 padded">
+                    <input type="text" name="data.race" value="{{data.race}}" class="input-underlined info" placeholder="{{localize 'WB.Race'}}" />
+                    <input type="text" name="data.class" value="{{data.class}}" class="input-underlined info" placeholder="{{localize 'WB.Class'}}" />
+                    <input
+                        type="text"
+                        name="data.alignment"
+                        value="{{data.alignment}}"
+                        class="input-underlined info"
+                        placeholder="{{localize 'WB.Alignment'}}"
+                    />
+                    <span class="flexrow space-between">
+                        <label for="data.level">Level:</label>
+                        <input type="number" class="input-underlined info" name="data.level" value="{{data.level}}" style="max-width: 2rem" />
+                    </span>
+                </div>
             </div>
             <div class="roller flexcol">
                 <div class="flex flex-center roll-die-d6">
