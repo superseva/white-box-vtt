@@ -512,8 +512,20 @@
   color: #cacaca;
 }
 
+.whitebox .sidebar .loyalty-box,
+.whitebox .sidebar .thievery-box,
 .whitebox .sidebar .movement-box {
   font-family: "Acme", sans-serif;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+
+.whitebox .sidebar .loyalty-box input,
+.whitebox .sidebar .thievery-box input,
+.whitebox .sidebar .movement-box input {
+  color: white;
+  text-align: center;
+  max-width: 2.5em;
 }
 
 .whitebox .sidebar .xp-tracker {

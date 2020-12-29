@@ -81,9 +81,17 @@
             }
         }
     }
-
+    .loyalty-box,
+    .thievery-box,
     .movement-box {
         font-family: $font-abr;
+        padding: 0 5px;
+        margin-bottom: 10px;
+        input {
+            color: white;
+            text-align: center;
+            max-width: 2.5em;
+        }
     }
 
     .xp-tracker {

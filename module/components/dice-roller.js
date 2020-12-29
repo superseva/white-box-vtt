@@ -29,4 +29,30 @@ export class DiceRoller {
         r.evaluate();
         r.toMessage();
     }
+
+    static rollD20({
+        num = 1,
+        type = 20,
+        tn = null,
+        tn_label = null,
+        tn_show = false,
+        bonus = null,
+        bonus_label = null,
+        bonus_show = false,
+        mod = null,
+        mod_label = null,
+        mod_show = false,
+        roll_above = true,
+        roll_above_show = false,
+        title = null,
+        label = null,
+    } = {}) {
+        let formula = `${num}d${type}`;
+        // * if roll_above add bonus and mod to the roll
+        if (roll_above && bonus) formula += `+ ${bonus}`;
+        if (roll_above && mod) formula += `+ ${mod}`;
+        let r = new Roll(formula);
+        r.evaluate();
+        r.toMessage();
+    }
 }

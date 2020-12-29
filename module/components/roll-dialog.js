@@ -80,4 +80,63 @@ export class RollDialog {
             d.render(true);
         });
     }
+
+    static async prepareRolld20({
+        num = 1,
+        type = 20,
+        tn = null,
+        tn_label = null,
+        tn_show = false,
+        bonus = null,
+        bonus_label = null,
+        bonus_show = false,
+        mod = null,
+        mod_label = null,
+        mod_show = false,
+        roll_above_show = false,
+        roll_above = true,
+        title = null,
+        label = null,
+    } = {}) {
+        let htmlData = {
+            num: num,
+            type: type,
+            tn: tn,
+            tn_label: tn_label,
+            tn_show: tn_show,
+            bonus: bonus,
+            bonus_label: bonus_label,
+            bonus_show: bonus_show,
+            mod: mod,
+            mod_label: mod_label,
+            mod_show: mod_show,
+            roll_above: roll_above,
+            roll_above_show: roll_above_show,
+            title: title,
+            label: label,
+        };
+        let _htmlContent = await renderTemplate("systems/white-box-vtt/templates/components/roll-20-dialog.html", htmlData);
+        return new Promise((resolve) => {
+            let d = new Dialog({
+                title: title,
+                content: _htmlContent,
+                buttons: {
+                    roll: {
+                        icon: "",
+                        label: label,
+                        callback: (html) => {
+                            let _tn = html.find(".tn").val();
+                            let _bonus = html.find(".bonus").val();
+                            let _mod = html.find(".mod").val();
+                            //let _label = html.find(".label").val();
+                            game.whitebox.DiceRoller.rollD20({ tn: _tn, bonus: _bonus, mod: _mod });
+                        },
+                    },
+                },
+                default: "roll",
+                close: () => {},
+            });
+            d.render(true);
+        });
+    }
 }

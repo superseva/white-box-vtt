@@ -1,6 +1,6 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     <aside class="sidebar">
-        <div class="content" style="min-height: 610px">
+        <div class="content" style="min-height: 600px">
             <!-- <div class="grid">
                 <div class="titled-box">
                     <h3 class="title-section">HD</h3>
@@ -59,15 +59,20 @@
                     >
                 </div>
             </div>
-            <div class="value-row papirus-box white1 flex row align-center space-between movement-box" style="padding: 0 5px; margin-bottom: 10px">
+            {{#if data.loyalty.visible}}
+            <div class="value-row papirus-box white1 flex row align-center space-between loyalty-box">
+                <label for="data.loyalty.value" style="font-size: 14px">Loyalty</label>
+                <input type="text" name="data.loyalty.value" class="short" value="{{data.loyalty.value}}" />
+            </div>
+            {{/if}} {{#if data.thievery.visible}}
+            <div class="value-row papirus-box white1 flex row align-center space-between thievery-box">
+                <label for="data.thievery.value" style="font-size: 14px">Thievery</label>
+                <input type="text" name="data.thievery.value" class="short" value="{{data.thievery.value}}" />
+            </div>
+            {{/if}}
+            <div class="value-row papirus-box white1 flex row align-center space-between movement-box">
                 <label for="data.movement.value" style="font-size: 14px">Movement</label>
-                <input
-                    type="text"
-                    name="data.movement.value"
-                    class="short"
-                    style="color: white; text-align: center; max-width: 2.5em"
-                    value="{{data.movement.value}}"
-                />
+                <input type="text" name="data.movement.value" class="short" value="{{data.movement.value}}" />
             </div>
             <div class="xp-tracker">
                 <span class="flexrow align-center">
@@ -135,15 +140,6 @@
                     </div>
                 </div>
                 <ol class="items-list grid">
-                    <!-- <li class="item flexrow">
-                        <div class="item-name">
-                            <span></span>
-                        </div>
-                        <div class="item-details flexrow xs">
-                            <div>AC</div>
-                        </div>
-                        <div class="item-controls"></div>
-                    </li> -->
                     {{#each actor.armor_equipped as |item id|}}
                     <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                         <div class="item-name">
@@ -184,7 +180,7 @@
                     </li>
                     {{#each actor.weapons_equipped as |item id|}}
                     <li class="item flexrow editable-item" data-item-id="{{item._id}}">
-                        <a class="item-name">
+                        <a class="item-name roll-to-hit">
                             <img class="item-image" src="{{item.img}}" alt="" />
                             <span>{{item.name}}</span>
                         </a>

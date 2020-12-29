@@ -198,6 +198,18 @@ export class WhiteboxActorSheet extends ActorSheet {
             //console.log(bonus);
             game.whitebox.RollDialog.prepareDialog({ mod: bonus, tn: 1, label: item.data.name });
         });
+        // * Roll To Hit
+        html.find(".roll-to-hit").click((ev) => {
+            const btn = $(ev.currentTarget);
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            let bonus = parseInt(item.data.data.bonus_to_hit);
+            console.log(this.actor);
+            bonus += parseInt(this.actor.data.data.thb.value);
+            if (item.data.data.weapon_type == "melee") bonus += this.actor.data.data.attributes.str.bonus;
+            else if (item.data.data.weapon_type == "ranged") bonus += this.actor.data.data.attributes.dex.bonus;
+            game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Hit with the ${item.name}` });
+        });
 
         // * -------------------------------------------
         // * ADD LEFT CLICK CONTENT MENU
