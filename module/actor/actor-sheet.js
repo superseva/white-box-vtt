@@ -33,6 +33,27 @@ export class WhiteboxActorSheet extends ActorSheet {
     }
 
     /**
+     * Extend and override the sheet header buttons
+     * @override
+     */
+    _getHeaderButtons() {
+        let buttons = super._getHeaderButtons();
+        // Token Configuration
+        const canConfigure = game.user.isGM || this.actor.owner;
+        if (this.options.editable && canConfigure) {
+            buttons = [
+                {
+                    label: game.i18n.localize("WB.Tweaks"),
+                    class: "configure-actor",
+                    icon: "fas fa-dice",
+                    onclick: (ev) => this._onConfigureActor(ev),
+                },
+            ].concat(buttons);
+        }
+        return buttons;
+    }
+
+    /**
      * Organize and classify Items for Character sheets.
      *
      * @param {Object} actorData The actor to prepare.
@@ -285,4 +306,10 @@ export class WhiteboxActorSheet extends ActorSheet {
             });
         }
     }*/
+
+    _onConfigureActor(evt) {
+        evt.preventDefault();
+        const el = evt.currentTarget;
+        this._tabs[0].activate("settings");
+    }
 }

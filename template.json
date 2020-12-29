@@ -112,8 +112,14 @@
                     "max": 0
                 }
             },
-            "isNpc": false,
-            "loyalty": "0"
+            "thievery": {
+                "visible": false,
+                "value": 0
+            },
+            "loyalty": {
+                "visible": false,
+                "value": 0
+            }
         },
         "monster": {
             "hd": {

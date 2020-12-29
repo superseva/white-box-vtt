@@ -6,7 +6,11 @@
     "WB.wis": "WIS",
     "WB.cha": "CHA",
 
+    "WB.Tweaks": "Tweaks",
     "WB.XP_VALUE": "XP",
     "WB.XP_NEXT": "Next LVL",
-    "WB.XP_GAIN": "XP Gain"
+    "WB.XP_GAIN": "XP Gain",
+    "WB.Race": "Race",
+    "WB.Class": "Class",
+    "WB.Alignment": "Alignment"
 }

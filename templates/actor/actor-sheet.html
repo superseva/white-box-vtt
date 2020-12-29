@@ -292,6 +292,7 @@
                 <a class="item tab-spellbook" data-tab="spellbook">Spellbook</a>
                 <a class="item tab-inventory" data-tab="inventory">inventory</a>
                 <a class="item tab-notes" data-tab="notes">notes</a>
+                <a class="item tab-notes" data-tab="settings">settings</a>
             </nav>
         </section>
         <!-- $$ OVERLAYS -->
@@ -510,6 +511,40 @@
                     <h2>Notes</h2>
                     <div class="flex column f1 papirus-box papir1">
                         {{editor content=data.biography target="data.biography" button=true owner=owner editable=editable}}
+                    </div>
+                </div>
+            </section>
+            <!-- $$ SETTINGS -->
+            <section class="overlay-section f1 settings tab" data-group="primary" data-tab="settings">
+                <div class="papir f1 overlay-content">
+                    <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
+                    <h2>Character Settings</h2>
+                    <div class="flex column f1 flex-center">
+                        <h3>OPTIONS</h3>
+                        <ul class="items-list">
+                            <li class="item flexrow">
+                                <label for="" class="checkbox-label acme"
+                                    >Use Thievery<input
+                                        class="input-checkbox"
+                                        type="checkbox"
+                                        name="data.thievery.visible"
+                                        {{checked
+                                        data.thievery.visible}}
+                                        data-dtype="Boolean"
+                                /></label>
+                            </li>
+                            <li class="item flexrow">
+                                <label for="" class="checkbox-label acme"
+                                    >Use Loyalty<input
+                                        class="input-checkbox"
+                                        type="checkbox"
+                                        name="data.loyalty.visible"
+                                        {{checked
+                                        data.loyalty.visible}}
+                                        data-dtype="Boolean"
+                                /></label>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </section>
