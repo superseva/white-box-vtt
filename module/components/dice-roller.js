@@ -27,7 +27,9 @@ export class DiceRoller {
         let formula = `${num}d${type} + ${thb} + ${mod}`;
         let r = new Roll(formula);
         r.evaluate();
-        r.toMessage();
+        let _flavor = `<h2>${label}</h2>`;
+
+        r.toMessage({ flavor: _flavor });
     }
 
     static rollD20({
@@ -46,6 +48,7 @@ export class DiceRoller {
         roll_above_show = false,
         title = null,
         label = null,
+        calc = false,
     } = {}) {
         let formula = `${num}d${type}`;
         // * if roll_above add bonus and mod to the roll
@@ -53,6 +56,16 @@ export class DiceRoller {
         if (roll_above && mod) formula += `+ ${mod}`;
         let r = new Roll(formula);
         r.evaluate();
-        r.toMessage();
+        let _flavor = ``;
+
+        if (calc) {
+            if (roll_above && tn) {
+                let _success = "";
+                if (r.total >= tn) _success = "Success";
+                else _success = "Failure";
+                _flavor += `<h2>${label}</h2><p style='font-size:22px'>${_success}</p><p style='font-size:18px'>${parseInt(r.total)} vs ${parseInt(tn)}</p>`;
+            }
+        }
+        r.toMessage({ flavor: _flavor });
     }
 }

@@ -40,7 +40,7 @@
             <div class="attribute-box papirus-box white1">
                 {{#each data.attributes as |item id|}}
                 <div class="attribute-row flexrow">
-                    <label class="attribute-name">{{localize (concat 'WB.' id)}}</label>
+                    <a class="attribute-name roll-attribute" data-attribute="{{id}}">{{localize (concat 'WB.' id)}}</a>
                     <span class="flexrow align-center space-between">
                         <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
                         <label style="text-align: center; padding: 3px 0; background-color: #1a1d24" class="size14">{{item.bonus}}</label>
@@ -50,7 +50,7 @@
             </div>
             <div class="savingthrow-box">
                 <div class="value-row papirus-box white2">
-                    <label for="">Saving Throw</label>
+                    <a for="" class="roll-saving-throw">Saving Throw</a>
                     <input type="number" name="data.saving_throw.value" value="{{data.saving_throw.value}}" class="value" />
                 </div>
                 <div class="content papirus-box white2">
@@ -93,6 +93,7 @@
     </aside>
 
     <section class="actor-sheet-section">
+        <!-- $$ ACTOR HEADER -->
         <header class="actor-header">
             <div class="image-box papirus-box papir1">
                 <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100" />
@@ -157,7 +158,7 @@
             <!-- $$ QUICK WEAPONS -->
             <div class="combat-box papirus-box papir1 p10 pusher-bottom">
                 <!-- <div class="button-plus" style="top: -12px">+</div> -->
-                <div class="palcque">
+                <div class="palcque" style="height: unset">
                     <div class="titled-box">
                         <div class="title-section white">Hit Bonus</div>
                         <div class="content-section b1">
@@ -171,9 +172,9 @@
                             <span></span>
                         </div>
                         <div class="item-details flexrow md">
-                            <div>BTH</div>
+                            <!-- <div>BTH</div> -->
                             <div>DMG</div>
-                            <div>DMG+</div>
+                            <!-- <div>DMG+</div> -->
                             <div>RNG</div>
                             <div>ROF</div>
                         </div>
@@ -185,9 +186,9 @@
                             <span>{{item.name}}</span>
                         </a>
                         <div class="item-details flexrow md">
-                            <div>{{item.data.bonus_to_hit}}</div>
-                            <div>{{item.data.damage.value}}</div>
-                            <div>{{item.data.bonus_damage}}</div>
+                            <!-- <div>{{item.data.bonus_to_hit}}</div> -->
+                            <div class="rollable roll-weapon-damage">{{item.data.damage.value}}</div>
+                            <!-- <div>{{item.data.bonus_damage}}</div> -->
                             <div>{{item.data.range}}</div>
                             <div>{{item.data.rof}}</div>
                         </div>
@@ -300,6 +301,25 @@
                 <div class="papir f1 overlay-content">
                     <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
                     <h2>Inventory</h2>
+                    <!-- $$ VALUES -->
+                    <div class="papirus-box pusher-bottom grid grid-4col">
+                        <div class="flex flex-group-left acme">
+                            <label for="">Gold:&nbsp;</label>
+                            <input type="text" name="data.valuables.gold" value="{{data.valuables.gold}}" style="text-align: center" />
+                        </div>
+                        <div class="flex flex-group-left acme">
+                            <label for="">Silver:&nbsp;</label>
+                            <input type="text" name="data.valuables.silver" value="{{data.valuables.silver}}" style="text-align: center" />
+                        </div>
+                        <div class="flex flex-group-left acme">
+                            <label for="">Copper:&nbsp;</label>
+                            <input type="text" name="data.valuables.copper" value="{{data.valuables.copper}}" style="text-align: center" />
+                        </div>
+                        <div class="flex flex-group-left acme">
+                            <label for="">Gems:&nbsp;</label>
+                            <input type="text" name="data.valuables.gems" value="{{data.valuables.gems}}" style="text-align: center" />
+                        </div>
+                    </div>
                     <!-- $$ WEAPONS -->
                     <div class="papirus-box papir1 padded pusher-bottom">
                         <h3>WEAPONS</h3>

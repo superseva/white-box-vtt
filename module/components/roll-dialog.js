@@ -47,7 +47,7 @@ export class RollDialog {
         });
     }
 
-    static async prepareToHitDialog({ actor = null, num = 1, type = 20, thb = 0, mod = 0, tn = null, label = "To Hit AC" } = {}) {
+    static async prepareToHitDialog({ actor = null, num = 1, type = 20, thb = 0, mod = 0, tn = null, label = "Roll To Hit" } = {}) {
         let htmlData = {
             num: num,
             type: type,
@@ -97,6 +97,7 @@ export class RollDialog {
         roll_above = true,
         title = null,
         label = null,
+        calc = false,
     } = {}) {
         let htmlData = {
             num: num,
@@ -114,6 +115,7 @@ export class RollDialog {
             roll_above_show: roll_above_show,
             title: title,
             label: label,
+            calc: calc,
         };
         let _htmlContent = await renderTemplate("systems/white-box-vtt/templates/components/roll-20-dialog.html", htmlData);
         return new Promise((resolve) => {
@@ -129,7 +131,7 @@ export class RollDialog {
                             let _bonus = html.find(".bonus").val();
                             let _mod = html.find(".mod").val();
                             //let _label = html.find(".label").val();
-                            game.whitebox.DiceRoller.rollD20({ tn: _tn, bonus: _bonus, mod: _mod });
+                            game.whitebox.DiceRoller.rollD20({ tn: _tn, bonus: _bonus, mod: _mod, label: label, calc });
                         },
                     },
                 },

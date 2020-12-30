@@ -189,6 +189,44 @@ export class WhiteboxActorSheet extends ActorSheet {
         html.find(".roll-die-d6").click(function () {
             game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "D6 Chance Roll" });
         });
+        // * Custom D20
+        html.find(".roll-die-d20").click(function () {
+            game.whitebox.RollDialog.prepareRolld20({ title: "Roll D20", label: "Roll d20", mod_show: true, mod_label: "Modifier: " });
+        });
+        // * Roll Attribute
+        html.find(".roll-attribute").click((ev) => {
+            const el = $(ev.currentTarget);
+            const att = $(ev.currentTarget).data("attribute");
+            let bonus = 0;
+            console.warn(this.actor.data.data.attributes[att].bonus);
+            if (this.actor) bonus = this.actor.data.data.attributes[att].bonus;
+            game.whitebox.RollDialog.prepareRolld20({
+                title: `Roll ${att.toUpperCase()}`,
+                label: `Roll ${att.toUpperCase()}`,
+                mod_show: true,
+                mod_label: "Custom Modifier: ",
+                bonus: bonus,
+                bonus_label: `${att.toUpperCase()} Bonus:`,
+                bonus_show: true,
+            });
+        });
+        // * Roll Saving Throw
+        html.find(".roll-saving-throw").click((ev) => {
+            const el = $(ev.currentTarget);
+            let st_value = this.actor.data.data.saving_throw.value;
+            //console.warn(st_value);
+            game.whitebox.RollDialog.prepareRolld20({
+                title: `Saving Throw`,
+                label: `Saving Throw`,
+                mod_show: true,
+                mod_label: "Custom Modifier: ",
+                tn: st_value,
+                tn_label: `Saving Throw: `,
+                tn_show: true,
+                calc: true,
+            });
+        });
+
         // * Roll Ability
         html.find(".roll-ability").click((ev) => {
             const btn = $(ev.currentTarget);
@@ -208,7 +246,14 @@ export class WhiteboxActorSheet extends ActorSheet {
             bonus += parseInt(this.actor.data.data.thb.value);
             if (item.data.data.weapon_type == "melee") bonus += this.actor.data.data.attributes.str.bonus;
             else if (item.data.data.weapon_type == "ranged") bonus += this.actor.data.data.attributes.dex.bonus;
-            game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Hit with the ${item.name}` });
+            game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Attack with the ${item.name}` });
+        });
+
+        // * Roll Weapon Damage
+        html.find(".rollable.roll-weapon-damage").click((ev) => {
+            const li = $(ev.currentTarget).parents(".item");
+            const item = this.actor.getOwnedItem(li.data("itemId"));
+            item.rollWeaponDamage();
         });
 
         // * -------------------------------------------

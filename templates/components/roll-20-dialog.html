@@ -14,7 +14,8 @@
         {{#if bonus_show}}
         <span class="flexrow" style="align-items: center; justify-content: center; flex: 2">
             <label style="flex: 2" class="acme">{{bonus_label}}</label>
-            <input type="number" class="bonus input-underlined acme" style="text-align: center" value="{{bonus}}" />
+            <input {{#unless bonus_editable}}readonly{{/unless}} type="number" class="bonus input-underlined acme" style="text-align: center" value="{{bonus}}"
+            />
         </span>
         {{/if}} {{#if mod_show}}
         <span class="flexrow" style="align-items: center; justify-content: center; flex: 2">

@@ -37,4 +37,15 @@ export class WhiteboxActor extends Actor {
         if (equippedShield) wornArmorAC += parseInt(equippedShield.data.ac.value);
         data.ac.value = wornArmorAC;
     }
+
+    getRollShortcuts() {
+        let out = {};
+        // Attributes
+        const attr = this.data.data.attributes;
+        for (const name of ["str", "dex", "con", "int", "wis", "cha"]) {
+            out[name.substring(0, 3)] = attr[name].bonus;
+        }
+        console.warn(out);
+        return out;
+    }
 }
