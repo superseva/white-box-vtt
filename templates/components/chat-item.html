@@ -1,0 +1,56 @@
+<div class="whitebox chat-item">
+    <div class="border">
+        <h3>{{name}}</h3>
+
+        {{#if img}}
+        <img class="item-img" src="{{img}}" title="{{name}}" />
+        {{/if}}{{#if isAbility}}
+        <p><strong>{{localize "WB.BONUS"}}:</strong> {{data.bonus}}</p>
+        <hr />
+        <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr />
+        {{/if}} {{#if isWeapon}}
+        <p><strong>{{localize "WB.TYPE"}}:</strong> {{data.weapon_type}}</p>
+        <p><strong>{{localize "WB.BONUS_TO_HIT"}}:</strong> {{data.bonus_to_hit}}</p>
+        <p><strong>{{localize "WB.DAMAGE"}}:</strong> {{data.damage.value}}</p>
+        <p><strong>{{localize "WB.BONUS_DAMAGE"}}:</strong> {{data.bonus_damage}}</p>
+        <p><strong>{{localize "WB.RANGE"}}:</strong> {{data.range}}</p>
+        <p><strong>{{localize "WB.ROF"}}:</strong> {{data.rof}}</p>
+        {{#if data.oneOrTwohanded}}
+        <p><strong>{{localize "WB.oneOrTwohanded"}}</strong></p>
+        {{/if}} {{#if data.meleeOrMissile}}
+        <p><strong>{{localize "WB.meleeOrMissile"}}</strong></p>
+        {{/if}}
+        <hr />
+        <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr />
+        {{/if}} {{#if isArmor}}
+        <p><strong>{{localize "WB.TYPE"}}:</strong> {{data.armor_type}}</p>
+        <p><strong>{{localize "WB.AC"}}:</strong> {{data.ac.value}}</p>
+        <hr />
+        <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr />
+        {{/if}} {{#if isSpell}}
+        <p><strong>{{localize "WB.LEVEL"}}:</strong> {{data.level}}</p>
+        <p><strong>{{localize "WB.TYPE"}}:</strong> {{data.spell_type}}</p>
+        <p><strong>{{localize "WB.RANGE"}}:</strong> {{data.range}}</p>
+        <p><strong>{{localize "WB.DURATION"}}:</strong> {{data.duration}}</p>
+        <hr />
+        <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr />
+        {{/if}} {{#if isGear}}
+        <hr />
+        <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr />
+        {{/if}} {{#if data.weight}}
+        <p><strong>{{localize "WB.LOAD"}}:</strong> {{data.weight}}</p>
+        {{/if}} {{#if data.cost}} {{#ifCond data.cost '!=' 0}}
+        <p><strong>{{localize "WB.COST"}}:</strong> {{data.cost}}</p>
+        {{/ifCond}} {{/if}}
+    </div>
+</div>

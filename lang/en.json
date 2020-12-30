@@ -12,5 +12,23 @@
     "WB.XP_GAIN": "XP Gain",
     "WB.Race": "Race",
     "WB.Class": "Class",
-    "WB.Alignment": "Alignment"
+    "WB.Alignment": "Alignment",
+
+    "WB.LOAD": "Weight",
+    "WB.COST": "Cost",
+
+    "WB.DESCRIPTION": "Description",
+    "WB.MODIFIER": "Modifier",
+    "WB.BONUS": "Bonus",
+    "WB.BONUS_TO_HIT": "Bonus To Hit",
+    "WB.BONUS_DAMAGE": "Bonus Damage",
+    "WB.DAMAGE": "Damage",
+    "WB.RANGE": "Range",
+    "WB.ROF": "RoF",
+    "WB.oneOrTwohanded": "Both 1h and 2h",
+    "WB.meleeOrMissile": "Both Melee and Missile",
+    "WB.TYPE": "Type",
+    "WB.AC": "AC",
+    "WB.LEVEL": "Level",
+    "WB.DURATION": "Duration"
 }

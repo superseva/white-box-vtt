@@ -355,33 +355,33 @@
   opacity: 0.3;
 }
 
-.white-box.chat-item {
+.whitebox.chat-item {
   background-color: white;
   background-image: url("../ui/parch-bg.jpg");
   margin: 0 -5px 0 -5px;
   padding: 5px;
-  font-family: "Merriweather", serif;
+  font-family: "Acme", sans-serif;
 }
 
-.white-box.chat-item h3 {
-  font-family: "Merriweather", serif;
+.whitebox.chat-item h3 {
+  font-family: "Acme", sans-serif;
   font-weight: bold;
   margin: 0 0 8px;
   text-align: center;
 }
 
-.white-box.chat-item h4 {
-  font-family: "Merriweather", serif;
+.whitebox.chat-item h4 {
+  font-family: "Acme", sans-serif;
   font-weight: bold;
   margin: 0 0 8px;
   text-align: center;
 }
 
-.white-box.chat-item i {
+.whitebox.chat-item i {
   margin-left: 2px;
 }
 
-.white-box.chat-item .item-img {
+.whitebox.chat-item .item-img {
   background: -o-radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
   background: radial-gradient(closest-side, var(--color-highlight) 0%, transparent 100%);
   border: 1px solid;
@@ -391,30 +391,30 @@
   width: 52px;
 }
 
-.white-box.chat-item p {
-  font-family: "Merriweather", serif;
+.whitebox.chat-item p {
+  font-family: "Acme", sans-serif;
   margin: 0 0 4px;
 }
 
-.white-box.chat-item .description,
-.white-box.chat-item .features {
-  font-family: Georgia, serif;
+.whitebox.chat-item .description,
+.whitebox.chat-item .features {
+  font-family: "Acme", sans-serif;
   font-size: 12px;
   line-height: 16px;
 }
 
-.white-box.chat-item .loyalty {
+.whitebox.chat-item .loyalty {
   width: 100%;
   margin: 0 0 10px;
   text-align: center;
 }
 
-.white-box.chat-item .benefit-name {
+.whitebox.chat-item .benefit-name {
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/* Styles limited to talisman sheets */
+/* Styles limited to whitebox sheets */
 .whitebox {
   /** ACTOR SHEET */
   /** SHEET GENERAL */

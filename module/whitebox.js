@@ -45,6 +45,64 @@ Hooks.once("init", function () {
         }
         return outStr;
     });
+
+    Handlebars.registerHelper("toLowerCase", function (str) {
+        return str.toLowerCase();
+    });
+
+    Handlebars.registerHelper("toUpperCase", function (str) {
+        return str.toUpperCase();
+    });
+
+    Handlebars.registerHelper("times", function (n, block) {
+        var accum = "";
+        for (var i = 0; i < n; ++i) accum += block.fn(i);
+        return accum;
+    });
+
+    Handlebars.registerHelper("ifCond", function (v1, operator, v2, options) {
+        switch (operator) {
+            case "==":
+                return v1 == v2 ? options.fn(this) : options.inverse(this);
+            case "===":
+                return v1 === v2 ? options.fn(this) : options.inverse(this);
+            case "!=":
+                return v1 != v2 ? options.fn(this) : options.inverse(this);
+            case "!==":
+                return v1 !== v2 ? options.fn(this) : options.inverse(this);
+            case "<":
+                return v1 < v2 ? options.fn(this) : options.inverse(this);
+            case "<=":
+                return v1 <= v2 ? options.fn(this) : options.inverse(this);
+            case ">":
+                return v1 > v2 ? options.fn(this) : options.inverse(this);
+            case ">=":
+                return v1 >= v2 ? options.fn(this) : options.inverse(this);
+            case "&&":
+                return v1 && v2 ? options.fn(this) : options.inverse(this);
+            case "||":
+                return v1 || v2 ? options.fn(this) : options.inverse(this);
+            default:
+                return options.inverse(this);
+        }
+    });
+
+    Handlebars.registerHelper("math", function (lvalue, operator, rvalue, options) {
+        lvalue = parseFloat(lvalue);
+        rvalue = parseFloat(rvalue);
+
+        return {
+            "+": lvalue + rvalue,
+            "-": lvalue - rvalue,
+            "*": lvalue * rvalue,
+            "/": lvalue / rvalue,
+            "%": lvalue % rvalue,
+        }[operator];
+    });
+
+    Handlebars.registerHelper("packed", function (weight, quantity, options) {
+        return Math.ceil(parseInt(weight) / 2) * parseInt(quantity);
+    });
 });
 
 /* -------------------------------------------- */

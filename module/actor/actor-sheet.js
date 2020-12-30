@@ -256,6 +256,9 @@ export class WhiteboxActorSheet extends ActorSheet {
             item.rollWeaponDamage();
         });
 
+        // * Post titem to chat
+        html.find(".chaty").click(this._onItemSendToChat.bind(this));
+
         // * -------------------------------------------
         // * ADD LEFT CLICK CONTENT MENU
         // * --------------------------------------------
@@ -269,7 +272,7 @@ export class WhiteboxActorSheet extends ActorSheet {
                 name: "",
                 callback: (t) => {
                     console.log(t);
-                    //this._editOwnedItemById(t.data("item-id"));
+                    this._editOwnedItemById(t.data("item-id"));
                 },
             },
             {
@@ -277,7 +280,7 @@ export class WhiteboxActorSheet extends ActorSheet {
                 name: "",
                 callback: (t) => {
                     console.log(t);
-                    //this._postOwnedItemById(t.data("item-id"));
+                    this._postOwnedItemById(t.data("item-id"));
                 },
             },
             {
@@ -285,7 +288,7 @@ export class WhiteboxActorSheet extends ActorSheet {
                 name: "",
                 callback: (t) => {
                     console.log(t);
-                    //this._deleteOwnedItemById(t.data("item-id"));
+                    this._deleteOwnedItemById(t.data("item-id"));
                 },
             },
         ];
@@ -300,6 +303,15 @@ export class WhiteboxActorSheet extends ActorSheet {
                 li.addEventListener("dragstart", handler, false);
             });
         }
+    }
+
+    _editOwnedItemById(_item_id) {
+        const item = this.actor.getOwnedItem(_item_id);
+        item.sheet.render(true);
+    }
+    _deleteOwnedItemById(_item_id) {
+        this.actor.deleteOwnedItem(_item_id);
+        //li.slideUp(200, () => this.render(false));
     }
 
     _onToggleOverlay(evt) {
@@ -327,6 +339,17 @@ export class WhiteboxActorSheet extends ActorSheet {
         };
         delete itemData.data["type"];
         return this.actor.createOwnedItem(itemData);
+    }
+
+    _onItemSendToChat(evt) {
+        evt.preventDefault();
+        const itemId = $(evt.currentTarget).data("item-id");
+        this._postOwnedItemById(itemId);
+    }
+    _postOwnedItemById(_item_id) {
+        const item = this.actor.getOwnedItem(_item_id);
+        if (!item) return;
+        item.sendToChat();
     }
 
     _onSpellMemo(evt) {
