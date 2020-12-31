@@ -123,7 +123,7 @@
         },
         "monster": {
             "hd": {
-                "value": "",
+                "value": "0",
                 "mod": "",
                 "hde": ""
             },
@@ -144,6 +144,9 @@
             "saving_throw": {
                 "value": 0,
                 "mod": 0
+            },
+            "thb": {
+                "value": 0
             },
             "special": ""
         }

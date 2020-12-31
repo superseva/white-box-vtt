@@ -104,12 +104,16 @@
         background-image: url(../assets/sidebar-bottom.png);
     }
 }
+
 .actor-sheet-section {
     display: flex;
     flex: 1;
     flex-direction: column;
     //background-color: yellow;
     margin-left: 175px;
+    &.monster {
+        margin-left: 0px;
+    }
 
     .actor-header {
         //background-color: turquoise;
@@ -195,40 +199,6 @@
             ul {
                 text-decoration: none;
             }
-            .palcque {
-                position: absolute;
-                top: -15px;
-                left: -10px;
-                width: 70px;
-                height: 72px;
-                &.ac {
-                    width: 50px;
-                    height: 72px;
-                    background-image: url(../assets/ac-shield-white-50x60.png);
-                    background-repeat: no-repeat;
-                    background-position-y: 5px;
-                    background-color: unset;
-                }
-                .title-section {
-                    left: 20%;
-                    transform: translate(-12%);
-                    &.ac {
-                        left: 50%;
-                        transform: translate(-50%);
-                    }
-                    background-color: white;
-                    color: black;
-                }
-                .content-section {
-                    background-color: white;
-                    min-height: 40px;
-                    font-size: 16px;
-                    &.ac {
-                        background-color: unset;
-                        min-height: 55px;
-                    }
-                }
-            }
         }
 
         .abilities.titled-box {
@@ -273,6 +243,45 @@
     }
 }
 
+.palcque {
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    width: 70px;
+    height: 72px;
+    &.ac {
+        width: 50px;
+        height: 72px;
+        background-image: url(../assets/ac-shield-white-50x60.png);
+        background-repeat: no-repeat;
+        background-position-y: 5px;
+        background-color: unset;
+    }
+    .title-section {
+        left: 20%;
+        transform: translate(-12%);
+        &.ac {
+            left: 50%;
+            transform: translate(-50%);
+        }
+        &.thb {
+            min-width: 58px;
+        }
+        background-color: white;
+        color: black;
+    }
+    .content-section {
+        background-color: white;
+        min-height: 40px;
+        font-size: 16px;
+        &.ac {
+            background-color: unset;
+            min-height: 55px;
+            padding: 5px 5px 3px 5px;
+        }
+    }
+}
+
 .enemy-header {
     flex: unset;
     padding: 5px;
@@ -311,7 +320,7 @@
         }
     }
     .content-section {
-        padding: 5px 5px 3px 5px;
+        padding: 8px 5px 3px 5px;
         border: unset;
         border: 3px solid transparent;
 

@@ -9,13 +9,14 @@ export class WhiteboxItem extends Item {
     }
 
     rollWeaponDamage() {
-        console.warn(this.data.data.damage);
-        let formula = `${this.data.data.damage.value} + ${this.data.data.bonus_damage}`;
+        console.warn(this.actor);
+        let formula = "";
         let actorOptions = null;
-        if (this.actor) {
+        if (this.actor.data.type == "character") {
             actorOptions = this.actor.getRollShortcuts();
-            //const damage_mod = this.actor.data.data.damage_modifier[this.data.data.damage.type].value;
-            //formula = `${formula} + ${damage_mod}`;
+            formula = `${this.data.data.damage.value} + ${this.data.data.bonus_damage}`;
+        } else {
+            formula = `${this.data.data.damage.value}`;
         }
         let r = new Roll(formula, actorOptions);
         let _flavor = `<h2>Damage delt with the ${this.data.name}</h2>`;

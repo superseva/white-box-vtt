@@ -357,7 +357,6 @@
 
 .whitebox.chat-item {
   background-color: white;
-  background-image: url("../ui/parch-bg.jpg");
   margin: 0 -5px 0 -5px;
   padding: 5px;
   font-family: "Acme", sans-serif;
@@ -553,6 +552,10 @@
   margin-left: 175px;
 }
 
+.whitebox .actor-sheet-section.monster {
+  margin-left: 0px;
+}
+
 .whitebox .actor-sheet-section .actor-header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -666,50 +669,6 @@
   text-decoration: none;
 }
 
-.whitebox .actor-sheet-section .actor-body .combat-box .palcque {
-  position: absolute;
-  top: -15px;
-  left: -10px;
-  width: 70px;
-  height: 72px;
-}
-
-.whitebox .actor-sheet-section .actor-body .combat-box .palcque.ac {
-  width: 50px;
-  height: 72px;
-  background-image: url(../assets/ac-shield-white-50x60.png);
-  background-repeat: no-repeat;
-  background-position-y: 5px;
-  background-color: unset;
-}
-
-.whitebox .actor-sheet-section .actor-body .combat-box .palcque .title-section {
-  left: 20%;
-  -webkit-transform: translate(-12%);
-  -ms-transform: translate(-12%);
-  transform: translate(-12%);
-  background-color: white;
-  color: black;
-}
-
-.whitebox .actor-sheet-section .actor-body .combat-box .palcque .title-section.ac {
-  left: 50%;
-  -webkit-transform: translate(-50%);
-  -ms-transform: translate(-50%);
-  transform: translate(-50%);
-}
-
-.whitebox .actor-sheet-section .actor-body .combat-box .palcque .content-section {
-  background-color: white;
-  min-height: 40px;
-  font-size: 16px;
-}
-
-.whitebox .actor-sheet-section .actor-body .combat-box .palcque .content-section.ac {
-  background-color: unset;
-  min-height: 55px;
-}
-
 .whitebox .actor-sheet-section .actor-body .abilities.titled-box .title-section {
   border: 1px solid black;
   font-size: 16px;
@@ -756,6 +715,55 @@
   padding: 1px 5px;
   border: 1px solid #404040;
   border-radius: 2px;
+}
+
+.whitebox .palcque {
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  width: 70px;
+  height: 72px;
+}
+
+.whitebox .palcque.ac {
+  width: 50px;
+  height: 72px;
+  background-image: url(../assets/ac-shield-white-50x60.png);
+  background-repeat: no-repeat;
+  background-position-y: 5px;
+  background-color: unset;
+}
+
+.whitebox .palcque .title-section {
+  left: 20%;
+  -webkit-transform: translate(-12%);
+  -ms-transform: translate(-12%);
+  transform: translate(-12%);
+  background-color: white;
+  color: black;
+}
+
+.whitebox .palcque .title-section.ac {
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+}
+
+.whitebox .palcque .title-section.thb {
+  min-width: 58px;
+}
+
+.whitebox .palcque .content-section {
+  background-color: white;
+  min-height: 40px;
+  font-size: 16px;
+}
+
+.whitebox .palcque .content-section.ac {
+  background-color: unset;
+  min-height: 55px;
+  padding: 5px 5px 3px 5px;
 }
 
 .whitebox .enemy-header {
@@ -809,7 +817,7 @@
 }
 
 .whitebox .titled-box .content-section {
-  padding: 5px 5px 3px 5px;
+  padding: 8px 5px 3px 5px;
   border: unset;
   border: 3px solid transparent;
   display: -webkit-box;
