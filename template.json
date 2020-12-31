@@ -127,6 +127,10 @@
                 "mod": "",
                 "hde": ""
             },
+            "health": {
+                "value": 0,
+                "max": 0
+            },
             "ac": {
                 "value": 0,
                 "mod": 0
