@@ -5,6 +5,7 @@ import { WhiteboxActorSheet } from "./actor/actor-sheet.js";
 import { WhiteboxMonsterSheet } from "./actor/monster-sheet.js";
 import { WhiteboxItem } from "./item/item.js";
 import { WhiteboxItemSheet } from "./item/item-sheet.js";
+import { registerSettings } from "./settings.js";
 
 Hooks.once("init", function () {
     game.whitebox = {
@@ -17,6 +18,8 @@ Hooks.once("init", function () {
     // Define custom Entity classes
     CONFIG.Actor.entityClass = WhiteboxActor;
     CONFIG.Item.entityClass = WhiteboxItem;
+
+    registerSettings();
     // Register sheet application classes
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("whitebox", WhiteboxActorSheet, { makeDefault: true, types: ["character"] });

@@ -15,6 +15,8 @@ export class WhiteboxItem extends Item {
         if (this.actor.data.type == "character") {
             actorOptions = this.actor.getRollShortcuts();
             formula = `${this.data.data.damage.value} + ${this.data.data.bonus_damage}`;
+            if (this.data.data.weapon_type == "melee" && game.settings.get("white-box-vtt", "addStrToDamage"))
+                formula += `+ ${this.actor.data.data.attributes.str.bonus}`;
         } else {
             formula = `${this.data.data.damage.value}`;
         }

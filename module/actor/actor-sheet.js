@@ -247,8 +247,9 @@ export class WhiteboxActorSheet extends ActorSheet {
             const item = this.actor.getOwnedItem(li.data("itemId"));
             let bonus = parseInt(item.data.data.bonus_to_hit);
             bonus += parseInt(this.actor.data.data.thb.value);
-            if (item.data.data.weapon_type == "melee") bonus += this.actor.data.data.attributes.str.bonus;
-            else if (item.data.data.weapon_type == "ranged") bonus += this.actor.data.data.attributes.dex.bonus;
+            if (item.data.data.weapon_type == "melee" && game.settings.get("white-box-vtt", "addStrToHit")) bonus += this.actor.data.data.attributes.str.bonus;
+            else if (item.data.data.weapon_type == "ranged" && game.settings.get("white-box-vtt", "addDexToHit"))
+                bonus += this.actor.data.data.attributes.dex.bonus;
             game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Attack with the ${item.name}` });
         });
 
