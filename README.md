@@ -3,7 +3,7 @@ White Box - Fantastic Medieval Adventures Game
 
 The system is "as is" since the developer is not playing any White Box games at the moment.
 
-Mostly everything is rollable directly from them sheets but here are some macros you can also utilize if you want :
+Mostly everything is rollable directly from the sheets but here are some macros you can also utilize if you want :
 
 ## Roll X in 6
 ```game.whitebox.RollDialog.prepareDialog({tn:1, label:'My Roll'})```
