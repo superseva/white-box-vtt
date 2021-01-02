@@ -18,7 +18,7 @@ export function registerSettings() {
     game.settings.register("white-box-vtt", "addStrToDamage", {
         name: "STR bonus to damage",
         hint:
-            "If this option is ON STR bonus is added to any damage with the melee attacks. Optionaly, if this option is OFF, you can use @str to add STR bonus to specific melle damage. (example: 1d6 + @str)",
+            "If this option is ON STR bonus is added to any damage with the melee attacks. Optionaly, if this option is OFF, you can use @str to add STR bonus to a specific melle damage. (example: 1d6 + @str)",
         default: false,
         scope: "world",
         type: Boolean,
