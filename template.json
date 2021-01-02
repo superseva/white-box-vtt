@@ -152,6 +152,7 @@
             "thb": {
                 "value": 0
             },
+            "morale": 0,
             "special": ""
         }
     },

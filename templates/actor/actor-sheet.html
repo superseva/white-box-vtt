@@ -43,7 +43,13 @@
                     <a class="attribute-name roll-attribute" data-attribute="{{id}}">{{localize (concat 'WB.' id)}}</a>
                     <span class="flexrow align-center space-between">
                         <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
-                        <label style="text-align: center; padding: 3px 0; background-color: #1a1d24" class="size14">{{item.bonus}}</label>
+                        <input
+                            type="number"
+                            name="data.attributes.{{id}}.bonus"
+                            value="{{item.bonus}}"
+                            style="text-align: center; padding: 3px 0; background-color: #1a1d24; color: white"
+                            class="size14 blank"
+                        />
                     </span>
                 </div>
                 {{/each}}
