@@ -1,8 +1,6 @@
 # white-box-vtt
 White Box - Fantastic Medieval Adventures Game
 
-The system is "as is" since the developer is not playing any White Box games at the moment.
-
 There are 3 options in system settings:
 1. Add STR modifier to melee hit (global) (default ON)
 2. Add DEX modifier to range hit (global) (default ON)
@@ -26,3 +24,5 @@ Mostly everything is rollable directly from the sheets but here are some macros 
 
 ## Roll Morale
 ```game.whitebox.RollDialog.prepareDialog({num:2, tn:10, label:'Morale Roll', title:'Morale Roll', visible:false})```
+
+Disclosure: The system is "as is" since the developer is not playing any White Box games at the moment.
