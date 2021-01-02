@@ -210,7 +210,7 @@
                                     <img class="item-image" src="{{item.img}}" alt="" />
                                     {{item.name}}
                                 </a>
-                                <div class="item-details flexrow xs">+ {{item.data.bonus}}</div>
+                                <div class="item-details flexrow xs">{{math item.data.base '+' item.data.bonus}} in 6</div>
                                 <div class="item-controls sm">
                                     <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
                                         ><i class="fas fa-comment"></i

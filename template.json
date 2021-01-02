@@ -200,7 +200,8 @@
             "templates": ["base"],
             "die": "1d6",
             "bonus": "0",
-            "mod": ""
+            "base": "1",
+            "mod": "0"
         },
         "spell": {
             "templates": ["base"],

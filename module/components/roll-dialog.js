@@ -7,9 +7,11 @@ export class RollDialog {
         base = null,
         base_label = null,
         mod = null,
+        mod_label = null,
         tn = null,
         visible = true,
         label = "Custom Roll",
+        with_mod = false,
     } = {}) {
         let htmlData = {
             num: num,
@@ -17,14 +19,16 @@ export class RollDialog {
             base: base,
             base_label: base_label,
             mod: mod,
+            mod_label: mod_label,
             tn: tn,
             visible: visible,
             label: label,
+            with_mod: with_mod,
         };
         let htmlContent = await renderTemplate("systems/white-box-vtt/templates/components/roll-dialog.html", htmlData);
         return new Promise((resolve) => {
             let d = new Dialog({
-                title: "D6 ROLL",
+                title: "X in 6",
                 content: htmlContent,
                 buttons: {
                     roll: {
@@ -36,7 +40,7 @@ export class RollDialog {
                             let _visible = html.find(".visible").prop("checked");
                             let _tn = html.find(".tn").val();
                             let _label = html.find(".label").val();
-                            game.whitebox.DiceRoller.roll({ num: 1, type: 6, base: _base, mod: _mod, visible: _visible, tn: _tn, label: _label });
+                            game.whitebox.DiceRoller.roll({ num: htmlData.num, type: 6, base: _base, mod: _mod, visible: _visible, tn: _tn, label: _label });
                         },
                     },
                 },

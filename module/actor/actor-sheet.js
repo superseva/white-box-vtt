@@ -187,7 +187,8 @@ export class WhiteboxActorSheet extends ActorSheet {
         // html.find(".rollable").click(this._onRoll.bind(this));
         // * Custom D6
         html.find(".roll-die-d6").click(function () {
-            game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "D6 Chance Roll" });
+            //game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "D6 Chance Roll" });
+            game.whitebox.RollDialog.prepareDialog({ tn: 1, label: "X in 6" });
         });
         // * Custom D20
         html.find(".roll-die-d20").click(function () {
@@ -232,9 +233,12 @@ export class WhiteboxActorSheet extends ActorSheet {
             const btn = $(ev.currentTarget);
             const li = $(ev.currentTarget).parents(".item");
             const item = this.actor.getOwnedItem(li.data("itemId"));
+            let base = isNaN(parseInt(item.data.data.base)) ? 1 : parseInt(item.data.data.base);
+            let mod = isNaN(parseInt(item.data.data.bonus)) ? 1 : parseInt(item.data.data.bonus);
+            let tn = parseInt(base) + parseInt(mod);
             const bonus = parseInt(item.data.data.bonus);
             //console.log(bonus);
-            game.whitebox.RollDialog.prepareDialog({ mod: bonus, tn: 1, label: item.data.name });
+            game.whitebox.RollDialog.prepareDialog({ mod: mod, tn: tn, label: item.data.name });
         });
         // * Roll To Hit
         html.find(".roll-to-hit").click((ev) => {
