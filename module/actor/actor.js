@@ -21,13 +21,14 @@ export class WhiteboxActor extends Actor {
     _prepareCharacterData(actorData) {
         const data = actorData.data;
         // Loop through ability scores, and add their modifiers to our sheet output.
-        const lowerVal = 6;
+        // $$ AUTO CALC ATTRIBUTE MODIFIER
+        /* const lowerVal = 6;
         const uperVal = 15;
         for (let [key, attribute] of Object.entries(data.attributes)) {
             if (attribute.value <= lowerVal) attribute.bonus = -1;
             else if (attribute.value >= uperVal) attribute.bonus = 1;
             else attribute.bonus = 0;
-        }
+        }*/
 
         // * CALC AC
         let equippedArmor = actorData.items.find((i) => i.type == "armor" && i.data.armor_type == "armor" && i.data.equipped);
@@ -45,7 +46,7 @@ export class WhiteboxActor extends Actor {
         for (const name of ["str", "dex", "con", "int", "wis", "cha"]) {
             out[name.substring(0, 3)] = attr[name].bonus;
         }
-        console.warn(out);
+        //console.warn(out);
         return out;
     }
 }
