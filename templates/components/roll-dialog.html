@@ -9,8 +9,13 @@
                 <label style="flex: 2" class="acme">X:</label>
                 <input type="number" class="tn input-underlined acme" style="text-align: center" value="{{tn}}" />
             </span>
+            {{#ifCond num '==' 1}}
             <span class="flexrow flex-center acme size16">in</span>
             <span class="flexrow flex-center acme size16">6</span>
+            {{/ifCond}} {{#ifCond num '>' 1}}
+            <span class="flexrow flex-center acme size16">vs.</span>
+            <span class="flexrow flex-center acme size16">{{num}}d6</span>
+            {{/ifCond}}
         </div>
     </div>
     {{/unless}} {{#if with_mod}}
@@ -29,7 +34,7 @@
     <div class="flexrow" style="margin-bottom: 5px">
         <div class="flex-group-center">
             <label for="" class="acme">Public</label>
-            <input type="checkbox" class="visible" checked />
+            <input type="checkbox" class="visible" {{#if visible}}checked{{/if}} />
         </div>
     </div>
 </div>

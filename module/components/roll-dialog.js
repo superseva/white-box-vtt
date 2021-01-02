@@ -10,6 +10,7 @@ export class RollDialog {
         mod_label = null,
         tn = null,
         visible = true,
+        title = "X in 6",
         label = "Custom Roll",
         with_mod = false,
     } = {}) {
@@ -28,12 +29,12 @@ export class RollDialog {
         let htmlContent = await renderTemplate("systems/white-box-vtt/templates/components/roll-dialog.html", htmlData);
         return new Promise((resolve) => {
             let d = new Dialog({
-                title: "X in 6",
+                title: title,
                 content: htmlContent,
                 buttons: {
                     roll: {
                         icon: "",
-                        label: "Roll D6",
+                        label: `Roll ${num}D6`,
                         callback: (html) => {
                             let _base = html.find(".base").val();
                             let _mod = html.find(".mod").val();

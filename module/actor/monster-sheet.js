@@ -105,6 +105,12 @@ export class WhiteboxMonsterSheet extends ActorSheet {
             item.rollWeaponDamage();
         });
 
+        // * Roll Morale
+        html.find(".roll-morale").click((ev) => {
+            const _morale = this.actor.data.data.morale;
+            game.whitebox.RollDialog.prepareDialog({ num: 2, tn: _morale, label: "Morale Roll", title: "Morale Roll", visible: false });
+        });
+
         // * Post titem to chat
         html.find(".chaty").click(this._onItemSendToChat.bind(this));
 

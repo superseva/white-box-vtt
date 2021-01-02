@@ -11,9 +11,9 @@ export class DiceRoller {
         else _success = "Failure";
 
         let _flavor = `<h2>${label}</h2>
-        <p style='font-size:22px'>${_success}</p>
-        <p style='font-size:18px'>Chance: ${parseInt(tn) + parseInt(mod)} in 6</p>
-        `;
+        <p style='font-size:22px'>${_success}</p>`;
+        if (num == 1) _flavor += `<p style='font-size:18px'>Chance: ${parseInt(tn) + parseInt(mod)} in 6</p>`;
+        else _flavor += `<p style='font-size:18px'>${parseInt(r._total)} vs ${parseInt(tn)}</p>`;
         //<p><span style='font-size:16px'>${r._total} <= ${parseInt(tn) + parseInt(mod)}</span> (TN:${parseInt(tn)} + MOD:${parseInt(mod)})</p>
         let _rollMode = visible ? CONST.DICE_ROLL_MODES.PUBLIC : CONST.DICE_ROLL_MODES.SELF;
         r.toMessage({ flavor: _flavor }, { rollMode: _rollMode });
