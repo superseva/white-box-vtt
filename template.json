@@ -181,6 +181,8 @@
             "rof": "",
             "range": "",
             "oneOrTwohanded": false,
+            "oneHanded": true,
+            "twoHanded": false,
             "meleeOrMissile": false,
             "equipped": false
         },

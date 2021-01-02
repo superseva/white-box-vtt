@@ -56,11 +56,17 @@
             <input name="data.rof" value="{{data.rof}}" style="max-width: 100px; text-align: center" />
         </div>
     </div>
-    <div class="grid papirus-box papir4 padded">
+    <div class="grid grid-3col papirus-box papir4 padded">
         <div class="flex-center">
-            <label for="data.oneOrTwohanded" class="checkbox-label acme">
-                1H and 2H
-                <input class="input-checkbox" type="checkbox" name="data.oneOrTwohanded" {{checked data.oneOrTwohanded}} data-dtype="Boolean" />
+            <label for="data.oneHanded" class="checkbox-label acme">
+                One Handed
+                <input class="input-checkbox" type="checkbox" name="data.oneHanded" {{checked data.oneHanded}} data-dtype="Boolean" />
+            </label>
+        </div>
+        <div class="flex-center">
+            <label for="data.twoHanded" class="checkbox-label acme">
+                Two Handed
+                <input class="input-checkbox" type="checkbox" name="data.twoHanded" {{checked data.twoHanded}} data-dtype="Boolean" />
             </label>
         </div>
         <div class="flex-center">
