@@ -3,6 +3,16 @@ White Box - Fantastic Medieval Adventures Game
 
 The system is "as is" since the developer is not playing any White Box games at the moment.
 
+There are 3 options in system settings:
+1. Add STR modifier to melee hit (global) (default ON)
+2. Add DEX modifier to range hit (global) (default ON)
+3. Add STR modifier to melee damage (global) (default Off)
+
+and 2 option per character setting:
+(located behind character sheet 'Tweak' button)
+1. Use Thievery (adds a filed to track Thievery value)
+2. Use Loyalty (adds a filed to track Loyalty value)
+
 Mostly everything is rollable directly from the sheets but here are some macros you can also utilize if you want :
 
 ## Roll X in 6
