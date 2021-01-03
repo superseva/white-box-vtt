@@ -21,8 +21,9 @@ export class WhiteboxItem extends Item {
             formula = `${this.data.data.damage.value}`;
         }
         let r = new Roll(formula, actorOptions);
-        let _flavor = `<h2>Damage delt with the ${this.data.name}</h2>`;
-        r.roll().toMessage({ flavor: _flavor });
+        r.evaluate();
+        let _flavor = `<h2>${r._total} Damage delt with the ${this.data.name}</h2>`;
+        r.toMessage({ flavor: _flavor });
     }
 
     /**
