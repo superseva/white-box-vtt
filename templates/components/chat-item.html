@@ -17,8 +17,11 @@
         <p><strong>{{localize "WB.BONUS_DAMAGE"}}:</strong> {{data.bonus_damage}}</p>
         <p><strong>{{localize "WB.RANGE"}}:</strong> {{data.range}}</p>
         <p><strong>{{localize "WB.ROF"}}:</strong> {{data.rof}}</p>
-        {{#if data.oneOrTwohanded}}
-        <p><strong>{{localize "WB.oneOrTwohanded"}}</strong></p>
+
+        {{#if data.oneHanded}}
+        <p><strong>One Handed Weapon</strong></p>
+        {{/if}} {{#if data.twoHanded}}
+        <p><strong>Two Handed Weapon</strong></p>
         {{/if}} {{#if data.meleeOrMissile}}
         <p><strong>{{localize "WB.meleeOrMissile"}}</strong></p>
         {{/if}}
@@ -43,6 +46,12 @@
         <div class="description">{{{data.description}}}</div>
         <hr />
         {{/if}} {{#if isGear}}
+        <hr />
+        <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
+        <div class="description">{{{data.description}}}</div>
+        <hr />
+        {{/if}} {{#if isMonsterAttack}}
+        <p><strong>{{localize "WB.DAMAGE"}}:</strong> {{data.damage.value}}</p>
         <hr />
         <h4>{{localize 'WB.DESCRIPTION'}}:</h4>
         <div class="description">{{{data.description}}}</div>
