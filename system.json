@@ -2,7 +2,7 @@
     "name": "white-box-vtt",
     "title": "White Box",
     "description": "White Box RPG system for FoundryVTT!",
-    "version": "0.11",
+    "version": "0.12",
     "minimumCoreVersion": "0.7.5",
     "compatibleCoreVersion": "0.7.9",
     "templateVersion": 1,
