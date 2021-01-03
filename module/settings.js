@@ -6,6 +6,7 @@ export function registerSettings() {
         scope: "world",
         type: Boolean,
         config: true,
+        onChange: () => window.location.reload(),
     });
     game.settings.register("white-box-vtt", "addDexToHit", {
         name: "DEX bonus to hit",
@@ -14,6 +15,7 @@ export function registerSettings() {
         scope: "world",
         type: Boolean,
         config: true,
+        onChange: () => window.location.reload(),
     });
     game.settings.register("white-box-vtt", "addStrToDamage", {
         name: "STR bonus to damage",
@@ -23,5 +25,15 @@ export function registerSettings() {
         scope: "world",
         type: Boolean,
         config: true,
+        onChange: () => window.location.reload(),
+    });
+    game.settings.register("white-box-vtt", "addDexToAC", {
+        name: "DEX bonus to AC",
+        hint: "Add DEX bonus to total AC value",
+        default: false,
+        scope: "world",
+        type: Boolean,
+        config: true,
+        onChange: () => window.location.reload(),
     });
 }

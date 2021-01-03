@@ -36,6 +36,7 @@ export class WhiteboxActor extends Actor {
         let wornArmorAC = 10;
         if (equippedArmor) wornArmorAC += parseInt(equippedArmor.data.ac.value);
         if (equippedShield) wornArmorAC += parseInt(equippedShield.data.ac.value);
+        if (game.settings.get("white-box-vtt", "addDexToAC")) wornArmorAC += parseInt(data.attributes.dex.bonus);
         data.ac.value = wornArmorAC;
     }
 
