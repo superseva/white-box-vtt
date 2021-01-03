@@ -6,8 +6,8 @@ There are 4 options in system settings:
 
 1. Add STR modifier to melee hit (global) (default ON)
 2. Add DEX modifier to range hit (global) (default ON)
-3. Add STR modifier to melee damage (global) (default Off)
-4. Add DEX modifier to total AC value (global) (default off)
+3. Add STR modifier to melee damage (global) (default OFF)
+4. Add DEX modifier to total AC value (global) (default ON)
 
 and 2 option per character setting:
 (located behind character sheet 'Tweak' button)

@@ -30,7 +30,7 @@ export function registerSettings() {
     game.settings.register("white-box-vtt", "addDexToAC", {
         name: "DEX bonus to AC",
         hint: "Add DEX bonus to total AC value",
-        default: false,
+        default: true,
         scope: "world",
         type: Boolean,
         config: true,
