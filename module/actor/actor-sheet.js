@@ -257,7 +257,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             if (item.data.data.weapon_type == "melee" && game.settings.get("white-box-vtt", "addStrToHit")) bonus += this.actor.data.data.attributes.str.bonus;
             else if (item.data.data.weapon_type == "ranged" && game.settings.get("white-box-vtt", "addDexToHit"))
                 bonus += this.actor.data.data.attributes.dex.bonus;
-            game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Attack with the ${item.name}` });
+            game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Attacks with ${item.name}` });
         });
 
         // * Roll Weapon Damage

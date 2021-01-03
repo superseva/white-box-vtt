@@ -22,7 +22,7 @@ export class WhiteboxItem extends Item {
         }
         let r = new Roll(formula, actorOptions);
         r.evaluate();
-        let _flavor = `<h2>${r._total} Damage dealt with the ${this.data.name}</h2>`;
+        let _flavor = `<h2>${r._total} damage dealt with ${this.data.name}</h2>`;
         r.toMessage({ flavor: _flavor });
     }
 
