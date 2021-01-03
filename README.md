@@ -9,12 +9,6 @@ There are 4 options in system settings:
 3. Add STR modifier to melee damage (global) (default OFF)
 4. Add DEX modifier to total AC value (global) (default ON)
 
-and 2 option per character setting:
-(located behind character sheet 'Tweak' button)
-
-1. Use Thievery (adds a filed to track Thievery value)
-2. Use Loyalty (adds a filed to track Loyalty value)
-
 Mostly everything is rollable directly from the sheets but here are some macros you can also utilize if you want :
 
 ### Roll X in 6

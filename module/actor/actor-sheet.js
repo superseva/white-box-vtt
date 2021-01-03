@@ -36,6 +36,7 @@ export class WhiteboxActorSheet extends ActorSheet {
      * Extend and override the sheet header buttons
      * @override
      */
+    /*
     _getHeaderButtons() {
         let buttons = super._getHeaderButtons();
         // Token Configuration
@@ -51,7 +52,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             ].concat(buttons);
         }
         return buttons;
-    }
+    }*/
 
     /**
      * Organize and classify Items for Character sheets.
