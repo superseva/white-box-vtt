@@ -308,7 +308,7 @@
                     <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
                     <h2>Inventory</h2>
                     <!-- $$ VALUES -->
-                    <div class="papirus-box pusher-bottom grid grid-4col">
+                    <div class="papirus-box pusher-bottom grid grid-5col">
                         <div class="flex flex-group-left acme">
                             <label for="">Gold:&nbsp;</label>
                             <input type="text" name="data.valuables.gold" value="{{data.valuables.gold}}" style="text-align: center" />
@@ -324,6 +324,10 @@
                         <div class="flex flex-group-left acme">
                             <label for="">Gems:&nbsp;</label>
                             <input type="text" name="data.valuables.gems" value="{{data.valuables.gems}}" style="text-align: center" />
+                        </div>
+                        <div class="flex flex-group-left acme">
+                            <label for="">Total Load: {{actor.totalLoad}}lb</label>
+                            <!-- <input type="text" name="totalLoad" value="{{data.valuables.gems}}" style="text-align: center" /> -->
                         </div>
                     </div>
                     <!-- $$ WEAPONS -->

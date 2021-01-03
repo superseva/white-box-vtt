@@ -78,7 +78,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             4: [],
             5: [],
         };
-
+        let totalLoad = 0;
         // Iterate through items, allocating to containers
         // let totalWeight = 0;
         for (let i of sheetData.items) {
@@ -101,6 +101,11 @@ export class WhiteboxActorSheet extends ActorSheet {
                     spells[i.data.level].push(i);
                 }
             }
+            //add total weight
+            if (i.data.weight) {
+                //console.log(parseInt(i.data.weight));
+                totalLoad += parseInt(i.data.weight);
+            }
         }
 
         actorData.weapons = weapons;
@@ -119,6 +124,8 @@ export class WhiteboxActorSheet extends ActorSheet {
             }
         }
         actorData.actorSpells = actorSpells;
+
+        actorData.totalLoad = totalLoad;
     }
 
     /*
