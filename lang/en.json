@@ -30,5 +30,8 @@
     "WB.TYPE": "Type",
     "WB.AC": "AC",
     "WB.LEVEL": "Level",
-    "WB.DURATION": "Duration"
+    "WB.DURATION": "Duration",
+
+    "WB.mage": "Magic User",
+    "WB.cleric": "Cleric"
 }

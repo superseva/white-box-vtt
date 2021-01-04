@@ -38,7 +38,7 @@
         <hr />
         {{/if}} {{#if isSpell}}
         <p><strong>{{localize "WB.LEVEL"}}:</strong> {{data.level}}</p>
-        <p><strong>{{localize "WB.TYPE"}}:</strong> {{data.spell_type}}</p>
+        <p><strong>{{localize "WB.TYPE"}}:</strong> {{localize (concat 'WB.' data.spell_type)}}</p>
         <p><strong>{{localize "WB.RANGE"}}:</strong> {{data.range}}</p>
         <p><strong>{{localize "WB.DURATION"}}:</strong> {{data.duration}}</p>
         <hr />
