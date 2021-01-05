@@ -16,6 +16,10 @@ Hooks.once("init", function () {
         WhiteboxActorSheet,
     };
     // Define custom Entity classes
+    CONFIG.Combat.initiative = {
+        formula: "1d6",
+    };
+
     CONFIG.Actor.entityClass = WhiteboxActor;
     CONFIG.Item.entityClass = WhiteboxItem;
 
