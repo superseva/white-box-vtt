@@ -111,6 +111,15 @@ Hooks.once("init", function () {
     });
 });
 
+Hooks.on("preUpdateCombat", function (combat, data, diff, id) {
+    if (!data.round) {
+        return;
+    }
+    if (data.round !== 1) {
+        combat.resetAll();
+    }
+});
+
 /* -------------------------------------------- */
 /** LOAD PARTIALS
 /* -------------------------------------------- */
