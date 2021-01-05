@@ -166,7 +166,7 @@
                 <!-- <div class="button-plus" style="top: -12px">+</div> -->
                 <div class="palcque" style="height: unset">
                     <div class="titled-box">
-                        <div class="title-section white thb">Hit Bonus</div>
+                        <div class="title-section white thb">To Hit</div>
                         <div class="content-section b1">
                             <input type="number" name="data.thb.value" value="{{data.thb.value}}" class="blank" />
                         </div>
@@ -308,26 +308,37 @@
                     <img src="systems/white-box-vtt/assets/close.png" class="close toggle-overlay" alt="" data-overlay="empty" />
                     <h2>Inventory</h2>
                     <!-- $$ VALUES -->
-                    <div class="papirus-box pusher-bottom grid grid-5col">
-                        <div class="flex flex-group-left acme">
+                    <div class="papirus-box papir1 pusher-bottom grid grid-5col">
+                        <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Gold:&nbsp;</label>
-                            <input type="text" name="data.valuables.gold" value="{{data.valuables.gold}}" style="text-align: center" />
+                            <input type="text" name="data.valuables.gold" value="{{data.valuables.gold}}" style="text-align: center" class="input-underlined" />
                         </div>
-                        <div class="flex flex-group-left acme">
+                        <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Silver:&nbsp;</label>
-                            <input type="text" name="data.valuables.silver" value="{{data.valuables.silver}}" style="text-align: center" />
+                            <input
+                                type="text"
+                                name="data.valuables.silver"
+                                value="{{data.valuables.silver}}"
+                                style="text-align: center"
+                                class="input-underlined"
+                            />
                         </div>
-                        <div class="flex flex-group-left acme">
+                        <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Copper:&nbsp;</label>
-                            <input type="text" name="data.valuables.copper" value="{{data.valuables.copper}}" style="text-align: center" />
+                            <input
+                                type="text"
+                                name="data.valuables.copper"
+                                value="{{data.valuables.copper}}"
+                                style="text-align: center"
+                                class="input-underlined"
+                            />
                         </div>
-                        <div class="flex flex-group-left acme">
+                        <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Gems:&nbsp;</label>
-                            <input type="text" name="data.valuables.gems" value="{{data.valuables.gems}}" style="text-align: center" />
+                            <input type="text" name="data.valuables.gems" value="{{data.valuables.gems}}" style="text-align: center" class="input-underlined" />
                         </div>
-                        <div class="flex flex-group-left acme">
+                        <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Total Load: {{actor.totalLoad}}lb</label>
-                            <!-- <input type="text" name="totalLoad" value="{{data.valuables.gems}}" style="text-align: center" /> -->
                         </div>
                     </div>
                     <!-- $$ WEAPONS -->
@@ -476,27 +487,27 @@
                                         <label>Max: </label>
                                         <label>Current: </label>
                                     </span>
-                                    <span class="flexcol flex-center">
+                                    <span class="flexcol flex-center acme">
                                         <label for="data.spells.1.max">1</label>
                                         <input type="number" name="data.spells.1.max" value="{{data.spells.1.max}}" />
                                         <label>{{actor.actorSpells.1.memorized}}</label>
                                     </span>
-                                    <span class="flexcol flex-center">
+                                    <span class="flexcol flex-center acme">
                                         <label for="data.spells.2.max">2</label>
                                         <input type="number" name="data.spells.2.max" value="{{data.spells.2.max}}" />
                                         <label>{{actor.actorSpells.2.memorized}}</label>
                                     </span>
-                                    <span class="flexcol flex-center">
+                                    <span class="flexcol flex-center acme">
                                         <label for="data.spells.3.max">3</label>
                                         <input type="number" name="data.spells.3.max" value="{{data.spells.3.max}}" />
                                         <label>{{actor.actorSpells.3.memorized}}</label>
                                     </span>
-                                    <span class="flexcol flex-center">
+                                    <span class="flexcol flex-center acme">
                                         <label for="data.spells.4.max">4</label>
                                         <input type="number" name="data.spells.4.max" value="{{data.spells.4.max}}" />
                                         <label>{{actor.actorSpells.4.memorized}}</label>
                                     </span>
-                                    <span class="flexcol flex-center">
+                                    <span class="flexcol flex-center acme">
                                         <label for="data.spells.5.max">5</label>
                                         <input type="number" name="data.spells.5.max" value="{{data.spells.5.max}}" />
                                         <label>{{actor.actorSpells.5.memorized}}</label>

@@ -9,9 +9,9 @@
         <div class="spell-stats flexrow f1">
             <div class="item-name">{{item.name}}</div>
             <div class="item-details xs align-center">
-                <button class="memo-button" data-operation="minus">-</button>
+                <button class="memo-button" data-operation="minus" style="cursor: pointer">-</button>
                 <span class="memo">{{item.data.memorized}}</span>
-                <button class="memo-button" data-operation="plus">+</button>
+                <button class="memo-button" data-operation="plus" style="cursor: pointer">+</button>
             </div>
             <div class="item-controls align-center">
                 <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
