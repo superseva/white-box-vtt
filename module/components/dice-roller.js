@@ -15,7 +15,7 @@ export class DiceRoller {
         if (num == 1) _flavor += `<p style='font-size:18px'>Chance: ${parseInt(tn) + parseInt(mod)} in 6</p>`;
         else _flavor += `<p style='font-size:18px'>${parseInt(r._total)} vs ${parseInt(tn)}</p>`;
         //<p><span style='font-size:16px'>${r._total} <= ${parseInt(tn) + parseInt(mod)}</span> (TN:${parseInt(tn)} + MOD:${parseInt(mod)})</p>
-        let _rollMode = visible ? CONST.DICE_ROLL_MODES.PUBLIC : CONST.DICE_ROLL_MODES.SELF;
+        let _rollMode = visible ? CONST.DICE_ROLL_MODES.PUBLIC : CONST.DICE_ROLL_MODES.BLIND;
         r.toMessage({ flavor: _flavor }, { rollMode: _rollMode });
         //console.log(r.results[0]);
         //console.log(r.terms[0].results[0].result);
