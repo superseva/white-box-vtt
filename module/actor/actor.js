@@ -44,12 +44,12 @@ export class WhiteboxActor extends Actor {
         const maxLoad = data.attributes.con.value;
         actorData.items.forEach(i => {
            if(i.data.weight)
-                load += parseInt(i.data.weight);
-        });        
-        let overload = Math.min(0, maxLoad-load);      
+                load += parseFloat(i.data.weight);
+        });
+        let overload = Math.min(0, Math.floor(maxLoad-load)*3);      
         let movement = 12;
         movement += overload;
-        data.movement.value = movement;
+        data.movement.value = Math.max(0,movement);
 
         // HIDE LOYALTY
         data.loyalty.visible = false;

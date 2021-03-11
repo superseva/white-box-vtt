@@ -105,7 +105,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             //add total weight
             if (i.data.weight) {
                 //console.log(parseInt(i.data.weight));
-                totalLoad += parseInt(i.data.weight);
+                totalLoad += parseFloat(i.data.weight);
             }
         }
 
