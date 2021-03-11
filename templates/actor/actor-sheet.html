@@ -46,12 +46,12 @@
 {{data.saving_throw.custom_mod}}</textarea>
                 </div>
             </div>
-            {{!-- {{#if data.loyalty.visible}} --}}
+            {{#if data.loyalty.visible}}
             <div class="value-row papirus-box white1 flex row align-center space-between loyalty-box">
                 <label for="data.loyalty.value" style="font-size: 14px">Loyalty</label>
                 <input type="text" name="data.loyalty.value" class="short" value="{{data.loyalty.value}}" />
             </div>
-            {{!-- {{/if}} --}} {{#if data.thievery.visible}}
+            {{/if}}{{#if data.thievery.visible}}
             <!--   <div class="value-row papirus-box white1 flex row align-center space-between thievery-box">
                 <label for="data.thievery.value" style="font-size: 14px">Thievery</label>
                 <input type="text" name="data.thievery.value" class="short" value="{{data.thievery.value}}" />

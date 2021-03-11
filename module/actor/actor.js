@@ -50,6 +50,9 @@ export class WhiteboxActor extends Actor {
         let movement = 12;
         movement += overload;
         data.movement.value = movement;
+
+        // HIDE LOYALTY
+        data.loyalty.visible = false;
     }
 
     getRollShortcuts() {
