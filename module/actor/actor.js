@@ -38,6 +38,18 @@ export class WhiteboxActor extends Actor {
         if (equippedShield) wornArmorAC += parseInt(equippedShield.data.ac.value);
         if (game.settings.get("white-box-vtt", "addDexToAC")) wornArmorAC += parseInt(data.attributes.dex.bonus);
         data.ac.value = wornArmorAC;
+
+        // * CALC LOAD & MOVEMENT    
+        let load = 0;
+        const maxLoad = data.attributes.con.value;
+        actorData.items.forEach(i => {
+           if(i.data.weight)
+                load += parseInt(i.data.weight);
+        });        
+        let overload = Math.min(0, maxLoad-load);      
+        let movement = 12;
+        movement += overload;
+        data.movement.value = movement;
     }
 
     getRollShortcuts() {

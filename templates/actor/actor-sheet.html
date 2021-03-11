@@ -19,21 +19,9 @@
                 <h3 class="title-section">HP</h3>
                 <div class="content-section v3">
                     <span class="flexrow align-center">
-                        <input
-                            type="number"
-                            name="data.health.value"
-                            value="{{data.health.value}}"
-                            class="input-white blank"
-                            style="background-color: white; color: black"
-                        />
+                        <input type="number" name="data.health.value" value="{{data.health.value}}" class="input-white blank" style="background-color: white; color: black" />
                         <span>/</span>
-                        <input
-                            type="number"
-                            name="data.health.max"
-                            value="{{data.health.max}}"
-                            class="input-white blank"
-                            style="background-color: white; color: black"
-                        />
+                        <input type="number" name="data.health.max" value="{{data.health.max}}" class="input-white blank" style="background-color: white; color: black" />
                     </span>
                 </div>
             </div>
@@ -43,13 +31,7 @@
                     <a class="attribute-name roll-attribute" data-attribute="{{id}}">{{localize (concat 'WB.' id)}}</a>
                     <span class="flexrow align-center space-between">
                         <input type="number" name="data.attributes.{{id}}.value" value="{{item.value}}" class="input-white value blank" />
-                        <input
-                            type="number"
-                            name="data.attributes.{{id}}.bonus"
-                            value="{{item.bonus}}"
-                            style="text-align: center; padding: 3px 0; background-color: #1a1d24; color: white"
-                            class="size14 blank"
-                        />
+                        <input type="number" name="data.attributes.{{id}}.bonus" value="{{item.bonus}}" style="text-align: center; padding: 3px 0; background-color: #1a1d24; color: white" class="size14 blank" />
                     </span>
                 </div>
                 {{/each}}
@@ -61,8 +43,7 @@
                 </div>
                 <div class="content papirus-box white2">
                     <textarea name="data.saving_throw.custom_mod" cols="30" rows="4" class="modifier-text" placeholder="...Custom saving throw notes">
-{{data.saving_throw.custom_mod}}</textarea
-                    >
+{{data.saving_throw.custom_mod}}</textarea>
                 </div>
             </div>
             {{!-- {{#if data.loyalty.visible}} --}}
@@ -78,7 +59,7 @@
             {{/if}}
             <div class="value-row papirus-box white1 flex row align-center space-between movement-box">
                 <label for="data.movement.value" style="font-size: 14px">Movement</label>
-                <input type="text" name="data.movement.value" class="short" value="{{data.movement.value}}" />
+                <input type="text" class="short" value="{{data.movement.value}}" disabled />
             </div>
             <div class="xp-tracker">
                 <span class="flexrow align-center">
@@ -111,13 +92,7 @@
                 <div class="grid papirus-box papir2 padded">
                     <input type="text" name="data.race" value="{{data.race}}" class="input-underlined info" placeholder="{{localize 'WB.Race'}}" />
                     <input type="text" name="data.class" value="{{data.class}}" class="input-underlined info" placeholder="{{localize 'WB.Class'}}" />
-                    <input
-                        type="text"
-                        name="data.alignment"
-                        value="{{data.alignment}}"
-                        class="input-underlined info"
-                        placeholder="{{localize 'WB.Alignment'}}"
-                    />
+                    <input type="text" name="data.alignment" value="{{data.alignment}}" class="input-underlined info" placeholder="{{localize 'WB.Alignment'}}" />
                     <span class="flexrow space-between">
                         <label for="data.level">Level:</label>
                         <input type="number" class="input-underlined info" name="data.level" value="{{data.level}}" style="max-width: 2rem" />
@@ -218,9 +193,7 @@
                                 </a>
                                 <div class="item-details flexrow xs">{{math item.data.base '+' item.data.bonus}} in 6</div>
                                 <div class="item-controls sm">
-                                    <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                        ><i class="fas fa-comment"></i
-                                    ></a>
+                                    <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                     <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
                                 </div>
@@ -281,7 +254,7 @@
                 <!-- $$ INVENTORY -->
                 <div class="tab-opener">
                     <a class="icon bag toggle-overlay" data-overlay="inventory"></a>
-                    <a class="title papirus-box papir1 toggle-overlay" data-overlay="inventory">Inventory</a>
+                    <a class="title papirus-box papir1 toggle-overlay" data-overlay="inventory">Inventory &nbsp;&nbsp;&nbsp;{{actor.totalLoad}} / {{data.attributes.con.value}}</a>
                 </div>
                 <!-- $$ NOTES -->
                 <div class="tab-opener">
@@ -315,30 +288,20 @@
                         </div>
                         <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Silver:&nbsp;</label>
-                            <input
-                                type="text"
-                                name="data.valuables.silver"
-                                value="{{data.valuables.silver}}"
-                                style="text-align: center"
-                                class="input-underlined"
-                            />
+                            <input type="text" name="data.valuables.silver" value="{{data.valuables.silver}}" style="text-align: center" class="input-underlined" />
                         </div>
                         <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Copper:&nbsp;</label>
-                            <input
-                                type="text"
-                                name="data.valuables.copper"
-                                value="{{data.valuables.copper}}"
-                                style="text-align: center"
-                                class="input-underlined"
-                            />
+                            <input type="text" name="data.valuables.copper" value="{{data.valuables.copper}}" style="text-align: center" class="input-underlined" />
                         </div>
                         <div class="flex flex-group-left acme" style="border: none">
                             <label for="">Gems:&nbsp;</label>
                             <input type="text" name="data.valuables.gems" value="{{data.valuables.gems}}" style="text-align: center" class="input-underlined" />
                         </div>
-                        <div class="flex flex-group-left acme" style="border: none">
-                            <label for="">Total Load: {{actor.totalLoad}}lb</label>
+                        <div class="flex flex-group-right acme" style="border: none">
+                            <label for=""><i class="fas fa-weight-hanging"></i>: {{actor.totalLoad}}</label>
+                            <span>/</span>
+                            <label for="">{{data.attributes.con.value}}</label>
                         </div>
                     </div>
                     <!-- $$ WEAPONS -->
@@ -374,14 +337,9 @@
                                     <div>{{item.data.rof}}</div>
                                 </div>
                                 <div class="item-controls">
-                                    <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                        ><i class="fas fa-comment"></i
-                                    ></a>
+                                    <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                     <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
-                                    <a
-                                        class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}"
-                                        title='{{localize "WB.EQUIPPED"}}'
-                                    >
+                                    <a class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}" title='{{localize "WB.EQUIPPED"}}'>
                                         <i class="fas fa-tshirt"></i>
                                     </a>
                                     <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
@@ -416,14 +374,9 @@
                                         <div>{{item.data.ac.value}}</div>
                                     </div>
                                     <div class="item-controls">
-                                        <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                            ><i class="fas fa-comment"></i
-                                        ></a>
+                                        <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                         <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
-                                        <a
-                                            class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}"
-                                            title='{{localize "WB.EQUIPPED"}}'
-                                        >
+                                        <a class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}" title='{{localize "WB.EQUIPPED"}}'>
                                             <i class="fas fa-tshirt"></i>
                                         </a>
                                         <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
@@ -441,7 +394,7 @@
                                         <span>NAME</span>
                                     </div>
                                     <div class="item-details flexrow xs">
-                                        <div>lb</div>
+                                        <div><i class="fas fa-weight-hanging"></i></div>
                                     </div>
                                     <div class="item-controls">
                                         <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i> Add</a>
@@ -457,9 +410,7 @@
                                         <div>{{item.data.weight}}</div>
                                     </div>
                                     <div class="item-controls">
-                                        <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"
-                                            ><i class="fas fa-comment"></i
-                                        ></a>
+                                        <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                         <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
 
                                         <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
@@ -571,15 +522,7 @@
                                 /></label>
                             </li> -->
                             <li class="item flexrow">
-                                <label for="" class="checkbox-label acme"
-                                    >Use Loyalty<input
-                                        class="input-checkbox"
-                                        type="checkbox"
-                                        name="data.loyalty.visible"
-                                        {{checked
-                                        data.loyalty.visible}}
-                                        data-dtype="Boolean"
-                                /></label>
+                                <label for="" class="checkbox-label acme">Use Loyalty<input class="input-checkbox" type="checkbox" name="data.loyalty.visible" {{checked data.loyalty.visible}} data-dtype="Boolean" /></label>
                             </li>
                         </ul>
                     </div>
