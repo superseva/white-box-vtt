@@ -202,7 +202,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             const el = $(ev.currentTarget);
             const att = $(ev.currentTarget).data("attribute");
             let bonus = 0;
-            console.warn(this.actor.data.data.attributes[att].bonus);
+            //warn(this.actor.data.data.attributes[att].bonus);
             if (this.actor) bonus = this.actor.data.data.attributes[att].bonus;
             game.whitebox.RollDialog.prepareRolld20({
                 title: `Roll ${att.toUpperCase()}`,

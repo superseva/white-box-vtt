@@ -31,7 +31,7 @@ export class WhiteboxItem extends Item {
      * Send To Chat
      */
     async sendToChat() {
-        console.warn("SEND TO CHAT")
+        //console.warn("SEND TO CHAT")
         const itemData = duplicate(this.data);
         // if (itemData.img.includes("/mystery-man")) {
         //     itemData.img = null;
