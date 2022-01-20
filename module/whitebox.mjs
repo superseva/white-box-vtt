@@ -31,15 +31,6 @@ Hooks.once("init", function () {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("whitebox", WhiteboxItemSheet, { makeDefault: true });
 
-    // Hooks.on("preCreateItem", function (entity, options, userId) {
-    //     if (!entity.type) return;
-    //     entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
-    // });
-    // Hooks.on("preCreateOwnedItem", function (actor, entity, options, userId) {
-    //     if (!entity.type) return;
-    //     entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
-    // });
-
     _preloadHandlebarsTemplates();
 
     Handlebars.registerHelper("concat", function () {
