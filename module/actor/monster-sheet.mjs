@@ -107,7 +107,11 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         // * Roll Morale
         html.find(".roll-morale").click((ev) => {
             const _morale = this.actor.data.data.morale;
-            game.whitebox.RollDialog.prepareDialog({ num: 2, tn: _morale, label: "Morale Roll", title: "Morale Roll", visible: false });
+            const formula = `${_morale}`;
+            const rol = new Roll(formula);
+            rol.evaluate({async:false})
+            rol.toMessage({flavor:"<strong>Morale/Loyalty Roll</strong><br /> 1 = Surrender, 2 =  Flee"})
+            //game.whitebox.RollDialog.prepareDialog({ num: 2, tn: _morale, label: "Morale Roll", title: "Morale Roll", visible: false });
         });
 
         // * Post titem to chat
