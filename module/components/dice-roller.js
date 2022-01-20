@@ -4,7 +4,7 @@ export class DiceRoller {
         //console.warn(base, mod, tn);
         let formula = `${num}d${type}`;
         let r = new Roll(formula);
-        r.evaluate();
+        r.evaluate({async:false});
         let _success = "";
         //console.warn(`X in 6 success. Roll: ${r._total} TN:${parseInt(tn) + parseInt(mod)}`);
         if (r._total <= parseInt(tn) + parseInt(mod)) _success = "Success";
@@ -26,7 +26,7 @@ export class DiceRoller {
     static rollToHit({ num = 1, type = 20, tn = null, thb = 0, mod = 0, label = "To Hit Roll" } = {}) {
         let formula = `${num}d${type} + ${thb} + ${mod}`;
         let r = new Roll(formula);
-        r.evaluate();
+        r.evaluate({async:false});
         let _flavor = `<h2>${label}</h2>`;
 
         r.toMessage({ flavor: _flavor });
@@ -55,7 +55,7 @@ export class DiceRoller {
         if (roll_above && bonus) formula += `+ ${bonus}`;
         if (roll_above && mod) formula += `+ ${mod}`;
         let r = new Roll(formula);
-        r.evaluate();
+        r.evaluate({async:false});
         let _flavor = ``;
 
         if (calc) {

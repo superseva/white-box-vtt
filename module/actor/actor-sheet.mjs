@@ -18,18 +18,14 @@ export class WhiteboxActorSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
-        // for (let attr of Object.values(data.data.attributes)) {
-        //     attr.isCheckbox = attr.dtype === "Boolean";
-        // }
-
+        const context = super.getData();
+        context.data = context.actor.data.data;
+        context.flags = context.actor.data.flags;
         // Prepare items.
         if (this.actor.data.type == "character") {
-            this._prepareCharacterItems(data);
+            this._prepareCharacterItems(context);
         }
-
-        return data;
+        return context;
     }
 
     /**
@@ -149,28 +145,28 @@ export class WhiteboxActorSheet extends ActorSheet {
         // Update Inventory Item
         html.find(".item-edit").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            item.sheet.render(true);
+            this._editOwnedItemById(li.data("itemId"));           
         });
 
         // Delete Inventory Item
-        html.find(".item-delete").click((ev) => {
+        html.find(".item-delete").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            this.actor.deleteOwnedItem(li.data("itemId"));
+            await this._deleteOwnedItemById(li.data("itemId"))
             li.slideUp(200, () => this.render(false));
         });
 
         //Toggle Equip Inventory Item
         html.find(".item-equip").click(async (ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            await this.actor.updateOwnedItem(this._toggleEquipped(li.data("itemId"), item));
+            const item = this.actor.items.get(li.data("itemId"));
+            await this.actor.updateEmbeddedDocuments("Item", [this._toggleEquipped(li.data("itemId"), item)]);
         });
 
         html.find(".memo-button").click(async (ev) => {
             const btn = $(ev.currentTarget);
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+           // const item = this.actor.getOwnedItem(li.data("itemId"));
             let _memo = item.data.data.memorized;
             if (btn.data("operation") == "minus" && _memo > 0) _memo--;
             else if (btn.data("operation") == "plus") _memo++;
@@ -181,7 +177,7 @@ export class WhiteboxActorSheet extends ActorSheet {
                     memorized: _memo,
                 },
             };
-            await this.actor.updateOwnedItem(obj);
+            await item.update(obj)
         });
 
         /*
@@ -195,7 +191,6 @@ export class WhiteboxActorSheet extends ActorSheet {
         // html.find(".rollable").click(this._onRoll.bind(this));
         // * Custom D6
         html.find(".roll-die-d6").click(function () {
-            //game.whitebox.RollDialog.prepareDialog({ mod: 0, tn: 1, label: "D6 Chance Roll" });
             game.whitebox.RollDialog.prepareDialog({ tn: 1, label: "X in 6" });
         });
         // * Custom D20
@@ -240,7 +235,8 @@ export class WhiteboxActorSheet extends ActorSheet {
         html.find(".roll-ability").click((ev) => {
             const btn = $(ev.currentTarget);
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+            //const item = this.actor.getOwnedItem(li.data("itemId"));
             let base = isNaN(parseInt(item.data.data.base)) ? 1 : parseInt(item.data.data.base);
             let mod = isNaN(parseInt(item.data.data.bonus)) ? 1 : parseInt(item.data.data.bonus);
             let tn = parseInt(base) + parseInt(mod);
@@ -252,7 +248,8 @@ export class WhiteboxActorSheet extends ActorSheet {
         html.find(".roll-to-hit").click((ev) => {
             const btn = $(ev.currentTarget);
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+           // const item = this.actor.getOwnedItem(li.data("itemId"));
             let bonus = parseInt(item.data.data.bonus_to_hit);
             bonus += parseInt(this.actor.data.data.thb.value);
             if (item.data.data.weapon_type == "melee" && game.settings.get("white-box-vtt", "addStrToHit")) bonus += this.actor.data.data.attributes.str.bonus;
@@ -264,7 +261,9 @@ export class WhiteboxActorSheet extends ActorSheet {
         // * Roll Weapon Damage
         html.find(".rollable.roll-weapon-damage").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
+            console.warn(item)
+            //const item = this.actor.getOwnedItem(li.data("itemId"));
             item.rollWeaponDamage();
         });
 
@@ -283,7 +282,6 @@ export class WhiteboxActorSheet extends ActorSheet {
                 icon: '<i class="fas fa-edit"></i>',
                 name: "",
                 callback: (t) => {
-                    console.log(t);
                     this._editOwnedItemById(t.data("item-id"));
                 },
             },
@@ -291,7 +289,6 @@ export class WhiteboxActorSheet extends ActorSheet {
                 icon: '<i class="fas fa-comment"></i>',
                 name: "",
                 callback: (t) => {
-                    console.log(t);
                     this._postOwnedItemById(t.data("item-id"));
                 },
             },
@@ -299,7 +296,6 @@ export class WhiteboxActorSheet extends ActorSheet {
                 icon: '<i class="fas fa-trash"></i>',
                 name: "",
                 callback: (t) => {
-                    console.log(t);
                     this._deleteOwnedItemById(t.data("item-id"));
                 },
             },
@@ -317,13 +313,13 @@ export class WhiteboxActorSheet extends ActorSheet {
         }
     }
 
-    _editOwnedItemById(_item_id) {
-        const item = this.actor.getOwnedItem(_item_id);
+    _editOwnedItemById(_itemId) {
+        const item = this.actor.items.get(_itemId);
         item.sheet.render(true);
     }
-    _deleteOwnedItemById(_item_id) {
-        this.actor.deleteOwnedItem(_item_id);
-        //li.slideUp(200, () => this.render(false));
+    async _deleteOwnedItemById(_itemId) {
+        const item = this.actor.items.get(_itemId);
+        await item.delete();
     }
 
     _onToggleOverlay(evt) {
@@ -338,7 +334,7 @@ export class WhiteboxActorSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onItemCreate(event) {
+    async _onItemCreate(event) {
         event.preventDefault();
         const header = event.currentTarget;
         const type = header.dataset.type;
@@ -350,7 +346,7 @@ export class WhiteboxActorSheet extends ActorSheet {
             data: data,
         };
         delete itemData.data["type"];
-        return this.actor.createOwnedItem(itemData);
+        return await Item.create(itemData, { parent: this.actor });        
     }
 
     _onItemSendToChat(evt) {
@@ -359,8 +355,7 @@ export class WhiteboxActorSheet extends ActorSheet {
         this._postOwnedItemById(itemId);
     }
     _postOwnedItemById(_item_id) {
-        const item = this.actor.getOwnedItem(_item_id);
-        if (!item) return;
+        const item = this.actor.items.get(_item_id);
         item.sendToChat();
     }
 

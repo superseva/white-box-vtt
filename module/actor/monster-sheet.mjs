@@ -14,13 +14,11 @@ export class WhiteboxMonsterSheet extends ActorSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
-        data.dtypes = ["String", "Number", "Boolean"];
-        // Prepare items.
-        if (this.actor.data.type == "monster") {
-            this._prepareCharacterItems(data);
-        }
-        return data;
+        const context = super.getData();
+        context.data = context.actor.data.data;
+        context.flags = context.actor.data.flags;
+        this._prepareCharacterItems(context);
+        return context;
     }
 
     /**
@@ -61,14 +59,13 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         // Update Inventory Item
         html.find(".item-edit").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
-            item.sheet.render(true);
+            this._editOwnedItemById(li.data("itemId"));           
         });
 
         // Delete Inventory Item
-        html.find(".item-delete").click((ev) => {
-            const li = $(ev.currentTarget).parents(".item");
-            this.actor.deleteOwnedItem(li.data("itemId"));
+        html.find(".item-delete").click(async (ev) => {
+            const li = $(ev.currentTarget).parents(".item");            
+            await this._deleteOwnedItemById(li.data("itemId"))
             li.slideUp(200, () => this.render(false));
         });
 
@@ -93,7 +90,8 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         html.find(".roll-to-hit").click((ev) => {
             const btn = $(ev.currentTarget);
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            //const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             let bonus = parseInt(this.actor.data.data.thb.value);
             game.whitebox.RollDialog.prepareToHitDialog({ tn: null, thb: bonus, mod: 0, label: `Attack with the ${item.name}` });
         });
@@ -101,7 +99,8 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         // * Roll Weapon Damage
         html.find(".rollable.roll-weapon-damage").click((ev) => {
             const li = $(ev.currentTarget).parents(".item");
-            const item = this.actor.getOwnedItem(li.data("itemId"));
+            //const item = this.actor.getOwnedItem(li.data("itemId"));
+            const item = this.actor.items.get(li.data("itemId"));
             item.rollWeaponDamage();
         });
 
@@ -121,33 +120,33 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         const postLabel = game.i18n.localize("WB.POST");
         const deleteLabel = game.i18n.localize("WB.DELETE");
 
-        let menu_items = [
-            {
-                icon: '<i class="fas fa-edit"></i>',
-                name: "",
-                callback: (t) => {
-                    console.log(t);
-                    this._editOwnedItemById(t.data("item-id"));
-                },
-            },
-            {
-                icon: '<i class="fas fa-comment"></i>',
-                name: "",
-                callback: (t) => {
-                    console.log(t);
-                    this._postOwnedItemById(t.data("item-id"));
-                },
-            },
-            {
-                icon: '<i class="fas fa-trash"></i>',
-                name: "",
-                callback: (t) => {
-                    console.log(t);
-                    this._deleteOwnedItemById(t.data("item-id"));
-                },
-            },
-        ];
-        new ContextMenu(html.find(".editable-item"), null, menu_items);
+        // let menu_items = [
+        //     {
+        //         icon: '<i class="fas fa-edit"></i>',
+        //         name: "",
+        //         callback: (t) => {
+        //             console.log(t);
+        //             this._editOwnedItemById(t.data("item-id"));
+        //         },
+        //     },
+        //     {
+        //         icon: '<i class="fas fa-comment"></i>',
+        //         name: "",
+        //         callback: (t) => {
+        //             console.log(t);
+        //             this._postOwnedItemById(t.data("item-id"));
+        //         },
+        //     },
+        //     {
+        //         icon: '<i class="fas fa-trash"></i>',
+        //         name: "",
+        //         callback: (t) => {
+        //             console.log(t);
+        //             this._deleteOwnedItemById(t.data("item-id"));
+        //         },
+        //     },
+        // ];
+        // new ContextMenu(html.find(".editable-item"), null, menu_items);
 
         // Drag events for macros.
         if (this.actor.owner) {
@@ -160,13 +159,13 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         }
     }
 
-    _editOwnedItemById(_item_id) {
-        const item = this.actor.getOwnedItem(_item_id);
+    _editOwnedItemById(_itemId) {
+        const item = this.actor.items.get(_itemId);
         item.sheet.render(true);
     }
-    _deleteOwnedItemById(_item_id) {
-        this.actor.deleteOwnedItem(_item_id);
-        //li.slideUp(200, () => this.render(false));
+    async _deleteOwnedItemById(_itemId) {
+        const item = this.actor.items.get(_itemId);
+        await item.delete();
     }
 
     _onToggleOverlay(evt) {
@@ -181,7 +180,7 @@ export class WhiteboxMonsterSheet extends ActorSheet {
      * @param {Event} event   The originating click event
      * @private
      */
-    _onItemCreate(event) {
+    async _onItemCreate(event) {
         event.preventDefault();
         const header = event.currentTarget;
         const type = header.dataset.type;
@@ -193,7 +192,7 @@ export class WhiteboxMonsterSheet extends ActorSheet {
             data: data,
         };
         delete itemData.data["type"];
-        return this.actor.createOwnedItem(itemData);
+        return await Item.create(itemData, { parent: this.actor });
     }
 
     _onItemSendToChat(evt) {
@@ -202,8 +201,7 @@ export class WhiteboxMonsterSheet extends ActorSheet {
         this._postOwnedItemById(itemId);
     }
     _postOwnedItemById(_item_id) {
-        const item = this.actor.getOwnedItem(_item_id);
-        if (!item) return;
+        const item = this.actor.items.get(_item_id);
         item.sendToChat();
     }
 

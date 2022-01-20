@@ -8,11 +8,11 @@ export class WhiteboxActor extends Actor {
      */
     prepareData() {
         super.prepareData();
-
-        const actorData = this.data;
+        const actorData = this.data;       
         const data = actorData.data;
         const flags = actorData.flags;
         if (actorData.type === "character") this._prepareCharacterData(actorData);
+      
     }
 
     /**
@@ -31,20 +31,20 @@ export class WhiteboxActor extends Actor {
         }*/
 
         // * CALC AC
-        let equippedArmor = actorData.items.find((i) => i.type == "armor" && i.data.armor_type == "armor" && i.data.equipped);
-        let equippedShield = actorData.items.find((i) => i.type == "armor" && i.data.armor_type == "shield" && i.data.equipped);
+        let equippedArmor = Array.from(actorData.items).find((i) => i.type == "armor" && i.data.data.armor_type == "armor" && i.data.data.equipped);
+        let equippedShield = Array.from(actorData.items).find((i) => i.type == "armor" && i.data.data.armor_type == "shield" && i.data.data.equipped);
         let wornArmorAC = 10;
-        if (equippedArmor) wornArmorAC += parseInt(equippedArmor.data.ac.value);
-        if (equippedShield) wornArmorAC += parseInt(equippedShield.data.ac.value);
+        if (equippedArmor) wornArmorAC += parseInt(equippedArmor.data.data.ac.value);
+        if (equippedShield) wornArmorAC += parseInt(equippedShield.data.data.ac.value);
         if (game.settings.get("white-box-vtt", "addDexToAC")) wornArmorAC += parseInt(data.attributes.dex.bonus);
         data.ac.value = wornArmorAC;
 
         // * CALC LOAD & MOVEMENT    
         let load = 0;
         const maxLoad = data.attributes.con.value;
-        actorData.items.forEach(i => {
-           if(i.data.weight)
-                load += parseFloat(i.data.weight);
+        Array.from(actorData.items).forEach(i => {
+           if(i.data.data.weight)
+                load += parseFloat(i.data.data.weight);
         });
         let overload = Math.min(0, Math.floor(maxLoad-load)*3);      
         let movement = 12;

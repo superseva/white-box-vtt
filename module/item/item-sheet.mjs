@@ -20,8 +20,11 @@ export class WhiteboxItemSheet extends ItemSheet {
 
     /** @override */
     getData() {
-        const data = super.getData();
-        return data;
+        const context = super.getData();
+        const itemData = context.item.data;        
+        context.data = itemData.data;
+        context.flags = itemData.flags;
+        return context;
     }
 
     /* -------------------------------------------- */

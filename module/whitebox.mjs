@@ -1,10 +1,10 @@
 import { DiceRoller } from "./components/dice-roller.js";
 import { RollDialog } from "./components/roll-dialog.js";
-import { WhiteboxActor } from "./actor/actor.js";
-import { WhiteboxActorSheet } from "./actor/actor-sheet.js";
-import { WhiteboxMonsterSheet } from "./actor/monster-sheet.js";
-import { WhiteboxItem } from "./item/item.js";
-import { WhiteboxItemSheet } from "./item/item-sheet.js";
+import { WhiteboxActor } from "./actor/actor.mjs";
+import { WhiteboxActorSheet } from "./actor/actor-sheet.mjs";
+import { WhiteboxMonsterSheet } from "./actor/monster-sheet.mjs";
+import { WhiteboxItem } from "./item/item.mjs";
+import { WhiteboxItemSheet } from "./item/item-sheet.mjs";
 import { registerSettings } from "./settings.js";
 
 Hooks.once("init", function () {
@@ -20,8 +20,8 @@ Hooks.once("init", function () {
         formula: "1d6",
     };
 
-    CONFIG.Actor.entityClass = WhiteboxActor;
-    CONFIG.Item.entityClass = WhiteboxItem;
+    CONFIG.Actor.documentClass = WhiteboxActor;
+    CONFIG.Item.documentClass = WhiteboxItem;
 
     registerSettings();
     // Register sheet application classes
@@ -31,14 +31,14 @@ Hooks.once("init", function () {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("whitebox", WhiteboxItemSheet, { makeDefault: true });
 
-    Hooks.on("preCreateItem", function (entity, options, userId) {
-        if (!entity.type) return;
-        entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
-    });
-    Hooks.on("preCreateOwnedItem", function (actor, entity, options, userId) {
-        if (!entity.type) return;
-        entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
-    });
+    // Hooks.on("preCreateItem", function (entity, options, userId) {
+    //     if (!entity.type) return;
+    //     entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
+    // });
+    // Hooks.on("preCreateOwnedItem", function (actor, entity, options, userId) {
+    //     if (!entity.type) return;
+    //     entity.img = WhiteBoxHelper.GetCreatedImage(entity.type);
+    // });
 
     _preloadHandlebarsTemplates();
 
