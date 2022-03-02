@@ -192,11 +192,11 @@
                                     {{item.name}}
                                 </a>
                                 <div class="item-details flexrow xs">{{math item.data.base '+' item.data.bonus}} in 6</div>
-                                <div class="item-controls sm">
+                                <!-- <div class="item-controls sm">
                                     <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                     <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
                                     <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
-                                </div>
+                                </div> -->
                             </li>
                             {{/each}}
                         </ol>
@@ -308,7 +308,7 @@
                     <div class="papirus-box papir1 padded pusher-bottom">
                         <h3>WEAPONS</h3>
                         <ol class="items-list">
-                            <li class="item flexrow">
+                            <li class="item flexrow editable-item">
                                 <div class="item-name">
                                     <span>NAME</span>
                                 </div>
@@ -324,7 +324,7 @@
                                 </div>
                             </li>
                             {{#each actor.weapons as |item id|}}
-                            <li class="item flexrow" data-item-id="{{item._id}}">
+                            <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                                 <div class="item-name">
                                     <img class="item-image" src="{{item.img}}" alt="" />
                                     <span>{{item.name}}</span>
@@ -337,12 +337,12 @@
                                     <div>{{item.data.rof}}</div>
                                 </div>
                                 <div class="item-controls">
-                                    <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
-                                    <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
+                                    <!-- <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a> -->
+                                    <!-- <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a> -->
                                     <a class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}" title='{{localize "WB.EQUIPPED"}}'>
                                         <i class="fas fa-tshirt"></i>
                                     </a>
-                                    <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
+                                    <!-- <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a> -->
                                 </div>
                             </li>
                             {{/each}}
@@ -365,7 +365,7 @@
                                     </div>
                                 </li>
                                 {{#each actor.armor as |item id|}}
-                                <li class="item flexrow" data-item-id="{{item._id}}">
+                                <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                                     <div class="item-name">
                                         <img class="item-image" src="{{item.img}}" alt="" />
                                         <span>{{item.name}}</span>
@@ -374,12 +374,12 @@
                                         <div>{{item.data.ac.value}}</div>
                                     </div>
                                     <div class="item-controls">
-                                        <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
-                                        <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
+                                        <!-- <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a> -->
+                                        <!-- <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a> -->
                                         <a class="item-control item-equip {{#unless item.data.equipped}}item-unequipped{{/unless}}" title='{{localize "WB.EQUIPPED"}}'>
                                             <i class="fas fa-tshirt"></i>
                                         </a>
-                                        <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
+                                        <!-- <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a> -->
                                     </div>
                                 </li>
                                 {{/each}}
@@ -393,28 +393,28 @@
                                     <div class="item-name">
                                         <span>NAME</span>
                                     </div>
-                                    <div class="item-details flexrow xs">
+                                    <!-- <div class="item-details flexrow xs">
                                         <div><i class="fas fa-weight-hanging"></i></div>
-                                    </div>
+                                    </div> -->
                                     <div class="item-controls">
                                         <a class="item-control item-create" title="Create item" data-type="gear"><i class="fas fa-plus"></i> Add</a>
                                     </div>
                                 </li>
                                 {{#each actor.gear as |item id|}}
-                                <li class="item flexrow" data-item-id="{{item._id}}">
+                                <li class="item flexrow editable-item" data-item-id="{{item._id}}">
                                     <div class="item-name">
                                         <img class="item-image" src="{{item.img}}" alt="" />
                                         <span>{{item.name}}</span>
                                     </div>
                                     <div class="item-details flexrow xs">
-                                        <div>{{item.data.weight}}</div>
+                                        <div>{{item.data.weight}} <i class="fas fa-weight-hanging" style="font-size: 0.6rem;"></i></div>
                                     </div>
-                                    <div class="item-controls">
+                                    <!-- <div class="item-controls">
                                         <a class="item-control chaty" title='{{localize "WB.SEND_TO_CHAT"}}' data-item-id="{{item._id}}"><i class="fas fa-comment"></i></a>
                                         <a class="item-control item-edit" title='{{localize "WB.EDIT"}}'><i class="fas fa-edit"></i></a>
 
                                         <a class="item-control item-delete" title='{{localize "WB.DELETE"}}'><i class="fas fa-trash"></i></a>
-                                    </div>
+                                    </div> -->
                                 </li>
                                 {{/each}}
                             </ol>
