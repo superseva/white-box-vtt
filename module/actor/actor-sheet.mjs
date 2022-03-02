@@ -101,11 +101,11 @@ export class WhiteboxActorSheet extends ActorSheet {
             //add total weight
             if (i.data.weight && i.type!="armor") {
                 //console.log(parseInt(i.data.weight));
-                totalLoad += parseFloat(i.data.weight);
-            }
+                totalLoad += parseFloat(i.data.weight)
+            }           
             
         }
-
+        
         actorData.weapons = weapons;
         actorData.weapons_equipped = weapons_equipped;
         actorData.armor = armor;
@@ -123,7 +123,7 @@ export class WhiteboxActorSheet extends ActorSheet {
         }
         actorData.actorSpells = actorSpells;
 
-        actorData.totalLoad = totalLoad;
+        actorData.totalLoad = totalLoad.toFixed(2);
     }
 
     /*
