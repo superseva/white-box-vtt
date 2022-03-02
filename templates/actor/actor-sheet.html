@@ -252,7 +252,7 @@
                     </div>
                 </div>
                 <!-- $$ INVENTORY -->
-                <div class="tab-opener">
+                <div class="tab-opener {{#ifCond actor.totalLoad '>' 10}}overburdened{{/ifCond}}">
                     <a class="icon bag toggle-overlay" data-overlay="inventory"></a>
                     <a class="title papirus-box papir1 toggle-overlay" data-overlay="inventory">Inventory &nbsp;&nbsp;&nbsp;{{actor.totalLoad}}</a>
                 </div>
@@ -298,7 +298,7 @@
                             <label for="">Gems:&nbsp;</label>
                             <input type="text" name="data.valuables.gems" value="{{data.valuables.gems}}" style="text-align: center" class="input-underlined" />
                         </div>
-                        <div class="flex flex-group-right acme" style="border: none">
+                        <div class="flex flex-group-right acme {{#ifCond actor.totalLoad '>' 10}}overburdened{{/ifCond}}" style="border: none">
                             <label for=""><i class="fas fa-weight-hanging"></i>: {{actor.totalLoad}}</label>
                             <span>/</span>
                             <label for="">10</label>

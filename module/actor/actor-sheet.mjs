@@ -123,7 +123,7 @@ export class WhiteboxActorSheet extends ActorSheet {
         }
         actorData.actorSpells = actorSpells;
 
-        actorData.totalLoad = totalLoad.toFixed(2);
+        actorData.totalLoad = Math.round((totalLoad + Number.EPSILON) * 100) / 100
     }
 
     /*
