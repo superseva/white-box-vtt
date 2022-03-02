@@ -58,7 +58,7 @@
             </div>-->
             {{/if}}
             <div class="value-row papirus-box white1 flex row align-center space-between movement-box">
-                <label for="data.movement.value" style="font-size: 14px">Movement</label>
+                <label for="data.movement.value" style="font-size: 14px; cursor: pointer;" class="toggle-overburden {{#if data.overburdened}}overburdened{{/if}}">Movement</label>
                 <input type="text" class="short" value="{{data.movement.value}}" disabled />
             </div>
             <div class="xp-tracker">
@@ -254,7 +254,7 @@
                 <!-- $$ INVENTORY -->
                 <div class="tab-opener">
                     <a class="icon bag toggle-overlay" data-overlay="inventory"></a>
-                    <a class="title papirus-box papir1 toggle-overlay" data-overlay="inventory">Inventory &nbsp;&nbsp;&nbsp;{{actor.totalLoad}} / {{data.attributes.con.value}}</a>
+                    <a class="title papirus-box papir1 toggle-overlay" data-overlay="inventory">Inventory &nbsp;&nbsp;&nbsp;{{actor.totalLoad}}</a>
                 </div>
                 <!-- $$ NOTES -->
                 <div class="tab-opener">
@@ -301,7 +301,7 @@
                         <div class="flex flex-group-right acme" style="border: none">
                             <label for=""><i class="fas fa-weight-hanging"></i>: {{actor.totalLoad}}</label>
                             <span>/</span>
-                            <label for="">{{data.attributes.con.value}}</label>
+                            <label for="">10</label>
                         </div>
                     </div>
                     <!-- $$ WEAPONS -->

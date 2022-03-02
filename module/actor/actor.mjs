@@ -39,17 +39,27 @@ export class WhiteboxActor extends Actor {
         if (game.settings.get("white-box-vtt", "addDexToAC")) wornArmorAC += parseInt(data.attributes.dex.bonus);
         data.ac.value = wornArmorAC;
 
+        // Movement is under armor weight value now
+        data.movement.value = equippedArmor?.data?.data?.weight!=undefined?equippedArmor?.data?.data?.weight : 12;
+
+        // ! override if overburdened
+        if(actorData.data.overburdened)
+            data.movement.value = 3;
+
         // * CALC LOAD & MOVEMENT    
-        let load = 0;
-        const maxLoad = data.attributes.con.value;
+
+        /*let load = 0;
+        //const maxLoad = data.attributes.con.value;
+        const maxLoad = 10
         Array.from(actorData.items).forEach(i => {
+            console.warn(i.data.type, i.data.type!='armor')
            if(i.data.data.weight)
-                load += parseFloat(i.data.data.weight);
+                load += i.data.type=="armor" ? 0 : parseFloat(i.data.data.weight);
         });
         let overload = Math.min(0, Math.floor(maxLoad-load)*3);      
         let movement = 12;
         movement += overload;
-        data.movement.value = Math.max(0,movement);
+        data.movement.value = Math.max(0,movement);*/
 
         // HIDE LOYALTY
         data.loyalty.visible = false;

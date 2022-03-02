@@ -74,6 +74,7 @@
                 "max": 0
             },
             "alignment": "",
+            "overburdened":false,
             "movement": {
                 "value": 0,
                 "mod": 0

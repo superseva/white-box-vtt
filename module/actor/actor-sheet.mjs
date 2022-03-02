@@ -99,10 +99,11 @@ export class WhiteboxActorSheet extends ActorSheet {
                 }
             }
             //add total weight
-            if (i.data.weight) {
+            if (i.data.weight && i.type!="armor") {
                 //console.log(parseInt(i.data.weight));
                 totalLoad += parseFloat(i.data.weight);
             }
+            
         }
 
         actorData.weapons = weapons;
@@ -269,6 +270,12 @@ export class WhiteboxActorSheet extends ActorSheet {
 
         // * Post titem to chat
         html.find(".chaty").click(this._onItemSendToChat.bind(this));
+
+        // * Toggle Overburden
+        html.find('.toggle-overburden').click(async(ev)=>{
+            console.warn(this.actor.data.data)
+            await this.actor.update({data:{overburdened:!this.actor.data.data.overburdened}});
+        })
 
         // * -------------------------------------------
         // * ADD LEFT CLICK CONTENT MENU
